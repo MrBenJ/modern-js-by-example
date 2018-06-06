@@ -17,6 +17,29 @@ It's moving so fast, that some of my favorite books like "Eloquent Javascript" a
 
 This book attempts to put in as many real world examples from some of the most popular libraries and tools of the time into an easy to digest format so that all programmers regardless of skill level can enjoy and take value from.
 
+# Prerequisites
+
+This is meant to be an intermediate book on Javascript. You should already know some of the basics of the language before jumping into this book. We won't take too much time to discuss the basics, as this book is intended to be a guide to intermediate and advanced Javascript tools and techniques.
+
+If you know:
+
+* Higher Order Functions
+* Basic Array methods
+  * indexOf() or includes()
+  * push() and pop()
+  * slice()
+  * splice()
+  * shift() and unshift()
+  * reverse()
+  * sort() and filter()
+* Basic String methods
+  * split()
+  * slice()
+* Closures
+
+You should be alright.
+
+If you feel moderately comfortable with a popular modern framework like `React`, `Angular 2+`, or `Vue.js`, you should be in pretty good shape too. We'll use as many real world examples with these frameworks throughout this book, not just the front end UI stuff, but backend Node scripts and servers as well.
 
 
 TODO:
