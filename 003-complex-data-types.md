@@ -155,6 +155,25 @@ ValidationCache.get(Dave); // false
 
 It's not just objects, you can use numbers, NaN, undefined, just about anything.
 
+
+Unlike `Object`, `Map` is ordered by the order of insertion.
+
+```js
+
+const SomeMap = new Map();
+SomeMap.set('first', 1);
+SomeMap.set('second', 2);
+SomeMap.set('third', 3);
+
+for (let [key, value], in SomeMap) {
+  console.log(key, value);
+}
+// Returns  in order:
+// first, 1
+// second, 2
+// third, 3
+```
+
 ## Practical Usage in Modern JS
 
 SCENARIO:
@@ -187,3 +206,15 @@ In terms of functional usage **WeakMap cannot be interated over** and is better 
 * .has(key)
 * .clear() (this removes everything from the WeakMap)
 
+# Set and WeakSet
+
+Set and WeakSet are identical to Map, except for 2 major differences:
+
+1. Instead of `.set` for values, you use `.add()` to create a key value pair to store.
+2. All values in a `Set` must be unique and only occur once.
+
+As far as everything else, they are very identical and are ordered.
+
+If you need a `Map`-like storage or cache, but all values must be unique, then `Set` is *perfect*!
+
+Just like WeakMap, WeakSet allows unused references to be garbage collected, and it cannot be iterated upon.
