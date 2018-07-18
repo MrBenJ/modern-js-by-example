@@ -415,3 +415,91 @@ class MyComponent extends Component {
 If the `className` prop from the parent of `MyComponent` is **super-special** - it would render the first inner div of `MyComponent` with **selectedColor**.
 
 Under the hood, `React` is using the `static getDerivedStateFromProps` lifecycle method on the `MyComponent` class to derive a state. Like the previous example, it doesn't live in the instance of the class, but the class itself.
+
+## Getters and Setters
+
+To those who are already familiar with Java, C, C++, or any of the sort, `getters` and `setters` are welcome additions to `class`es and `object`s in Javascript.
+
+Let's go back to our `Invoice` class we made earlier, and add a `getter` to see if an invoice has been paid or not.
+```js
+/**
+ * class Invoice
+ * Represents a single invoice in our backend
+ *
+ * @param {String} id          - Unique id of the Invoice
+ * @param {String} payee       - Person/Company that owes us money
+ * @param {Date}   dateCreated - Invoice creation date
+ * @param {Date}   dueDate     - Date the amount is due
+ * @param {Date}   receivedOn  - Date the amount was received
+ * @param {Number} amount      - Amount due on invoice
+ */
+class Invoice {
+  constructor(parameters) {
+    const {
+      id,
+      payee,
+      dateCreated,
+      dueDate,
+      receivedOn,
+      amount
+    } = parameters;
+
+    this.id = id;
+    this.payee = payee;
+    this.dateCreated = dateCreated;
+    this.dueDate = dueDate;
+    this.receivedOn = receivedOn;
+    this.amount = amount;
+  }
+  // Adding our new getter here
+  get isPaid() {
+
+  }
+}
+```
+
+We don't have the `isPaid` property on our `Invoice` class, so let's make a method that returns `true` or `false` if the invoice has been paid or not.
+
+We can use `Invoice.receivedOn` to determine this.
+
+```js
+/**
+  Returns a Boolean whether the invoice has been paid or not
+  @return {Boolean} - true if paid, false if not paid
+*/
+get isPaid() {
+  return Boolean(this.receivedOn);
+}
+```
+
+Now if we want to see if an invoice is paid or not, we can just run `Invoice.isPaid()`.
+
+Under the hood, the `isPaid` method is added to the object/classes's `prototype` chain, which gives it access to `this`.
+
+```js
+SomeInvoice.isPaid(); // => Boolean
+```
+
+Note that there's no actual `isPaid` attribute on the an instance of `Invoice`. `isPaid` grabbing and returning `true` or `false` depending on the value of `this.receivedOn`.
+
+Now let's say our client is awesome and paid us for our work (hooray!). Let's create a `setter` to set the `receivedOn` date.
+
+```js
+/**
+  Pays an invoice and sets the date the invoice was paid.
+  @param  {Date}    date - The date the invoice was paid on
+  @return {Invoice}
+*/
+set pay(date) {
+  this.paidOn = date;
+  return this;
+}
+```
+
+Just for safety, I'm setting the return value to `this`. It's also demonstrating how `setters` also have access to `this`, just like `getters`.
+
+If we just got paid today, all we have to do now is the following:
+
+```js
+SomeInvoice.pay(new Date());
+```
