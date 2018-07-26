@@ -503,3 +503,41 @@ If we just got paid today, all we have to do now is the following:
 ```js
 SomeInvoice.pay(new Date());
 ```
+
+# Real world Examples of Classes
+
+If you're familiar with `React`, you've probably seen `class syntax` when creating stateful React Components:
+
+```js
+import React, { Component } from 'react';
+
+class CommentBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+      value: ''
+    };
+  }
+
+  submit = () => {
+    // Submit comment!
+  }
+
+  render() {
+    const { isLoggedIn, value } = this.state;
+    return (
+      <div className="comment-box">
+        <textarea onChange={this.onTextInput} value={value}/>
+        <button disabled={!isLoggedIn} onClick={this.submit}>Post</button>
+      </div>
+    );
+  }
+}
+export default CommentBox;
+
+```
+
+Here we are creating a brand new React Component that extends the `Component` base class from the React package.
+
+It just makes sense to use class syntax for React, since we'll intentionally instantiate many instances of the same React Component.

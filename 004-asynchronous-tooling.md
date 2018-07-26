@@ -374,11 +374,14 @@ async function sayHelloInOrder() {
   // [4] Say hello again!
   console.log('hello 2!');
 
-  // [5] return Promise that's resolved value is undefined
+  // [5] return Promise that's resolved value is 'hello'
+  return 'hello';
 }
 ```
 
 `async` is one of our new keywords that turns a regular `function` into an `async function`.
+
+The other new keyword is `await`. This keyword expects a `Promise`, and STOPS all execution of the `async function` until the `Promise` is resolved.
 
 If I were to run `sayHelloInOrder()`, this would happen
 
@@ -390,17 +393,95 @@ If I were to run `sayHelloInOrder()`, this would happen
 
 4. We say hello a second time. Hello again.
 
-5. The `async function` is finished and returns `Promise<undefined>`
+5. The `async function` is finished and returns a `Promise` with a resolved value of `'hello'`
 
 Because `async function`s **always return a Promise**, it means you can chain `.then()` and `.catch()` to the statements like this:
 
 ```js
 sayHelloInOrder()
-  .then( () => {
+  .then( result => {
     console.log('sayHelloInOrder() has finished executing!');
+    console.log(result); // 'hello'
   }).catch( error => {
     console.error('Oh no! Something went really wrong here...');
     console.error(error);
     throw error;
   });
 ```
+
+### Examples of using async functions
+
+Let's go back to our old example of `getUsersTopComment()` from the Promises section:
+
+```js
+function getUser(userId) {
+  return new Promise( (resolve, reject) => {
+    fetch('/api/user/' + userId)
+      .then(resolve)
+      .catch(reject)
+  });
+}
+
+function getUsersTopComment(userInfo)  {
+  return new Promise( (resolve, reject) => {
+    fetch('/api/user/' + userInfo.hash + '/comments')
+      .then( comments => {
+        const sortedComments = comments.sort( (a, b) => a.score > b.score );
+        resolve(sortedComments[0]);
+      }).catch(reject);
+  });
+}
+```
+
+Instead of using a `.then()` statement like this:
+
+```js
+const getUser(userId)
+  .then(getUsersTopComment)
+  .then( topComment => {
+    console.log(topComment); // => { text: "I am awesome!", score: 999999 }
+  });
+```
+
+We can refactor this code to be used inside an `async function`:
+
+```js
+async function getTopCommentByUserId(userId) {
+  const user = await getUser(userId);
+
+  const topComment = awaitUsersTopComment(user);
+
+  return topComment;
+}
+```
+
+Instead of just using `await` by itself, the resolved value of the `Promise` is stored in a variable. In this case, it's `user` and `topComment`.
+
+Convenient! But there's just one little thing missing: **what if an API call fails?**
+
+A serious downside of `async function`s is that **if no exceptions are caught, the function call will fail silently**.
+
+In order to mitigate this, it's considered best practice to wrap the content of an `async function` in a `try/catch` block like this:
+
+```js
+async function getTopCommentByUserId(userId) {
+  try {
+    const user = await getUser(userId);
+
+    const topComment = awaitUsersTopComment(user);
+
+    return topComment;
+
+  } catch (error) {
+    throw error;
+  }
+}
+```
+
+My personal preference is that **all the content async functions, despite if async calls are happening or not** should be wrapped in `try/catch`.
+
+Speaking from personal experience, it's not always API calls that fail. Sometimes the response from a server
+
+### Making multiple REST calls
+
+In REST APIs, it's common to make multiple calls to fetch data. Instead of making multiple calls through Promises, you can use an `async function` to make each call in order.

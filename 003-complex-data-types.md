@@ -218,3 +218,23 @@ As far as everything else, they are very identical and are ordered.
 If you need a `Map`-like storage or cache, but all values must be unique, then `Set` is *perfect*!
 
 Just like WeakMap, WeakSet allows unused references to be garbage collected, and it cannot be iterated upon.
+
+# The Spread Operator
+
+When you see three dots/periods like this: `...` - it's a brand new operator called the `spread operator`.
+
+## Spread Operator on Arrays
+
+Using `...` on an array will iterate through the array and return all the values in order.
+
+```js
+const myArray = ["let's", 'party', 'right', 'now!'];
+console.log(...myArray); // => let's party right now
+```
+
+`...` also returns a brand new array if you use it like this:
+
+```js
+const newArray = [...myArray];
+console.log(newArray) // => ["let's", 'party', 'right', 'now!']
+```
