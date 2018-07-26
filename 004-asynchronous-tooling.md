@@ -205,6 +205,14 @@ getJSON('https://www.github.com/api/v2/users/MrBenJ')
   });
 ```
 
+Keep in mind that you can just run the function without `.then()` afterwards. The downside to this is that execution is not guaranteed. If you just need to fetch data without executing something afterwards, doing this is fine:
+
+```js
+getJSON('https://www.github.com/api/v2/users/MrBenJ');
+```
+
+## Other ways of using Promises
+
 ### util.promisify
 
 Node version 8 introduced a new utility called `promisify`, which takes a NodeJS style callback (error first, data/result second) and wraps it into a `Promise`.
@@ -220,12 +228,14 @@ const ReadFilePromise = util.promisify(fs.readFile);
 ReadFilePromise('./package.json')
   .then( data => {
     console.log(data); // Text of package.json
+  }).catch( error => {
+    throw new Error(error)
   });
 ```
 
 ### Fetch API
 
-The `fetch` keyword is becoming more and more commonplace in modern front end web development, as all major browsers (Chrome, Firefox, Opera, and even Internet Explorer) have a first class `fetch` keyword available on `window`.
+The `fetch` keyword is becoming more and more commonplace in modern front end web development, as all major browsers (Chrome, Firefox, Opera, and even Edge) have a first class `fetch` keyword available on `window`.
 
 `Fetch` is just like `XMLHttpRequest` except instead of using a callback pattern with `XMLHttpRequest.onreadystatechange`, it uses a `Promise` instead.
 
@@ -264,7 +274,7 @@ fetch('/some-endpoint/users')
 ```
 There's nothing wrong with either approach, just make sure you and your team agrees on which method is preferred.
 
-**IMPORTANT** As of Node v10, Unhandled rejected promises will halt and/or crash the Node process. If you aren't handling rejected promises now, you will need to it soon, otherwise your whole program will straight up crash.
+**IMPORTANT** As of Node v10, Unhandled rejected promises will halt and/or crash the Node process. If you aren't handling rejected promises now, you will need to it soon, otherwise your whole program will crash.
 
 ### Keep Promises Simple
 
@@ -332,3 +342,65 @@ But wait, it gets even better with `Promises` when we start using...
 # Async Functions
 
 **Important** If you still don't understand Promises and why you would use them, go back and reread/study/practice using `Promise`s in the previous section, otherwise, `async function`s will still be a foreign concept.
+
+With the number of direct API calls increasing in modern Javascript development, async functions provide an incredibly powerful and easy to read way of writing code that **looks synchronous**, and executes in a distinctly clear order.
+
+Let's take a look at this example here:
+
+```js
+/**
+  Waits a specified number of milliseconds, then resolves the
+  Promise with undefined
+  @param {Number} time - time in ms to wait
+  @return {Promise<undefined>}
+*/
+function wait(time) {
+  return new Promise( resolve => {
+    setTimeout(resolve, time);
+  });
+}
+
+async function sayHelloInOrder() {
+
+  // [1] Wait 2 seconds
+  await wait(2000);
+
+  // [2] Say hello!
+  console.log('hello 1!');
+
+  // [3] Wait another 1 second
+  await wait(1000);
+
+  // [4] Say hello again!
+  console.log('hello 2!');
+
+  // [5] return Promise that's resolved value is undefined
+}
+```
+
+`async` is one of our new keywords that turns a regular `function` into an `async function`.
+
+If I were to run `sayHelloInOrder()`, this would happen
+
+1. The entire function hits an `await` keyword and execution STOPS until the `wait()` function's `Promise` resolves. In this case, it's waiting 2 seconds, then resolving.
+
+2. The function hits `console.log('hello 1!')` and continues on
+
+3. The function hits another `await` statement and STOPS until `wait()`'s `Promise` resolves. Here, it's just waiting 1 second.
+
+4. We say hello a second time. Hello again.
+
+5. The `async function` is finished and returns `Promise<undefined>`
+
+Because `async function`s **always return a Promise**, it means you can chain `.then()` and `.catch()` to the statements like this:
+
+```js
+sayHelloInOrder()
+  .then( () => {
+    console.log('sayHelloInOrder() has finished executing!');
+  }).catch( error => {
+    console.error('Oh no! Something went really wrong here...');
+    console.error(error);
+    throw error;
+  });
+```
