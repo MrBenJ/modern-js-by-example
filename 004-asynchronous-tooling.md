@@ -485,3 +485,110 @@ Speaking from personal experience, it's not always API calls that fail. Sometime
 ### Making multiple REST calls
 
 In REST APIs, it's common to make multiple calls to fetch data. Instead of making multiple calls through Promises, you can use an `async function` to make each call in order.
+
+Let's say we're working a recipes app where our backend develops have set up the following endpoints:
+
+`POST /create-recipe` - Takes in a recipe object and creates a recipe in the database. Returns the `id` number of the recipe when it's successfully written to our database.
+
+`GET /recipes/:id` - Gets a recipe by id number from the database.
+
+Our product manager says that right as a user creates a new recipe on our app, we need to show all the recipe data on the screen to our user. This means we'll need to do the following:
+
+1. Make a POST request to `/create-recipe` to write to our database and transform it however the business logic requires us to do so.
+2. Make a GET request to `/recipes/:id` to grab all of the newly transformed and validated data that's written in our database.
+
+By writing a few functions that return `Promise`s, we can use a handy `async function` that makes both of our calls quickly and cleanly.
+
+Here's our first `createRecipe` function
+```js
+/**
+  Makes a POST request to /create-recipe to create a recipe
+  @param {Object} recipeData - Recipe object to create
+  @return {Promise<Number>} - Returns the recipeId
+*/
+function createRecipe(recipeData) {
+  return new Promise((resolve, reject) => {
+    fetch('/create-recipe', {
+      method: 'POST',
+      body: JSON.stringify(recipeData)
+    })
+    .then( recipeId => resolve(recipeId))
+    .catch( error => { reject(error); });
+  })
+}
+```
+
+Now we can make our `getRecipe` function
+```js
+/**
+  Makes a GET request to /recipes/:id and returns recipe data
+  @param {Number} recipeId - The id of the recipe to get.
+  @param {Object}          - The recipe data
+*/
+function getRecipe(recipeId) {
+  return new Promise((resolve, reject) => {
+    fetch(`/recipes/${recipeId}`)
+      .then( recipe => { resolve(recipe); })
+      .catch( error => { reject(error); });
+  });
+}
+```
+
+Great! Now we can put these tow things together:
+
+```js
+import { createRecipe, getRecipe } from '../utilities';
+/**
+  Creates a recipe in the database, and returns the created recipe
+  @param {Object} recipe - The recipe to create and display
+  @return {Promise<Object>}       - The created recipe as written in the database
+*/
+async function createNewRecipe(recipe) {
+  try {
+    const { body: { recipeId }} = await createRecipe(recipe);
+
+    const recipeFromDatabase = await getRecipe(recipeId);
+
+    return recipeFromDatabase;
+  } catch (error) {
+    throw error;
+  }
+}
+```
+
+Remember, all `async functions` return a `Promise`, so we can use `.then()` and `.catch()` statements after using our `createNewRecipe` function:
+
+```js
+import { createNewRecipe } from '../async_functions';
+const recipe = { /* Pretend this is some delicious stew or your favorite pie */};
+
+createNewRecipe(recipe)
+  .then( recipeEntry => {
+    console.log(recipeEntry);
+    console.log('mmmm! Delicious!')
+  }).catch( error => {
+    console.error('Oh no... Something bad happened:');
+    console.error(error);
+  });
+```
+
+Keep in mind that you don't _need_ to limit this to just 2 calls. You can keep doing more calls, run through loops that run multiple `await` statements, the sky's the limit!
+
+# Generators
+
+The usage of Generators are seldom, and there's been a few arguments that _you don't need to learn generators_, but from personal experience and practice, I find at least knowing the bare basics of Generators and **why generators exist** is really helpful in knowing what's happening under the hood.
+
+Generators are extremely similar to `async functions`. In fact, `Generators` are `async functions` with a few more features built in.
+
+Instead of `await`, we use the `yield` keyword.
+Instead of the `async` keyword, we just use `function*` or `()* =>`
+
+```js
+function* myFirstGenerator(arrayOfData) {
+  for(let i = 0; i < arrayOfData.length; i++) {
+    yield arrayOfData[i];
+  }
+
+  yield 'Generator run has completed!';
+}
+```
