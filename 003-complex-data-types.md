@@ -48,7 +48,7 @@ MyMap.get('id'); // => 18
 
 ```
 
-When you're constructing a `Map`, you can pass in an `Iterable` like an  `Array`, and it'll create key value pairs based on the object or array you pass in.
+When you're constructing a `Map`, you can pass in an `Iterable` like an `Array`, and it'll create key value pairs based on the object or array you pass in.
 
 ```js
 

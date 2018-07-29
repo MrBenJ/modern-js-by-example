@@ -8,7 +8,7 @@ Let's talk basics of the basics.
 Strings are text. They're surrounded by either
 * Single quotation marks (' ') or
 * Double quotation marks (" ")  or
-* Backticks (` `) - They're to the left of the "1" key on your keyboard
+* Backticks (` `) - They're to the left of the "1" key on your (US) keyboard
 
 ```js
 'Hello! I am a string'
@@ -48,7 +48,7 @@ const MyAge = 29;
 let isOldEnoughToParty = true;
 ```
 
-Running `console.log()` against any of these varialbles will print out what their value is:
+Running `console.log()` against any of these variables will print out what their value is:
 
 ```js
 console.log(hello); // => 'hello'
@@ -74,7 +74,7 @@ function MyFunction() {
 }
 ```
 
-What's the value of `i`? F***ed if I know.
+What's the value of `i`? I don't really know this example... What do?
 
 **Unless you need function scope, do not use var**
 
@@ -104,7 +104,7 @@ for(let i = 0; i < array.length; i++) {
 console.log(i); // => undefined
 ```
 
-This is much better because block scoping, while it being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be extremely painful to find the value and scope of `x`.
+This is much better because block scoping, while it being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be pretty diffuciult to find the value and scope of `x`.
 
 `let` and `const` aren't able to have the same identifiers between themselves or others.
 
