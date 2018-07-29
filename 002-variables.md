@@ -144,3 +144,7 @@ console.log(myArray); // => [ 'raining', 'cats', 'and' ]
 ```
 
 Just because something is a `const` does not mean that it's immutable.
+
+## Destructuring
+
+@TODO: Write stuff about destructuring!

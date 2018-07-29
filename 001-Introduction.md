@@ -43,6 +43,7 @@ If you feel moderately comfortable with a popular modern framework like `React`,
 
 TODO:
 
+* Destructuring in 002-variables
 * Spread Operator in 003-complex-data-types
 * 005-Modern-JS-Architecture
 * Recap sections for all chapters
