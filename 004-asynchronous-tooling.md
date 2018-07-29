@@ -581,14 +581,274 @@ The usage of Generators are seldom, and there's been a few arguments that _you d
 Generators are extremely similar to `async functions`. In fact, `Generators` are `async functions` with a few more features built in.
 
 Instead of `await`, we use the `yield` keyword.
-Instead of the `async` keyword, we just use `function*` or `()* =>`
+Instead of the `async` keyword, we use `function* ()`.
+
+Note that you cannot use an `arrow function` as a `Generator`. You have to use the `function*` keyword.
 
 ```js
-function* myFirstGenerator(arrayOfData) {
-  for(let i = 0; i < arrayOfData.length; i++) {
-    yield arrayOfData[i];
-  }
-
-  yield 'Generator run has completed!';
+// Declare our generator:
+function* myFirstGenerator() {
+  yield 'hello!';
+  yield 'This';
+  yield 'is a generator!';
 }
 ```
+
+Let's use `myFirstGenerator()`. First thing we need to do is initialize it. Note you don't need to use the `new` keyword, just call it like a function and pass in any parameters or arguments.
+
+```js
+const myGenerator = myFirstGenerator();
+```
+
+Once the generator is initialized, you get some handy interface methods to play with:
+
+`myGenerator.next()` runs the generator until it hits the first `yield` statement and returns an `Iterator`. More on `Iterator` in a bit.
+`myGenerator.throw()` throws an error - Great if you're handling errors inside the generator itself and need to test something.
+
+### Introducing Iterators
+
+An `Iterator` is plain object that follows this shape:
+```js
+interface Iterator = {
+  value: *, // Any data type.
+  next: () => (Iterator | null),  // Gets the next value
+  done: Boolean  // true if this is the last value of the series, otherwise false.
+}
+```
+Every time we run `.next()` on a `Generator`, the function starts executing until it hits a `yield` statement. Once it hits that statement, the `Generator` returns an `Iterator` object with the value from the `yield` statement.
+
+Let's put all of our code in the next example:
+
+```js
+// Declare our generator:
+function* myFirstGenerator() {
+  yield 'Hello!';
+  yield 'This is';
+  yield 'a generator!';
+}
+
+// Initialize the generator
+const myGenerator = myFirstGenerator();
+
+// Grab our first value from our generator
+const firstValue = myGenerator.next();
+
+// => { value: 'Hello!', next: function(), done: false }
+console.log(firstValue);
+
+// Run the generator again, and get the next value
+const secondValue = myGenerator.next();
+
+// => { value: 'This is', next: function(), done: false }
+console.log(secondValue);
+
+// If we're just interested in the value, we can just grab the value directly
+const thirdValue = myGenerator.next().value;
+
+// => 'a generator!'
+console.log(thirdValue);
+
+// If we run next(); again, we'll get another Iterator, but it will say it's done
+console.log(myGenerator.next());
+// => { done: true }
+
+```
+
+Generators are very similar to `async function`s, as they completely stop the execution of the function and return some sort of value. The big difference is that a `Generator` gives greater control by allowing you to pass in data using `.next()`.
+
+The `.next()` function takes in any value and throws it into the generator.
+
+As an example, we can pass in an object to tell the generator to stop executing, and it will stop.
+
+```js
+/**
+@var {Object} cars - An array of Car objects that follow this shape:
+{
+  licensePlate: 'BY43ALK4J',
+  make: 'Ford',
+  model: 'Mustang',
+  year: 2011
+}
+*/
+const cars = [ /* Giant list of cars in this array */];
+
+/**
+  Takes in a car model and cycles through the cars
+  @param {String} model - The model of car to search for
+  @yield {Object}       - A car
+*/
+function* findCarsByModel(model) {
+  for (let i = 0; i < cars.length; i++) {
+
+    // If the car's model matches, yield the value. Otherwise, stop.
+    if (cars[i].model === model) {
+      // The value we pass into .next() becomes the value of "response"
+      const response = yield cars[i];
+    }
+
+
+    // If we send back { stopLooking: true } in .next(), the generator will stop.
+    if (response.stopLooking === true) {
+      break;
+    }
+  }
+}
+```
+
+How we'd use this fancy generator would look like this:
+
+```js
+
+// I need to find a Ford Mustang with a license plate number of 'AAYG48KX'.
+// I'll use the findCarsByModel generator to grab any car that's a 'Mustang'
+
+const carGenerator = findCarsByModel('Mustang');
+
+let done;
+let foundCar;
+// I can use a while loop here to hunt for this car.
+// While done is a falsy value, keep iterating!
+while (!done) {
+  const iterator = carGenerator.next();
+
+  // If we have a matching value come back...
+  if (iterator.value.licensePlate === 'AAYG48KX') {
+    const foundCar = iterator.value;
+    // We found the car! Send in 'stopLooking: true' to stop the generator.
+    carGenerator.next({ stopLooking: true});
+  }
+
+  done = iterator.done;
+}
+```
+
+Of course, there's better ways to do this. Instead of:
+```js
+while (!done) {}
+```
+
+We could use
+```js
+while (!foundCar)
+```
+
+Or we could repurpose our generator to a plain function that looks for the car by plate number. There's so many different, and better ways to do this instead of unnecessary complications using a `Generator`.
+
+For these reasons and many others **this is why Generators and practical usage is a fairly heated topic in Modern Javascript**.
+
+## Practical Generator usage
+
+Despite the hot topic and little practical use, **there is one important real-world use of Generators**, and it's with a very popular library called `Redux-Saga`.
+
+`Redux-Saga` is a middleware for `Redux`, a popular state management library that implements `Flux` architecture, which has been an extremely popular and scalable architecture that's used in many modern web applications today (Facebook, AirBnB, Postmates, and GrubHub all use `Redux` as of this writing).
+
+In `Redux-Saga`, asynchronous calls to services are done using `Generators`, and the sole purpose of these `Generators` is to execute _code that looks synchronous in a testable manner_.
+
+Let's say we're sending a POST request to a server from our application:
+
+```js
+import { call, put } from 'redux-saga/effects';
+
+function* sendPost(data) {
+  try {
+    // Make a POST request to our API with the data object passed in.
+    const response = yield call(fetch, {
+      method: 'POST',
+      url: '/api/v2/data'
+      data
+    });
+    // If the post is successful, put a POST_SUCCESS action in to tell the app we are successful
+    yield put({ type: 'POST_SUCCESS', payload: response});
+  } catch (error) {
+    // If something goes terribly wrong, send a POST_ERROR action to tell the app something went wrong
+    yield put ({ type: 'POST_ERROR', payload: error });
+  }
+}
+```
+At first glance, this looks just like an `async function` with the `try/catch` block, except that instead of `await`, we are using `yield`. This is intentional, as we're using the `sendPost` function _like an async function_, but `Redux-Saga`'s main goal was to make this whole function _testable without setting up a fake server to intercept calls_.
+
+We need to pass data back into our `Generator` in order to have it keep trucking along like it would in production code. If I were to write some unit tests for this function, I would need to test the following:
+
+1. The API call is being called with the correct data and url.
+2. The `sendPost` function returns a `POST_SUCCESS` action if successful.
+3. The `sendPost` function returns a `POST_ERROR` action if an exception is thrown.
+
+Here's what the three unit tests would look like:
+
+```js
+import sendPost from './sendPost';
+import { call, put } from 'redux-saga/effects';
+
+describe('sendPost() tests', () => {
+  // [1] - Make sure the API call is being called with the correct data and url
+  it('Should make a POST call with the correct data and URL', () => {
+    // Create some fake data
+    const data = { message: 'Hello!', id: 101 };
+
+    // Initialize the generator
+    const sendPostGenerator = sendPost(data);
+
+    // Get the first yield value back from the Generator
+    const iterator = sendPostGenerator.next();
+
+    // Make sure the fetch call is made with the correct params
+    expect(iterator.value).toEqual(
+      call(fetch, {
+        method: 'post',
+        url: '/api/v2/data',
+        data
+      })
+    );
+  });
+
+  // [2] - Make sure the `sendPost` function returns a `POST_SUCCESS` action if successful
+  it('Sends a POST_SUCCESS action if successful', () => {
+    // Create some fake data (again)
+    const data = { message: 'Hello!', id: 101 };
+
+    // Initialize a new instance of the generator
+    const sendPostGenerator = sendPost(data);
+
+    // Get to the first yield statement that makes the call.
+    sendPostGenerator.next();
+
+    // We know the first test handles the API call, so we're going to get the second yield statement here.
+    // We need to send a mock server 'response' in .next(). so let's do that.
+    const iterator = sendPostGenerator.next({ statusCode: 200, message: 'OK '});
+
+    // Now we need to make sure the next yield value has our response, and POST_SUCCESS.
+    expect(iterator.value).toEqual(
+      put({
+        type: 'POST_SUCCESS',
+        payload: { statusCode: 200, message: 'OK' }
+      });
+    );
+  });
+
+  // [3] - Make sure the `sendPost` function returns a `POST_ERROR` action if an exception is thrown.
+  it('Sends a POST_ERROR action if an exception is thrown', () => {
+    // Create some fake data (thrice!)
+    const data = { message: 'Hello!', id: 101 };
+
+    // Initialize a new (thrice!) instance of the generator
+    const sendPostGenerator = sendPost(data);
+
+    // Get to the first yield statement that makes the call.
+    sendPostGenerator.next();
+
+    // Let's simulate an error by running `.throw()` instead of ``.next()`
+    const response = sendPostGenerator.throw({statusCode: 500, message: 'Internal Server Error'});
+
+    expect(response.value).toEqual(
+      put({
+        type: 'POST_ERROR',
+        payload: { statusCode: 500, message: 'Internal Server Error' }
+      })
+    );
+  });
+
+});
+```
+Take note that we didn't need to use a fake HTTP server tool like `sinon`. We simulated both good and bad calls by passing data back in using `.next()`. This is why `Generator` was used instead of `async function`s for `Redux-Saga`, and the primary real-world use case for **Why Generators have practical usage**.
+
+In short, if you need to pass logic or data back into an `async function`, it should probably be a `Generator`.

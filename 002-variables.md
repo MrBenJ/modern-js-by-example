@@ -6,9 +6,9 @@ Let's talk basics of the basics.
 ## String
 
 Strings are text. They're surrounded by either
-* Single quotation marks ('') or
-* Double quotation marks ("")  or
-* Backticks (``) - They're to the left of the "1" key on your keyboard
+* Single quotation marks (' ') or
+* Double quotation marks (" ")  or
+* Backticks (` `) - They're to the left of the "1" key on your keyboard
 
 ```js
 'Hello! I am a string'

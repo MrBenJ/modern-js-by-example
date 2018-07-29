@@ -40,13 +40,3 @@ If you know:
 You should be alright.
 
 If you feel moderately comfortable with a popular modern framework like `React`, `Angular 2+`, or `Vue.js`, you should be in pretty good shape too. We'll use as many real world examples with these frameworks throughout this book, not just the front end UI stuff, but backend Node scripts and servers as well.
-
-
-TODO:
-* Data Types
-* Data Structures
-* Variables
-* Functions
-* Promises
-* Async Functions
-* Generators
