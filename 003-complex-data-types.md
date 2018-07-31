@@ -238,3 +238,95 @@ console.log(...myArray); // => let's party right now
 const newArray = [...myArray];
 console.log(newArray) // => ["let's", 'party', 'right', 'now!']
 ```
+
+## Rest Spread Operator
+
+**NOTE**: This feature was recently resolved to Stage-4 on January 28th, 2018 as per TC39. It's now a standard of the language. With this feature being very new to Javascript, you may need a transpiler like `babel` or `TransformJS` to use this feature. More on this in a future chapter.
+
+### Rest Spread on Arrays
+
+On an `Array`, if you need to grab the first few elements through destructuring and keep the rest for later, you can do use the `rest spread operator`.
+
+```js
+const selectiveArray = [ 'important', 'strings', 'here', 'but', 'not', 'these'];
+
+const [ first, second, third, ...rest ] = selectiveArray;
+
+console.log(first); // => 'important'
+console.log(second); // => 'strings'
+console.log(third); // => 'here'
+console.log(rest); // => ['but', 'not', 'these']
+```
+
+Keep in mind that the word `rest` is typically used to denote "the rest of the items," and it's not required to use `rest`. You can use any word you want.
+
+```js
+const animals = ['corgi', 'dachshund', 'pomeranian', 'dwarf', 'persian', 'calico'];
+
+const [ cutest, shortest, foofiest, ...cats ] = animals;
+
+console.log(cutest); // => 'corgi'
+console.log(shortest); // => 'dachshund'
+console.log(foofiest); // => 'pomeranian'
+console.log(cats); // => ['dwarf', 'persian', 'calico']
+
+```
+
+### Rest Spread on Objects
+
+Using the `spread operator` on an `Object` now iterates through the object and drop key/value pairs accordingly into a new object.
+
+```js
+const guy = {
+  name: 'Jeff',
+  age: 44,
+  occupation: 'Pyrotechnician'
+};
+
+const copyOfGuy = { ...guy };
+
+console.log(copyOfGuy);
+// => { name: 'Jeff', age: 44, occupation: 'Pyrotechnician'}
+```
+
+By doing this, you can merge objects together like this:
+
+```js
+// @TODO: Write an example
+```
+
+Keep in mind that the last `...rest` you do in an object will overwrite all the previous values.
+```js
+// @TODO: Write another example
+```
+
+#### Returning new modified objects and arrays
+
+In functional programming and tools/libraries that require new copies of objects or arrays like `React` and `Redux`, it's common practice to use `Object.assign()` to create some new objects using another as a "base object." Now instead of using `Object.assign()`, it's a common (and cleaner in my personal opinion) to use the `spread operator` in order to return new Objects and Arrays.
+
+Here's the `Object.assign()` way of returning new objects with modifications
+```js
+// BEFORE
+
+function incrementCount(counterState) {
+  // Create a new copy of the counterState object
+  const copyOfCounterState = Object.assign({}, counterState);
+
+  // Grab just the value from the old counterState
+  const { value } = counterState;
+
+  copyOfCounterState.value = value + 1;
+  return copyOfCounterState;
+}
+```
+
+Let's refactor this to use the `spread operator` on objects:
+```js
+function incrementCount(counterState) {
+  const { value } = counterState;
+  return {
+    ...counterState, // Iterate through key/value pairs in counterState
+    value: value + 1 // overwrite counterState.value with the newly incremented value
+  };
+}
+```
