@@ -53,7 +53,7 @@ Under the hood, a **Promise** is a `state machine`. There's a 3 main states that
 3. **Rejected**
     Something unfortunate happened and there was an error or exception somewhere in the process.
 
-As a programmer, I need to define what constitute the `Promise` reaching a **resolved/fulfilled state**, or a **rejected** state.
+As a programmer, I need to define what constitutes the `Promise` reaching a **resolved/fulfilled state**, or a **rejected** state.
 
 In this example, I'm making a XHR request to `https://www.example.com/api/v2/users.json` to get some JSON data from the internet:
 ```js
@@ -257,7 +257,7 @@ There's 2 ways to catch rejected promises:
 
 ```js
 fetch('/some-endpoint/users')
-  .then( data => { /* do someting with the data */ })
+  .then( data => { /* do something with the data */ })
   .catch( error => throw error /* oh no, something bad happened :( */ ));
 ```
 
@@ -600,7 +600,7 @@ Let's use `myFirstGenerator()`. First thing we need to do is initialize it. Note
 const myGenerator = myFirstGenerator();
 ```
 
-Once the generator is initialized, you get some handy interface methods to play with:
+Once the generator is initialized, you get some handy methods to play with:
 
 `myGenerator.next()` runs the generator until it hits the first `yield` statement and returns an `Iterator`. More on `Iterator` in a bit.
 `myGenerator.throw()` throws an error - Great if you're handling errors inside the generator itself and need to test something.

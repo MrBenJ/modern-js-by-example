@@ -148,3 +148,99 @@ Just because something is a `const` does not mean that it's immutable.
 ## Destructuring
 
 @TODO: Write stuff about destructuring!
+
+## Symbol
+
+@TODO: Write about Symbol
+
+## Variable Shorthand and Syntax
+
+Javascript now has some really great shorthand and convenience syntax when it comes to `Object`s.
+
+Look at this excerpt, we used to have to do stuff like this:
+```js
+function onServerResponse(response) {
+
+  var body = response.body;
+  var firstName = body.firstName;   // Judy
+  var lastName = body.lastName;     // Jenson
+  var age = body.age;               // 32
+  var occupation = body.occupation; // Programmer
+
+  return {
+    firstName: firstName,
+    lastName: lastName,
+    age: age,
+    occupation: occupation
+  };
+}
+```
+
+There's quite a bit of repeated code with variables here, and it looks pretty repetitive. If a variable name will be the `key` of an object, you can just pass that in as the object.
+
+```js
+function onServerResponse(response) {
+
+  var body = response.body;
+  var firstName = body.firstName;   // Judy
+  var lastName = body.lastName;     // Jenson
+  var age = body.age;               // 32
+  var occupation = body.occupation; // Programmer
+
+  return {
+    firstName,
+    lastName,
+    age,
+    occupation
+  };
+  // returns { firstName: 'Judy', lastName: 'Jenson', age: 32, occupation: 'Programmer' }
+}
+```
+
+Of course, if we add in destructuring, we can make this even shorter and more compact:
+
+```js
+function onServerResponse(response) {
+
+  const { firstName, lastName, age, occupation } = response.body;
+
+  return {
+    firstName,
+    lastName,
+    age,
+    occupation
+  };
+}
+```
+
+We can make this even shorter with the **Object Rest Spread Operator** too:
+
+```js
+function onServerResponse(response) {
+  return { ...response.body };
+}
+```
+Just be careful and make sure you're in agreement with your team about how explicit you want to be with this :).
+
+## Object Method Shorthand
+
+Defining methods on objects are usually done like this:
+```js
+
+var SomeObject = {
+  performMagic: function(magic) {
+    console.log('Alakazam! ', magic);
+  }
+};
+```
+
+Now we can do this instead:
+
+```js
+
+const SomeObject = {
+  performMagic(magic) {
+    console.log('Alakazam! ', magic);
+  }
+};
+```

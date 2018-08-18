@@ -48,7 +48,7 @@ The customizations within `gulp` were far more modular and reusable, being much 
 
 And so, all new projects and boilerplates began to move away from `grunt`, and everyone started using `gulp`. And everyone was happy.
 
-Except not really because Javascript developers always want to build new things. Developers started making a million and a half task runners with food names because bodily functions are gross. We had a new world of task runners pop up like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream, sure. I'll eat it.
+Except not really because Javascript developers always want to build new things and ~shit~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because bodily functions are gross. We had a new world of task runners pop up like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream, sure. I'll eat it.
 
 All Joking aside, tools like `grunt` and `gulp` are still widely used to this very day, and knowing one is great. I'd recommend getting your feet wet with `gulp` and its large ecosystem of excellent plugins and tools.
 
@@ -62,7 +62,7 @@ There's 3 main build systems that are of major popularity in Javascript. They ar
 2. Rollup
 3. Parcel
 
-Take note that **all three of these tools have some task runner/ task automation capabilities**. Which means all three are extremely powerful.
+Take note that **all three of these tools have some task runner/ task automation capabilities**.
 
 These tools, while extremely powerful, can also be frustrating to set up.
 
@@ -89,25 +89,31 @@ For example:
 
 Depending on the size of the application, these build tools have been optimized and heavily tested by the open source community to be extremely fast and reliable if used correctly.
 
-**Learning a build system can be extremely intimidating**, and many developers who haven't set up projects from total scratch can get very lost. Once the build system is set up correctly and done well, _it rarely needs to be touched or modified_. This means that many developers already come into a project with all the architecture and build systems and task runners already set up, and this is just something they won't need to really learn.
+**Learning a build system can be intimidating**, and many developers who haven't set up projects from total scratch can get very lost. _Once the build system is set up correctly and done well, it rarely needs to be touched or modified_. This means that many developers already come into a project with all the architecture and build systems and task runners already set up, and this is just something they won't need to really learn.
 
-Personally speaking here, **I find learning how to configure build systems extremely rewarding** because it allows me to tweak it in ways to help benefit my team to get work done quicker and **ship code**. I know where things can be improved, and where the build system can handle things without worry or flaws.
+Personally speaking here, **I find learning how to configure build systems extremely rewarding** because it allows me to tweak it in ways to help benefit my team to get work done quicker. Most importantly, it allows me to have a richer and deeper understanding of my **shipped code**. I know where things can be improved, and where the build system can handle things without worry or flaws.
 
 ## Learning to set up a build system
 
 For quick and easy setups with common components and pieces like `React` and `Typescript`, I recommend using `Parcel`.
 
-`Parcel` was created out of the criticism that `Webpack` is complicated and difficult to set up, especially for beginners. _This is 100% true_.
+To my knowledge, `Parcel` as a configuration-free build system, as `Webpack` is complicated and difficult to set up, especially for beginners. **Webpack can be intimidating and difficult for newcomers**.
 
 All `Parcel` needs is an `html file` and in just a few milliseconds, it bundles and builds your application for you, auto-configuring itself to suit your needs. Great!
 
 However, after so long and needing new tools, `Parcel` can only go so far.
 
-My recommendation is to learn `Webpack`, because of its rich features and customization, along with quick build times and excellent open source support, it can be configured to do just about anything.
+My recommendation is to learn `Webpack` because of its rich features and customization, along with quick build times and excellent open source support, it can be configured to do just about anything.
 
-However, `Webpack` is a big and open ecosystem that has lots of moving parts that require hours of dedication and trial + error to truly understand, and is out of the scope of the purpose of this book. I recommend going to https://www.webpackjs.org to learn how to use and configure `Webpack`.
+However, `Webpack` is a big and open ecosystem that has lots of moving parts that require hours of dedication and trial + error to truly understand, and is out of the scope of the purpose of this book. I recommend going to https://www.webpackjs.org to learn how to use and configure `Webpack`. There will definitely be headaches and learning curves, but after learning how it all works, I guarantee you will come out a much stronger developer.
 
 `Rollup` is another fine choice for a bundler and build system. As long as you know either `Webpack` or `Rollup`, you'll be well on your way to mastering Javascript and front end architecture.
+
+## Learning Webpack
+
+If `parcel` isn't cutting it for you and you'd like to use more tools in the Javascript ecosystem ( eg. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
+
+`Webpack` was meant to be used for Single Page Applications, or SPAs for short. Setting up architecture for a single page application with `Webpack` is simple compared to an project with multiple pages and entry points.
 
 # Frameworks
 
@@ -117,4 +123,12 @@ As of this writing, there are 3 major Javascript frameworks:
 2. Vue.js
 3. React (not really a "framework." More on this later)
 
-Each of these frameworks has their own pros and cons, and there really isn't a _one size fits all_ solution.
+Each of these frameworks has their own pros and cons, and _there isn't a one size fits all_ solution.
+
+All three of these tools are extremely mature, and have been battle tested in production environments in tech + non-tech companies and products.
+
+## Which Framework Should I Learn?
+
+If you know zero out of three frameworks, **Learn any of them**. It really doesn't matter.
+
+**Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue, and React are all battle tested tools to do this. While each has their own unique approach with their own pros and cons, the end goal is still the same - **Sync UI state with server**.

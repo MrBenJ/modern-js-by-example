@@ -330,3 +330,18 @@ function incrementCount(counterState) {
   };
 }
 ```
+
+# Iterators and Iteration Protocol
+
+Iterators are a staple data type in other programming languages and have now come to Javascript.
+
+There's 3 major parts of the `Iterator` interface:
+```js
+{
+  next() { return Iterator; },
+  value: 'anything', // Can be anything
+  done: false, // Can be true, false, or undefined
+}
+```
+
+The `Iterator` protocol makes any `Object` that follows the protocol able to be iterated on through loops, spread operator, generators, etc.
