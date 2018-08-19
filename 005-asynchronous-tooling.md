@@ -849,6 +849,6 @@ describe('sendPost() tests', () => {
 
 });
 ```
-Take note that we didn't need to use a fake HTTP server tool like `sinon`. We simulated both good and bad calls by passing data back in using `.next()`. This is why `Generator` was used instead of `async function`s for `Redux-Saga`, and the primary real-world use case for **Why Generators have practical usage**.
+Take note that we didn't need to use a fake HTTP server tool like `sinon`. We simulated both good and bad calls by passing data back in using `.next()`. This is why `Generator` was used instead of `async function`s for `Redux-Saga`, and an excellent real-world use case for **practical generator usage**
 
 In short, if you need to pass logic or data back into an `async function`, it should probably be a `Generator`.
