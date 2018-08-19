@@ -15,9 +15,41 @@ const Person = {
 Person.name; // => 'Sheryl'
 Person.occupation; // => 'Programmer'
 Person.id; // => 18
+
+// Or you can do this:
+Person['name']; // => 'Sheryl'
+Person['occupation']; // => 'Programmer'
+Person['id']; // => 18
 ```
 
 Objects don't keep an order of their properties. If you need to maintain a certain order of values, then use an Array.
+
+You can set objects values through dot syntax, or brackets.
+```js
+const Person = {};
+
+// Dot Syntax
+Person.name = 'Sheryl';
+
+// Bracket Syntax
+Person['occupation'] = 'Programmer'
+
+// 'occupation' doesn't have to be a plain string. It can be a variable that's holding a string value
+const myKey = 'id';
+Person[myKey] = 18;
+```
+
+A new concept that's becoming more popular is declaring the object's key dynamically using a combination of bracket and curly brace syntax. It looks a little bit like this:
+```js
+const key = 'myKey';
+
+const dynamicObject = {
+  [key]: 'myValue'
+};
+
+console.log(dynamicObject.myKey); // => 'myValue'
+console.log(dynamicObject[key]); // => 'myValue'
+```
 
 ## Arrays
 

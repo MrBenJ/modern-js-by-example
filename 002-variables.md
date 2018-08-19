@@ -147,7 +147,146 @@ Just because something is a `const` does not mean that it's immutable.
 
 ## Destructuring
 
-@TODO: Write stuff about destructuring!
+Destructuring is a convenient way of getting exactly what you need from a `Object` or `Array`.
+
+
+### Destructuring Objects
+
+Instead of:
+```js
+function onServerResponse(response) {
+  var body = response.body;
+
+  var firstName = body.firstName;    // 'Ronny'
+  var lastName = body.lastName;      // 'Rumples'
+  var occupation = body.occupation;  // 'Programmer'
+  var age = body.age;                // 44
+
+  //...
+}
+```
+
+You can grab `body` with some handy curly brace syntax:
+```js
+function onServerResponse(response) {
+    const { body } = response;
+
+
+    const { firstName, lastName, occupation, age } = body;
+    console.log(firstName);   // 'Ronny'
+    console.log(lastName);    // 'Rumples'
+    console.log(occupation);  // 'Programmer'
+    console.log(age)          // 44
+    //...
+}
+```
+
+You can go even more levels deeper like this:
+```js
+function onServerResponse(response) {
+    const { body: {
+      firstName,
+      lastName,
+      occupation,
+      age
+    } } = response;
+
+    console.log(firstName);   // 'Ronny'
+    console.log(lastName);    // 'Rumples'
+    console.log(occupation);  // 'Programmer'
+    console.log(age)          // 44
+
+    // Note: Understand that 'body' will be undefined here:
+    console.log(body); // undefined
+}
+```
+
+If you wanted to get `body` along with everything else, you can do this:
+```js
+function onServerResponse(response) {
+    const { body: {
+      firstName,
+      lastName,
+      occupation,
+      age
+  }, body } = response;
+    /*
+      Above, we tell JS we want to pull firstName, lastName, etc from 'body',
+      but we also tell it that we want 'body' declared too.
+    */
+
+    console.log(firstName);   // 'Ronny'
+    console.log(lastName);    // 'Rumples'
+    console.log(occupation);  // 'Programmer'
+    console.log(age)          // 44
+
+
+    console.log(body); // { firstName: 'Ronny', lastName: 'Rumples', ... }
+}
+```
+
+It doesn't just happen within the body of a function either. You can destructure when you're declaring function parameters/arguments too:
+
+```js
+function onServerResponse({ body }) {
+    const { firstName, lastName, occupation, age } = body;
+
+    console.log(firstName);   // 'Ronny'
+    console.log(lastName);    // 'Rumples'
+    console.log(occupation);  // 'Programmer'
+    console.log(age)          // 44
+
+    //...
+}
+```
+If the name isn't a valid JS variable name (has '-' or '.' characters), you can alias it through destructuring like this:
+
+```js
+function onServerResponse({ body }) {
+
+    // body = { "domain-name": "Google", "google.com": "Established 1998" }
+    const { 'domain-name': domainName, 'google.com': searchEngineInfo } = body;
+
+    console.log(domainName);   // 'Google'
+    console.log(searchEngineInfo);    // 'Established 1998'
+
+    //...
+}
+```
+
+Of course, if the name is a valid JS variable name, then you can omit the quotes:
+
+```js
+function onServerResponse({ body }) {
+
+
+    const { firstName: first, lastName: last, occupation: job, age: years } = body;
+
+    console.log(first);   // 'Ronny'
+    console.log(last);    // 'Rumples'
+    console.log(job);     // 'Programmer'
+    console.log(years)    // 44
+
+    // Note: 'firstName', 'lastName', 'occupation', and 'age' will all be undefined
+    //...
+}
+```
+
+### Destructuring Arrays
+
+The party doesn't stop with `Objects`. If you know the array coming just has 2 values, you can destructure like this:
+
+```js
+const myArray = [ 'Hello', 'Clarice '];
+
+const [ hello, clarice ] = myArray;
+
+console.log(hello); // 'Hello'
+console.log(clarice); // 'Clarise'
+
+```
+
+Of course, you don't need to name them
 
 ## Symbol
 
