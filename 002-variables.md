@@ -373,16 +373,25 @@ function onServerResponse(response) {
 }
 ```
 
-We can make this even shorter with the **Object Rest Spread Operator** too:
+We can make this even shorter with the **Object Rest Spread Operator** too, assuming that `response.body` has only the key/value pairs we want to return in a new object:
 
 ```js
 function onServerResponse(response) {
   return { ...response.body };
 }
 ```
-Just be careful and make sure you're in agreement with your team about how explicit you want to be with this :).
 
-Read up more on the Spread Operator in the next chapter!
+But what if `response.body` has some extraneous information in it? We can still use the **Object Rest Spread Operator**, but just pick out what we _don't want_ like this:
+
+```js
+function onServerResponse(response) {
+  const { ssn, birthday, ...rest } = response.body;
+
+  return { ...rest };
+}
+```
+
+If you're confused about the syntax, the `...` is the **Spread Operator**. We go into much more detail on this operator in the next chapter.
 
 ## Object Method Shorthand
 
