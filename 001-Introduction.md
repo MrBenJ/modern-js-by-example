@@ -47,8 +47,6 @@ Like many other developers, my eyes immediately move towards snippets of code. T
 
 TODO:
 
-* Destructuring in 002-variables
-* Spread Operator in 003-complex-data-types
 * Proxy API
-* 005-Modern-JS-Architecture
+* 006-Modern-JS-Architecture
 * Recap sections for all chapters

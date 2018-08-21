@@ -363,6 +363,32 @@ function incrementCount(counterState) {
 }
 ```
 
+# Symbol
+
+I felt a bit hesitant about putting `Symbol` in this book because it has such limited usage, and isn't really used often in everyday Javascript development. However, I find myself consistently seeing this data type in transpiled code, polyfilled, and living inside of libraries and tools that I use everyday.
+
+While I probably won't use `Symbol` very often myself, I find knowing what it actually is quite nice, and makes me think of finding a way to implement it for my own special data types from project to project.
+
+`Symbol()` takes in one optional parameter, a `String` that's used to describe what it is. It can be used for debugging, but not for access to the `Symbol` class itself.
+
+```js
+const MyFirstSymbol = Symbol('first one');
+console.log(MyFirstSymbol); // 'Symbol('first one')'
+```
+
+Running `typeof` on a `Symbol` returns the string: 'symbol', and it's considered a totally unique value and will return false for any comparison or evaluation:
+```js
+const MyFirstSymbol = Symbol('first one');
+
+console.log(typeof MyFirstSymbol); // 'symbol'
+console.log(MyFirstSymbol === Symbol('first one')); // false
+```
+
+You'll see `Symbol` used when creating an `Iterator` in the next section below!
+
+Note: MDN's online documentation on `Symbol` is excellent and very well written. [Check it out here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+
+
 # Iterators and Iteration Protocol
 
 Iterators are a staple data type in other programming languages and have now come to Javascript.

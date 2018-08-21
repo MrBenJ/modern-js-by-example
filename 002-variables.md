@@ -286,11 +286,32 @@ console.log(clarice); // 'Clarise'
 
 ```
 
-Of course, you don't need to name them
+Of course, you don't need to name them `hello` or `clarice`. You can name them whatever you'd like:
 
-## Symbol
+```js
+const myArray = [ 'Hello', 'Clarice '];
 
-@TODO: Write about Symbol
+const [ greeting, name ] = myArray;
+
+console.log(greeting); // 'Hello'
+console.log(name); // 'Clarise'
+```
+
+A common usage of destrucuring is with `Object.entries`, since it returns an array with the Object's key/value pairs in the form of an Array:
+
+```js
+const MyObject = {
+  name: 'Jeff',
+  personality: 'Wild',
+  isAwesome: true
+};
+
+Object.entries(MyObject).map( ([key, value]) => {
+    console.log(key);  // 'name', 'personality', 'isAwesome'
+    console.log(value); // 'Jeff', 'Wild', true
+})
+
+```
 
 ## Variable Shorthand and Syntax
 
@@ -360,6 +381,8 @@ function onServerResponse(response) {
 }
 ```
 Just be careful and make sure you're in agreement with your team about how explicit you want to be with this :).
+
+Read up more on the Spread Operator in the next chapter!
 
 ## Object Method Shorthand
 
