@@ -10,7 +10,7 @@ Angular's latest version is v6. // TODO: FIX!!!
 
 While stated earlier that the non-coding chatter will be kept to a minimum, this chapter is all about concepts, architecture, and tooling for any size development team, and this particular chapter will be focused as a short lecture/discussion about how modern Javascript tools are set up from scratch.
 
-There's lots of subjectivity and strong opinions on this particular subject, so please take these suggestions with a grain of salt. Some people prefer `stylus` over `Sass`, and others might like `pug` over `handlebars`, and those are totally valid opinions.
+There's lots of subjectivity and strong opinions on this particular subject, so please take these suggestions with a grain of salt. Some people prefer `stylus` over `Sass`, and others might like `pug` or `jade` over `handlebars`, and those are totally valid opinions.
 
 There's 3 major aspects of a modern front end system:
 
