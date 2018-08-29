@@ -415,3 +415,16 @@ const SomeObject = {
   }
 };
 ```
+
+
+## Recapping what we've learned
+
+In this section, we learned about:
+* `String`, `Number`, and `Boolean` oh my!
+* Declaring variables using `var`, `let`, and `const`, including the differences between all three.
+* Destructuring `Object` and `Array` data types
+* Variable Shorthand and syntax.
+
+If anything, this section was really meant to be a quick review on some basic variables and popular ES2015+ features like destructuring.
+
+Ready for the next big challenge? Things get interesting in the next chapter!

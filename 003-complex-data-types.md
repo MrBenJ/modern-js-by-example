@@ -80,7 +80,7 @@ MyMap.get('id'); // => 18
 
 ```
 
-When you're constructing a `Map`, you can pass in an `Iterable` like an `Array`, and it'll create key value pairs based on the object or array you pass in.
+When you're constructing a `Map`, you can pass in an `Iterable`, like an `Array`, and it'll create key value pairs based on the object or array you pass in.
 
 ```js
 
@@ -100,7 +100,7 @@ OrderMap.get('whatev'); // => undefined
 
 ```
 
-If you use `Object.entries()`, you can actually convert an `Object` to a `Map` pretty easily
+If you use `Object.entries()`, you can actually convert an `Object` to a `Map` pretty easily:
 
 ```js
 const Person = {
@@ -169,12 +169,12 @@ The REAL power comes from having non-string keys.
 
 const Dave = {
   id: 19,
-  isCriminal: 'yes'
+  likesBacon: 'yes'
 };
 
 const Sheryl = {
   id: 18,
-  isCriminal: 'no'
+  likesBacon: 'also yes'
 };
 
 const ValidationCache = new Map();
@@ -321,16 +321,44 @@ console.log(copyOfGuy);
 // => { name: 'Jeff', age: 44, occupation: 'Pyrotechnician'}
 ```
 
-By doing this, you can merge objects together like this:
+By doing this, you can merge simple and shallow objects together like this:
 
 ```js
-// @TODO: Write an example
+const guy = {
+  name: 'Jeff',
+  age: 44,
+  occupation: 'Pyrotechnician'
+};
+
+const guyUpdated = {
+  name: 'Jeff',
+  age: 45,
+  occupation: 'Firefighter',
+  isReallyHappy: true
+};
+
+const mergedCopy = {
+  ...guy,
+  ...guyUpdated
+};
+
+console.log(mergedCopy); // => { name: 'Jeff', age: 45, occupation: 'Firefighter', isReallyHappy: true }
+
 ```
 
-Keep in mind that the last `...rest` you do in an object will overwrite all the previous values.
+Keep in mind that the last `...rest` you do in an object will overwrite all the previous values. If we switched the order above, we'd get this:
+
 ```js
-// @TODO: Write another example
+const mergedCopy = {
+  ...guyUpdated,
+  ...guy
+};
+console.log(mergedCopy); // => { name: 'Jeff', age: 44, occupation: 'Pyrotechnician', isReallyHappy: true }
 ```
+
+The **age** and **occupation** values were overwritten because `guy` is the last object in the sequence instead of `guyUpdated`
+
+**Note:** This will work for only `Object`s that are one level deep. It is _not recommended_ to try and deep copy and merge nested objects using this method. That's a whole different can of worms.
 
 #### Returning new modified objects and arrays
 
@@ -361,6 +389,37 @@ function incrementCount(counterState) {
     value: value + 1 // overwrite counterState.value with the newly incremented value
   };
 }
+```
+
+#### Deep copying Objects
+
+Sometimes your objects are nested, and just using `Object.assign()` won't do the trick. You'll need to do a little bit more leg work in order to clone a deeply nested object.
+
+```js
+const nestedObject = {
+  name: 'Jeff',
+  occupation: 'Firefighter',
+  siblings: [
+    'Annie',
+    'Larry'
+  ],
+  age: 45,
+  authorizations: {
+    token: 'ffe1895acc3bd3ea2a',
+    permissions: ['filesystem', 'coffee', 'fire', 'admin'],
+    certifications: {
+      fireSafety: true,
+      insulation: true,
+      educationLicense: false,
+      fireworks: true
+    }
+  }
+};
+```
+
+This is a pretty deeply nested object here...
+```js
+// @TODO: Write an example of how to deeply copy an object
 ```
 
 # Symbol
@@ -403,3 +462,16 @@ There's 3 major parts of the `Iterator` interface:
 ```
 
 The `Iterator` protocol makes any `Object` that follows the protocol able to be iterated on through loops, spread operator, generators, etc.
+
+```js
+// @TODO: Finish up the Iterators section!
+```
+
+## Recapping What We've Learned
+
+In this chapter, we talked at great length about:
+
+* `Object` and `Array` data types
+* `Map`, `Set`, `WeakMap`, and `WeakSet`, along with all of their differences, and how to construct them.
+* The Spread Operator and how it can be used over `Object`s and `Array`s
+* Merging and copying `Object` and `Arrays`
