@@ -66,7 +66,7 @@ process.env = {
 
 const envs = new Proxy(process.env, {
   get(env, prop) {
-    // No worries fam, we got you
+    // No problem! Return the default DB url here!
     if(!env[prop] && prop === 'DB_URL') {
       return 'default.db.dev.com:3303';
     }
@@ -77,15 +77,28 @@ const envs = new Proxy(process.env, {
 
 It's not just `process.env` variables, you set defaults and do validation on just about anything.
 
-Keep in mind that it's not only `get()` that can be sent to the handler. It's just the most common usage I've personally seen from it.
+Keep in mind that it's not only `get()` that can be sent to the handler. You can validate setting values on an object too:
+
+```js
+const Horse = new Proxy({}, {
+  set(object, prop, value) {
+    if (prop === 'age' && typeof value !== 'number') {
+      throw new Error('age value must be a number');
+    }
+  }
+});
+
+Horse.age = 15; // OK
+Horse.age = 'ageless'; // => Error: age value must be a number
+```
 
 Here's a few other methods you can override with a `Proxy` handler:
 
 ```js
 const MyProxy = new Proxy({}, {
-  set() { /* Handle setting values */ },
-  deleteProperty() { /* Handle any 'delete' operation on the target object */ },
-  apply() { /* Handle any function calls */ },
+  deleteProperty(object, prop) { /* Handle any 'delete' operation on the target object */ },
+  apply(object, thisValue, argumentsList) { /* Handle any function calls */ },
+  has(object, prop) { /* Handles use of 'in' operator */}
 });
 ```
 To read up more on `Proxy` and all the features, [MDN's documentation is excellent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
