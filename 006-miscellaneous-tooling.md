@@ -101,4 +101,5 @@ const MyProxy = new Proxy({}, {
   has(object, prop) { /* Handles use of 'in' operator */}
 });
 ```
+
 To read up more on `Proxy` and all the features, [MDN's documentation is excellent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
