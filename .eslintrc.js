@@ -14,6 +14,9 @@ module.exports = {
     "plugin:react/recommended"
   ],
   "settings": {
+    "react": {
+      "version": "16.4.0"
+    },
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
     },

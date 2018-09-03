@@ -9,6 +9,9 @@ import Routes from './Routes';
   Entry point for the website
  */
 const root = document.getElementById('root');
+if (!root) {
+  throw new Error('root element not found!');
+}
 
 ReactDOM.render(
   <HashRouter>

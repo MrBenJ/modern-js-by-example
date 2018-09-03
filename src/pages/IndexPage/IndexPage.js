@@ -6,13 +6,13 @@ type IndexPageProps = {
 };
 
 export default class IndexPage extends Component<IndexPageProps> {
-  constructor(props) {
+  constructor(props: IndexPageProps) {
     super(props);
   }
 
   render() {
     return (
-      <div>Hello world!</div>
+      <div>Hello werrrrrd</div>
     );
   }
 }
