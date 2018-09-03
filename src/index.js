@@ -8,7 +8,6 @@ import Routes from './Routes';
 /*
   Entry point for the website
  */
-
 const root = document.getElementById('root');
 
 ReactDOM.render(

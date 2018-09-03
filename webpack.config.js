@@ -4,11 +4,10 @@ const path = require('path');
 const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'production',
+  mode: 'development',
   entry: {
     index: './src/index.js'
   },
-
   devServer: {
     port: 3000,
     hot: true
@@ -24,10 +23,10 @@ module.exports = {
     }
   },
   plugins: [
-    new DotenvPlugin({
-      path: '.env/development'
-    }),
-    process.env.NODE_ENV === 'development' && new webpack.HotModuleReplacementPlugin(),
+    // new DotenvPlugin({
+    //   path: '.env/development'
+    // }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin()
   ],
@@ -51,15 +50,15 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           'sass-loader'
-        ],
+        ]
+      },
         {
-          test: /\.svg$/,
-          use: ['file-loader']
-        },
-        {
-          test: /\.flow$/,
-          loader: 'ignore-loader'
-        }
+        test: /\.svg$/,
+        use: ['file-loader']
+      },
+      {
+        test: /\.flow$/,
+        loader: 'ignore-loader'
       }
     ]
   }

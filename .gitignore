@@ -1,4 +1,9 @@
+# Folders
 node_modules
+
+# Logging
 npm-error.log
-.DS_Store
 yarn-error.log
+
+# macOS
+.DS_Store
