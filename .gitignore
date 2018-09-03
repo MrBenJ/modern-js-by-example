@@ -1,6 +1,6 @@
 # Folders
 node_modules
-
+dist/bundle.js
 # Logging
 npm-error.log
 yarn-error.log

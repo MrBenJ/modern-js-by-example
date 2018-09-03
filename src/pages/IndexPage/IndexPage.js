@@ -12,7 +12,7 @@ export default class IndexPage extends Component<IndexPageProps> {
 
   render() {
     return (
-      <div>Hello werrrrrd</div>
+      <div>Hello Dev environment</div>
     );
   }
 }
