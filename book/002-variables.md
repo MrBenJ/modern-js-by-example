@@ -18,13 +18,16 @@ Strings are text. They're surrounded by either
 
 ## Number
 
-Numbers are... Numbers. They represent numerical value.
+Numbers are... Numbers. They represent numerical value and are always stored as double precision floating point numbers.
 
 ```js
 10
 -1
 200192003
 5
+3.14
+123e5
+123e-5
 ```
 
 These are all numbers.
@@ -282,7 +285,7 @@ const myArray = [ 'Hello', 'Clarice '];
 const [ hello, clarice ] = myArray;
 
 console.log(hello); // 'Hello'
-console.log(clarice); // 'Clarise'
+console.log(clarice); // 'Clarice'
 
 ```
 
@@ -294,7 +297,7 @@ const myArray = [ 'Hello', 'Clarice '];
 const [ greeting, name ] = myArray;
 
 console.log(greeting); // 'Hello'
-console.log(name); // 'Clarise'
+console.log(name); // 'Clarice'
 ```
 
 A common usage of destrucuring is with `Object.entries`, since it returns an array with the Object's key/value pairs in the form of an Array:
