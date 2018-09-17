@@ -238,6 +238,24 @@ In terms of functional usage **WeakMap cannot be interated over** and is better 
 * .has(key)
 * .clear() (this removes everything from the WeakMap)
 
+`WeakMap` can only use variables that are of type `Object` only, meaning you can't use plain `String` or `Number`, and you can't use primitive data types like `Symbol` either.
+
+```js
+const myObject = {
+  name: 'Jeff'
+};
+
+const myWeakMap = new WeakMap();
+
+// This is fine because myObject is a variable that's of type, Object
+myWeakMap.set(myObject, 'Jeff is awesome'); // myWeakMap.get(myObject) => 'Jeff is awesome'
+
+// This will throw an error, because it's a hardcoded string
+myWeakMap.set('Jeff', 'Jeff is cool'); // Error: Invalid value used as weak map key
+```
+
+Under the hood, if an object has no more references pointing to it, it will be cleaned up by the garbage collector, and in turn, deletes `WeakMap`'s reference to the cleaned up object, which deletes the corresponding value.
+
 # Set and WeakSet
 
 Set and WeakSet are identical to Map, except for 2 major differences:
