@@ -7,8 +7,8 @@ Let's talk basics of the basics.
 
 Strings are text. They're surrounded by either
 * Single quotation marks (' ') or
-* Double quotation marks (" ")  or
-* Backticks (` `) - They're to the left of the "1" key on your (US) keyboard
+* Double quotation marks (" ") or
+* Backticks (\` \`) - They're to the left of the "1" key on your (US) keyboard
 
 ```js
 'Hello! I am a string'
@@ -18,7 +18,7 @@ Strings are text. They're surrounded by either
 
 ## Number
 
-Numbers are... Numbers. They represent numerical value and are always stored as double precision floating point numbers.
+Numbers are... Numbers. They represent numerical value and are always stored as double precision (64 bit) floating point numbers.
 
 ```js
 10
@@ -43,7 +43,7 @@ false
 
 ## Declaring variables: `var`, `let`, and `const`
 
-Variables store data, whether they're in a `String`, `Number`, or `Boolean` form. They're also used to store more complex data types, but we'll get there later.
+Variables store data, whether they're of the `String`, `Number`, or `Boolean` type. They're also used to store more complex data types, but we'll get there later.
 
 ```js
 var hello = 'hello';
@@ -65,19 +65,19 @@ Before ES2015, aka ES6, there was ES5, the older version of Javascript.
 
 The only way to declare a variable in this version was with using `var`.
 
-`var` is a little quirky, because it's scope lives at the `function` level. It can also be redeclared.
+`var` is a little quirky, because its scope lives at the `function` level. It can also be redeclared.
 
 ```js
-var i = 'oh dang';
+var x = 'oh dang';
 
 function MyFunction() {
-  var i = 10;
-  var i = 1;
-  var i = false;
+  var x = 10;
+  var x = 1;
+  var x = false;
 }
 ```
 
-What's the value of `i`? I don't really know this example... What do?
+What's the value of `x`? Well, at the end of the function `MyFunction()`, `x` is `false`. But after the function block ends, `x` is `'oh dang'`. This is ambiguous behavior and should be avoided when possible.
 
 **Unless you need function scope, do not use var**
 
@@ -96,7 +96,7 @@ for(var i = 0; i < array.length; i++) {
 console.log(i); // => array.length
 ```
 
-The `i` variable is still able to be accessed outside of the `for` loop because it's function scoped. If we used `let` instead, this would happen instead:
+The `i` variable is still able to be accessed outside of the `for` loop because it's function scoped. If we used `let`, this would happen instead:
 
 ```js
 
@@ -107,7 +107,7 @@ for(let i = 0; i < array.length; i++) {
 console.log(i); // => undefined
 ```
 
-This is much better because block scoping, while it being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be pretty diffuciult to find the value and scope of `x`.
+This is much better because block scoping, while it being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be pretty difficult to find the value and scope of `x`.
 
 `let` and `const` aren't able to have the same identifiers between themselves or others.
 
@@ -119,7 +119,7 @@ first  += 5;
 const first = 20; // => Exception: Identifier 'first' has already been declared
 ```
 
-With block scoping, it's more limited and stricter, so just by looking at where the `let/const` is being used, you'll be able to understand the scope utilizing much less brainpower and thinking :D.
+Block scoping is more strict, so just by looking at where the `let/const` is being used, you'll be able to understand the scope utilizing much less brainpower :D.
 
 #### `let` vs `const`
 
@@ -184,7 +184,7 @@ function onServerResponse(response) {
 }
 ```
 
-You can go even more levels deeper like this:
+You can go even more levels deep like this:
 ```js
 function onServerResponse(response) {
     const { body: {
