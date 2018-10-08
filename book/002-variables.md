@@ -77,7 +77,7 @@ function MyFunction() {
 }
 ```
 
-What's the value of `x`? Well, at the end of the function `MyFunction()`, `x` is `false`. But after the function block ends, `x` is `'oh dang'`. This is ambiguous behavior and should be avoided when possible.
+What's the value of `x`? At the end of `MyFunction()`, `x` is `false`, but outside of `MyFunction()`, `x` is `'oh dang'`. This ambiguous behavior should be avoided as much as possible.
 
 **Unless you need function scope, do not use var**
 
