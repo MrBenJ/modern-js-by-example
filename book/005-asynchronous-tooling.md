@@ -1,12 +1,11 @@
-Asynchronous Tools for Modern Javascript
+Asynchronous Tools for Modern JavaScript
 ========================================
 
 # Promises
 
-Javascript is totally asynchronous and used to use a callback pattern to guarantee order of execution.
+JavaScript is totally asynchronous and used to use a callback pattern to guarantee order of execution.
 
 ```js
-
 function ExecuteTwoThingsInOrder(callback) {
   console.log('I will execute first');
   callback();
@@ -35,12 +34,12 @@ DoSomething( callback => {
 });
 
 ```
-Readable? Not really. Fun?  No. This is what keeps Node programmers up at night in a cold sweat.
+Readable? Not really. Fun?  No. This is what keeps JavaScript programmers up at night in a cold sweat.
 
 Of course it's a problem, but now we've got a brand new shiny tool to stop callback hell.
 
 **IMPORTANT**
-Promises are extremely important in understanding modern Javascript architecture and applications. If you don't understand how Promises work, the rest of this book will be very difficult to follow.
+Promises are extremely important in understanding modern JavaScript architecture and applications. If you don't understand how Promises work, the rest of this book will be very difficult to follow.
 
 ## Introduction to Promises
 
@@ -49,13 +48,14 @@ Under the hood, a **Promise** is a `state machine`. There's a 3 main states that
 1. **Pending**
     The promise has started its work, but hasn't finished yet.
 2. **Resolved** -or- **Fulfilled**
-    The promise has resolved or fulfilled its initial task, and is ready to execute whatever needs to happen next in it's `resolve` function
+    The promise has resolved or fulfilled its initial task, and is ready to execute whatever needs to happen next in it's `resolve` function.
 3. **Rejected**
     Something unfortunate happened and there was an error or exception somewhere in the process.
 
 As a programmer, I need to define what constitutes the `Promise` reaching a **resolved/fulfilled state**, or a **rejected** state.
 
 In this example, I'm making a XHR request to `https://www.example.com/api/v2/users.json` to get some JSON data from the internet:
+
 ```js
 // I'm passing in resolve, and reject, the callbacks that will
 // determine if something is successful or not...
@@ -65,17 +65,17 @@ const GetUsersAsJSON = new Promise( (resolve, reject) => {
   xhr.open('GET', 'https://www.example.com/api/v2/users.json');
 
   xhr.onreadystatechange = () => {
-    if(xhr.readyState < 4) {
+    if (xhr.readyState < 4) {
       // The XHR request hasn't completed yet, so I'm just going to return here.
       return;
     }
 
-    if(xhr.status !== 200) {
+    if (xhr.status !== 200) {
       // The Status code of the request is NOT 200, so it must have failed in some way. Reject the promise
       reject(xhr.response);
       // After calling reject(), the Promise enters 'rejected' state.
     }
-    if(xhr.readyState === 4) {
+    if (xhr.readyState === 4) {
       // The readyState of the request is '4', which means its done.
       // Parse the response into JSON format and resolve the promise
       resolve(JSON.parse(xhr.response));
@@ -98,8 +98,8 @@ GetUsersAsJSON.then( users => {
 ```
 
 The `then` statement gives us a plain English way of telling the program what to do next, but what if something wrong happens to our GET request? That's when we chain a `catch` method like this:
-```js
 
+```js
 GetUsersAsJSON.then( users => {
   console.log(users); // => { name: 'Sheryl', occupation: 'Programmer' }
 }).catch( error => {
@@ -109,9 +109,9 @@ GetUsersAsJSON.then( users => {
 
 The old way of doing this with callbacks looks a little something like this:
 ```js
-// In NodeJS style callbacks, the error is the first argument, then the data
+// In Node.js style callbacks, the error is the first argument, then the data
 GetUsersAsJSON(function(error, users) {
-  if(error) {
+  if (error) {
     throw error; // => Error!
   }
   console.log(users); // => { name: 'Sheryl', occupation: 'Programmer' }
@@ -141,11 +141,12 @@ GetUsersAsJSON(function(error, users) {
   });
 });
 
-// This example uses NodeJS style callbacks where the first argument is an error.
+// This example uses Node.js style callbacks where the first argument is an error.
 // If there is no error, error will be `null`
 ```
 
 This is just for 3 data calls in a fairly typical REST pattern of making multiple calls to an API. Now let's look at the `Promise` version of the same code:
+
 ```js
 GetUsersAsJSON()
   .then(GetUserInformation)
@@ -175,16 +176,16 @@ function getJSON(url) {
     xhr.open('GET', url);
 
     xhr.onreadystatechange = () => {
-      if(xhr.readyState < 4) {
+      if (xhr.readyState < 4) {
         // The XHR request hasn't completed yet, so I'm just going to return here.
         return;
       }
 
-      if(xhr.status !== 200) {
+      if (xhr.status !== 200) {
         // The Status code of the request is NOT 200, so it must have failed in some way. Reject the promise
         reject(xhr.response);
       }
-      if(xhr.readyState === 4) {
+      if (xhr.readyState === 4) {
         // The readyState of the request is '4', which means its done.
         // Parse the response into JSON format and resolve the promise
         resolve(JSON.parse(xhr.response));
@@ -194,6 +195,7 @@ function getJSON(url) {
   });
 }
 ```
+
 Now let's use this function like this:
 
 ```js
@@ -215,7 +217,7 @@ getJSON('https://www.github.com/api/v2/users/MrBenJ');
 
 ### util.promisify
 
-Node version 8 introduced a new utility called `promisify`, which takes a NodeJS style callback (error first, data/result second) and wraps it into a `Promise`.
+Node version 8 introduced a new utility called `promisify`, which takes a Node.js style callback (error first, data/result second) and wraps it into a `Promise`.
 
 For instance, let's take the `fs` (filesystem) module in Node and turn the `fs.readFile` call into a Promise based one:
 
@@ -240,7 +242,6 @@ The `fetch` keyword is becoming more and more commonplace in modern front end we
 `Fetch` is just like `XMLHttpRequest` except instead of using a callback pattern with `XMLHttpRequest.onreadystatechange`, it uses a `Promise` instead.
 
 ```js
-
 fetch('https://www.github.com/api/v2/users.json')
   .then( users => {
     console.log(users);
@@ -272,6 +273,7 @@ fetch('/some-endpoint/users')
     error => { /* do something with the error */ }
   );
 ```
+
 There's nothing wrong with either approach, just make sure you and your team agrees on which method is preferred.
 
 **IMPORTANT** As of Node v10, Unhandled rejected promises will halt and/or crash the Node process. If you aren't handling rejected promises now, you will need to it soon, otherwise your whole program will crash.
@@ -282,11 +284,11 @@ Promises open up so much in async functionality, making callback hell a thing of
 
 However, because things get easier, the desire to create more complex functions that do more than just one thing gets more and more complicated.
 
-This is where principles of composition come in, where your single responsibility functions you write can now start being chained together (if this isn't making sense, it will when we start looking at `async function`s in the next section!)
+This is where principles of composition come in, where your single responsibility functions you write can now start being chained together (if this isn't making sense, it will when we start looking at `async function`s in the next section!).
 
 Don't do this:
-```js
 
+```js
 function getUsersTopComment(userId) {
   return new Promise( (resolve, reject) => {
     fetch('/api/user/' + userId )
@@ -300,6 +302,7 @@ function getUsersTopComment(userId) {
   });
 }
 ```
+
 This makes 2 different calls, one to `/api/user/:userId`, and another to `/api/user/:userId/comments`. You can already see the code starting to move over to the right, which is a surefire sign of callback hell just waiting to happen.
 
 Instead of making one function that does 2 calls, create 2 different functions that each return a Promise.
@@ -313,7 +316,7 @@ function getUser(userId) {
   });
 }
 
-function getUsersTopComment(userInfo)  {
+function getUsersTopComment(userInfo) {
   return new Promise( (resolve, reject) => {
     fetch('/api/user/' + userInfo.hash + '/comments')
       .then( comments => {
@@ -323,9 +326,11 @@ function getUsersTopComment(userInfo)  {
   });
 }
 ```
+
 By doing this we're able to keep single responsibility with our Promises, and have 2 functions we can use through composition and reuse, than creating giant functions we only need to use a few times.
 
 If I wanted to get a user's top comment now, it would look a little like this:
+
 ```js
 const userId = 5;
 const getUser(userId)
@@ -343,7 +348,7 @@ But wait, it gets even better with `Promises` when we start using...
 
 **Important** If you still don't understand Promises and why you would use them, go back and reread/study/practice using `Promise`s in the previous section, otherwise, `async function`s will still be a foreign concept.
 
-With the number of direct API calls increasing in modern Javascript development, async functions provide an incredibly powerful and easy to read way of writing code that **looks synchronous**, and executes in a distinctly clear order.
+With the number of direct API calls increasing in modern JavaScript development, async functions provide an incredibly powerful and easy to read way of writing code that **looks synchronous**, and executes in a distinctly clear order.
 
 Let's take a look at this example here:
 
@@ -387,13 +392,13 @@ If I were to run `sayHelloInOrder()`, this would happen
 
 1. The entire function hits an `await` keyword and execution STOPS until the `wait()` function's `Promise` resolves. In this case, it's waiting 2 seconds, then resolving.
 
-2. The function hits `console.log('hello 1!')` and continues on
+2. The function hits `console.log('hello 1!')` and continues on.
 
 3. The function hits another `await` statement and STOPS until `wait()`'s `Promise` resolves. Here, it's just waiting 1 second.
 
 4. We say hello a second time. Hello again.
 
-5. The `async function` is finished and returns a `Promise` with a resolved value of `'hello'`
+5. The `async function` is finished and returns a `Promise` with a resolved value of `'hello'`.
 
 Because `async function`s **always return a Promise**, it means you can chain `.then()` and `.catch()` to the statements like this:
 
@@ -449,7 +454,7 @@ We can refactor this code to be used inside an `async function`:
 async function getTopCommentByUserId(userId) {
   const user = await getUser(userId);
 
-  const topComment = awaitUsersTopComment(user);
+  const topComment = await getUsersTopComment(user);
 
   return topComment;
 }
@@ -468,7 +473,7 @@ async function getTopCommentByUserId(userId) {
   try {
     const user = await getUser(userId);
 
-    const topComment = awaitUsersTopComment(user);
+    const topComment = await getUsersTopComment(user);
 
     return topComment;
 
@@ -499,7 +504,8 @@ Our product manager says that right as a user creates a new recipe on our app, w
 
 By writing a few functions that return `Promise`s, we can use a handy `async function` that makes both of our calls quickly and cleanly.
 
-Here's our first `createRecipe` function
+Here's our first `createRecipe` function:
+
 ```js
 /**
   Makes a POST request to /create-recipe to create a recipe
@@ -507,12 +513,12 @@ Here's our first `createRecipe` function
   @return {Promise<Number>} - Returns the recipeId
 */
 function createRecipe(recipeData) {
-  return new Promise((resolve, reject) => {
+  return new Promise( (resolve, reject) => {
     fetch('/create-recipe', {
       method: 'POST',
       body: JSON.stringify(recipeData)
     })
-    .then( recipeId => resolve(recipeId))
+    .then( recipeId => { resolve(recipeId); })
     .catch( error => { reject(error); });
   })
 }
@@ -526,7 +532,7 @@ Now we can make our `getRecipe` function
   @param {Object}          - The recipe data
 */
 function getRecipe(recipeId) {
-  return new Promise((resolve, reject) => {
+  return new Promise( (resolve, reject) => {
     fetch(`/recipes/${recipeId}`)
       .then( recipe => { resolve(recipe); })
       .catch( error => { reject(error); });
@@ -534,14 +540,14 @@ function getRecipe(recipeId) {
 }
 ```
 
-Great! Now we can put these tow things together:
+Great! Now we can put these two things together:
 
 ```js
 import { createRecipe, getRecipe } from '../utilities';
 /**
   Creates a recipe in the database, and returns the created recipe
   @param {Object} recipe - The recipe to create and display
-  @return {Promise<Object>}       - The created recipe as written in the database
+  @return {Promise<Object>} - The created recipe as written in the database
 */
 async function createNewRecipe(recipe) {
   try {
@@ -651,7 +657,6 @@ console.log(thirdValue);
 // If we run next(); again, we'll get another Iterator, but it will say it's done
 console.log(myGenerator.next());
 // => { done: true }
-
 ```
 
 Generators are very similar to `async function`s, as they completely stop the execution of the function and return some sort of value. The big difference is that a `Generator` gives greater control by allowing you to pass in data using `.next()`.
@@ -686,7 +691,6 @@ function* findCarsByModel(model) {
       const response = yield cars[i];
     }
 
-
     // If we send back { stopLooking: true } in .next(), the generator will stop.
     if (response.stopLooking === true) {
       break;
@@ -698,7 +702,6 @@ function* findCarsByModel(model) {
 How we'd use this fancy generator would look like this:
 
 ```js
-
 // I need to find a Ford Mustang with a license plate number of 'AAYG48KX'.
 // I'll use the findCarsByModel generator to grab any car that's a 'Mustang'
 
@@ -734,7 +737,7 @@ while (!foundCar)
 
 Or we could repurpose our generator to a plain function that looks for the car by plate number. There's so many different, and better ways to do this instead of unnecessary complications using a `Generator`.
 
-For these reasons and many others **this is why Generators and practical usage is a fairly heated topic in Modern Javascript**.
+For these reasons and many others **this is why Generators and practical usage is a fairly heated topic in Modern JavaScript**.
 
 ## Practical Generator usage
 
@@ -765,6 +768,7 @@ function* sendPost(data) {
   }
 }
 ```
+
 At first glance, this looks just like an `async function` with the `try/catch` block, except that instead of `await`, we are using `yield`. This is intentional, as we're using the `sendPost` function _like an async function_, but `Redux-Saga`'s main goal was to make this whole function _testable without setting up a fake server to intercept calls_.
 
 We need to pass data back into our `Generator` in order to have it keep trucking along like it would in production code. If I were to write some unit tests for this function, I would need to test the following:
@@ -849,6 +853,6 @@ describe('sendPost() tests', () => {
 
 });
 ```
-Take note that we didn't need to use a fake HTTP server tool like `sinon`. We simulated both good and bad calls by passing data back in using `.next()`. This is why `Generator` was used instead of `async function`s for `Redux-Saga`, and an excellent real-world use case for **practical generator usage**
+Take note that we didn't need to use a fake HTTP server tool like `sinon`. We simulated both good and bad calls by passing data back in using `.next()`. This is why `Generator` was used instead of `async function`s for `Redux-Saga`, and an excellent real-world use case for **practical generator usage**.
 
 In short, if you need to pass logic or data back into an `async function`, it should probably be a `Generator`.

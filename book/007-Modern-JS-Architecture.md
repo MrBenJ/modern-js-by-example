@@ -1,14 +1,14 @@
-Modern Javascript Architecture
+Modern JavaScript Architecture
 ==============================
 
-As Javascript moves at breakneck speeds, this section can at any time fall behind. By the time you finish reading this sentence, we might already be on Webpack version 8 and Angular 19.
+As JavaScript moves at breakneck speeds, this section can at any time fall behind. By the time you finish reading this sentence, we might already be on Webpack version 8 and Angular 19.
 
 At the time of this writing,
 Webpack's latest major version is v4.
 React's latest version is v0.16.4
 Angular's latest version is v6. // TODO: FIX!!!
 
-While stated earlier that the non-coding chatter will be kept to a minimum, this chapter is all about concepts, architecture, and tooling for any size development team, and this particular chapter will be focused as a short lecture/discussion about how modern Javascript tools are set up from scratch.
+While stated earlier that the non-coding chatter will be kept to a minimum, this chapter is all about concepts, architecture, and tooling for any size development team, and this particular chapter will be focused as a short lecture/discussion about how modern JavaScript tools are set up from scratch.
 
 There's lots of subjectivity and strong opinions on this particular subject, so please take these suggestions with a grain of salt. Some people prefer `stylus` over `Sass`, and others might like `pug` or `jade` over `handlebars`, and those are totally valid opinions.
 
@@ -20,9 +20,9 @@ There's 3 major aspects of a modern front end system:
 
 # Task runners
 
-Back in the ancient Javascript civilizations of 2013, brave warrior and huntress tribes of developers used `grunt` to start automating repetitive and menial tasks.
+Back in the ancient JavaScript civilizations of 2013, brave warrior and huntress tribes of developers used `grunt` to start automating repetitive and menial tasks.
 
-With the advent of Node JS, there were more and more tools that started appearing in the Javascript ecosystem. We were able to use the command line to:
+With the advent of Node.js, there were more and more tools that started appearing in the JavaScript ecosystem. We were able to use the command line to:
 
 * Minify/Uglify our JS code
 * Use a CSS preprocessor like `Sass` or `Less`.
@@ -42,7 +42,7 @@ Naturally, more tooling with `grunt` happened, and more modules were created to 
 
 Now all we had to do was type `grunt build` and JS would be uglified, `Sass/Less` code would be compiled to `css`, and we'd get a picture perfect performant web application in a convenient folder, ready to `grunt deploy` onto whatever service we wanted.
 
-A group of Javascript developers one day got together and said, "I wished `grunt` could do ... and have more customization...".
+A group of JavaScript developers one day got together and said, "I wished `grunt` could do ... and have more customization...".
 
 And so, `gulp` was created and also named after a bodily function.
 
@@ -50,15 +50,15 @@ The customizations within `gulp` were far more modular and reusable, being much 
 
 And so, all new projects and boilerplates began to move away from `grunt`, everyone started using `gulp`, and everyone was happy.
 
-Except not really because Javascript developers always want to build new things and ~crap~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because bodily functions are gross. We had a new world of task runners pop up like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream? Sure. I'll eat it.
+Except not really because JavaScript developers always want to build new things and ~crap~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because bodily functions are gross. We had a new world of task runners pop up like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream? Sure. I'll eat it.
 
 All Joking aside, tools like `grunt` and `gulp` are still widely used to this very day, and knowing at least one is great. I'd recommend getting your feet wet with `gulp` and its large ecosystem of excellent plugins and tools, as in my personal experience, it's easier to configure and pick up.
 
-In today's modern Javascript development environments, the Task runner and Bundler are typically combined into a single tool. We'll talk a little bit more about this later.
+In today's modern JavaScript development environments, the Task runner and Bundler are typically combined into a single tool. We'll talk a little bit more about this later.
 
 # Bundlers and Build Systems
 
-There's 3 main build systems that are of major popularity in Javascript. They are:
+There's 3 main build systems that are of major popularity in JavaScript. They are:
 
 1. Webpack
 2. Rollup
@@ -76,7 +76,7 @@ The bundler configuration usually has what's called an **entry point**. This is 
 
 In a `React` or `Angular` project, this is the top level `React` component like `app.js`, or a `main.ts` file for `Angular` projects.
 
-The bundler will look for NodeJS `require()` calls, or Babel `import` statements in the entry point, and will go through the files they point to, and find those `require()` and/or `import` statements. This will continue recursively until the bundler creates a manifest of what module is dependent on what, and all of the moving parts of an application.
+The bundler will look for Node.js `require()` calls, or Babel `import` statements in the entry point, and will go through the files they point to, and find those `require()` and/or `import` statements. This will continue recursively until the bundler creates a manifest of what module is dependent on what, and all of the moving parts of an application.
 
 After creating the manifest, it grabs all of the files and **compiles them all to a single script.js or bundle.js** file, that's meant to be loaded in a web browser through your standard `<script>` tag.
 
@@ -97,11 +97,11 @@ Personally speaking here, **I find learning how to configure build systems extre
 
 ## Learning to set up a build system
 
-For quick and easy setups with common components and pieces like `React` and `Typescript`, I recommend using `Parcel`.
+For quick and easy setups with common components and pieces like `React` and `TypeScript`, I recommend using `Parcel`.
 
 To my knowledge, `Parcel` as a configuration-free build system, as `Webpack` is complicated and difficult to set up, especially for beginners. **Webpack can be intimidating and difficult for newcomers**.
 
-All `Parcel` needs is an `html file` and in just a few milliseconds, it bundles and builds your application for you, auto-configuring itself to suit your needs. Great!
+All `Parcel` needs is an `HTML` file and in just a few milliseconds, it bundles and builds your application for you, auto-configuring itself to suit your needs. Great!
 
 However, after so long and needing new tools, `Parcel` can only go so far.
 
@@ -113,13 +113,13 @@ However, `Webpack` is a big and open ecosystem that has lots of moving parts tha
 
 ## Learning Webpack
 
-If `parcel` isn't cutting it for you and you'd like to use more tools in the Javascript ecosystem ( eg. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
+If `Parcel` isn't cutting it for you and you'd like to use more tools in the JavaScript ecosystem ( eg. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
 
 `Webpack` was meant to be used for Single Page Applications, or SPAs for short. Setting up architecture for a single page application with `Webpack` is simple compared to an project with multiple pages and entry points.
 
 # Frameworks
 
-As of this writing, there are 3 major Javascript frameworks:
+As of this writing, there are 3 major JavaScript frameworks:
 
 1. Angular
 2. Vue.js
@@ -133,4 +133,4 @@ All three of these tools are extremely mature, and have been battle tested in pr
 
 If you know zero out of three frameworks, **Learn any of them**. It really doesn't matter.
 
-**Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue, and React are all battle tested tools to do this. While each has their own unique approach with their own pros and cons, the end goal is still the same - **Sync UI state with server**.
+**Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue,js, and React are all battle tested tools to do this. While each has their own unique approach with their own pros and cons, the end goal is still the same - **Sync UI state with server**.

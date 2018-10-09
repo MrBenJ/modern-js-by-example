@@ -1,7 +1,7 @@
 Miscellaneous Tooling
 =====================
 
-This chapter shows the less-common, but still good to know stuff when it comes to Javascript. For the examples, I'll do my best to show some real world situations for each one, but for the most part, you wouldn't really be using this stuff often, but for the specific practical applications that you'll see, they're the perfect tool for doing so.
+This chapter shows the less-common, but still good to know stuff when it comes to JavaScript. For the examples, I'll do my best to show some real world situations for each one, but for the most part, you wouldn't really be using this stuff often, but for the specific practical applications that you'll see, they're the perfect tool for doing so.
 
 # Proxy API
 
@@ -9,9 +9,9 @@ A `Proxy` acts as a middle layer between reading/executing a property on an `Obj
 
 ```js
 const MyObject = {
-    first: 'example',
-    second: 2
-    // MyObject doesn't have a 'third' property...
+  first: 'example',
+  second: 2
+  // MyObject doesn't have a 'third' property...
 };
 
 const MyProxy = new Proxy(MyObject, {
@@ -23,7 +23,6 @@ const MyProxy = new Proxy(MyObject, {
       return object[property];
     }
   }
-}
 });
 
 // MyProxy has all of the values of MyObject
@@ -35,6 +34,7 @@ console.log(MyProxy.third); // => 3
 ```
 
 To create a `Proxy`, you'll pass in a `targetObject` and a `handler`
+
 ```js
 const MyProxy = new Proxy(targetObject, handler);
 ```
@@ -42,6 +42,7 @@ const MyProxy = new Proxy(targetObject, handler);
 ## A Real World Use of Proxy
 
 One really great use of `Proxy` is accessing environmental variables and validating them. Setting `process.env` as your target.
+
 ```js
 const envs = new Proxy(process.env, {
   get(env, prop) {
@@ -52,7 +53,7 @@ const envs = new Proxy(process.env, {
   }
 });
 
-console.log(envs.MY_MISSING_VALUE); // throws an error
+console.log(envs.MY_MISSING_VALUE); // => throws an error
 ```
 
 If you need to set some default values for your ENV variables, a `Proxy` is a great choice.
@@ -85,6 +86,7 @@ const Horse = new Proxy({}, {
     if (prop === 'age' && typeof value !== 'number') {
       throw new Error('age value must be a number');
     }
+    object[prop] = value;
   }
 });
 

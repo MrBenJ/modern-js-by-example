@@ -1,7 +1,7 @@
 {
   "name": "modern-js-by-example",
   "version": "0.1.0",
-  "description": "A Pragmatic Book on Javascript and all its wonderful new modern features for an eternally evolving ecosystem",
+  "description": "A Pragmatic Book on JavaScript and all its wonderful new modern features for an eternally evolving ecosystem",
   "main": "index.js",
   "repository": "https://www.github.com/MrBenJ/modern-js-by-example",
   "author": "Ben Junya <bjunya@gmail.com>",
