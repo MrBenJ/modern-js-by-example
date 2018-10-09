@@ -13,3 +13,11 @@ This open source free to read and consume book is meant for beginner to intermed
 Check out the `/book` folder and pick a chapter to start reading up and enjoying the book :).
 
 Contributions welcome. Contributor Code of Conduct, Pull Request Policies, and more coming soon!
+
+## Contributors
+
+This book would not have been possible for the several contributors that have graciously donated their time and energy to making this book better.
+
+* [fangstar](https://www.github.com/fangstar) - Proofreading and editing examples
+* [spamyak](https://www.github.com/spamyak) - Proofreading and catching incorrect examples
+* [Anton Halim](https://www.github.com/antonhalim) - Heavy Proofreading, catching incorrect examples, and grammar
