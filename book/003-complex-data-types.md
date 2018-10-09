@@ -10,7 +10,7 @@ const Person = {
   name: 'Sheryl',
   occupation: 'Programmer',
   id: 18
-}
+};
 
 Person.name; // => 'Sheryl'
 Person.occupation; // => 'Programmer'
@@ -32,7 +32,7 @@ const Person = {};
 Person.name = 'Sheryl';
 
 // Bracket Syntax
-Person['occupation'] = 'Programmer'
+Person['occupation'] = 'Programmer';
 
 // 'occupation' doesn't have to be a plain string. It can be a variable that's holding a string value
 const myKey = 'id';
@@ -56,7 +56,7 @@ console.log(dynamicObject[key]); // => 'myValue'
 Arrays are ordered values, that start at an index of 0.
 
 ```js
-const MyArray = ['hello', 3, true, 'Jeff', { name: 'Sheryl'}];
+const MyArray = ['hello', 3, true, 'Jeff', { name: 'Sheryl' }];
 
 MyArray[0]; // => 'hello'
 MyArray[4]; // => { name: 'Sheryl' }
@@ -67,7 +67,6 @@ MyArray[4]; // => { name: 'Sheryl' }
 `Map` objects create a traditional `get` and `set` interface around data stored in `key/value` pairs.
 
 ```js
-
 const MyMap = new Map();
 
 MyMap.set('name', 'Sheryl');
@@ -77,13 +76,11 @@ MyMap.set('id', 18);
 MyMap.get('name'); // => 'Sheryl'
 MyMap.get('occupation'); // => 'Programmer'
 MyMap.get('id'); // => 18
-
 ```
 
 When you're constructing a `Map`, you can pass in an `Iterable`, like an `Array`, and it'll create key value pairs based on the object or array you pass in.
 
 ```js
-
 const OrderMap = new Map([
   'Welcome',
   'To',
@@ -96,8 +93,6 @@ const OrderMap = new Map([
 OrderMap.get(0); // => 'Welcome'
 OrderMap.get(3); // => 'life'
 OrderMap.get('whatev'); // => undefined
-
-
 ```
 
 If you use `Object.entries()`, you can actually convert an `Object` to a `Map` pretty easily:
@@ -107,7 +102,8 @@ const Person = {
   name: 'Sheryl',
   occupation: 'Programmer',
   id: 18
-}
+};
+
 // Creates the same map in the previous example
 const PersonMap = new Map(Object.entries(Person));
 
@@ -123,10 +119,10 @@ const Person = {
   name: 'Sheryl',
   occupation: 'Programmer',
   id: 18
-}
+};
 
 // Iterating over an object
-for (let key of Person) {
+for (let key in Person) {
   console.log(Person[key]); // 'Sheryl, 'Programmer', 18 - but not guaranteed in that order!
 }
 
@@ -166,7 +162,6 @@ PersonMap.size; // => 3
 The REAL power comes from having non-string keys.
 
 ```js
-
 const Dave = {
   id: 19,
   likesBacon: 'yes'
@@ -181,8 +176,8 @@ const ValidationCache = new Map();
 ValidationCache.set(Dave, false);
 ValidationCache.set(Sheryl, true);
 
-ValidationCache.get(Sheryl); // true
 ValidationCache.get(Dave); // false
+ValidationCache.get(Sheryl); // true
 ```
 
 It's not just objects, you can use numbers, NaN, undefined, just about anything.
@@ -191,22 +186,21 @@ It's not just objects, you can use numbers, NaN, undefined, just about anything.
 Unlike `Object`, `Map` is ordered by the order of insertion.
 
 ```js
-
 const SomeMap = new Map();
 SomeMap.set('first', 1);
 SomeMap.set('second', 2);
 SomeMap.set('third', 3);
 
-for (let [key, value], in SomeMap) {
+for (let [key, value] of SomeMap) {
   console.log(key, value);
 }
-// Returns  in order:
+// Returns in order:
 // first, 1
 // second, 2
 // third, 3
 ```
 
-## Practical Usage in Modern JS
+## Practical Usage in Modern JavaScript
 
 SCENARIO:
 We need a quick way to see if some users (represented by objects) are of legal drinking age in our hot "bar loyalty social media site startup".
@@ -221,7 +215,7 @@ ArrayOfUsers.forEach( user => {
 
 // Now wherever we need to check the users that are above age 21...
 
-if(LegalAgeCache.get(John)) { // Assuming John is some user object
+if (LegalAgeCache.get(John)) { // Assuming John is some user object
   return 'beer';
 } else {
   return 'appleJuice';
@@ -291,14 +285,14 @@ console.log(newArray) // => ["let's", 'party', 'right', 'now!']
 
 ## Rest Spread Operator
 
-**NOTE**: This feature was recently resolved to Stage-4 on January 28th, 2018 as per TC39. It's now a standard of the language. With this feature being very new to Javascript, you may need a transpiler like `babel` or `TransformJS` to use this feature. More on this in a future chapter.
+**NOTE**: This feature was recently resolved to Stage-4 on January 28th, 2018 as per TC39. It's now a standard of the language. With this feature being very new to JavaScript, you may need a transpiler like `babel` or `TransformJS` to use this feature. More on this in a future chapter.
 
 ### Rest Spread on Arrays
 
 On an `Array`, if you need to grab the first few elements through destructuring and keep the rest for later, you can do use the `rest spread operator`.
 
 ```js
-const selectiveArray = [ 'important', 'strings', 'here', 'but', 'not', 'these'];
+const selectiveArray = ['important', 'strings', 'here', 'but', 'not', 'these'];
 
 const [ first, second, third, ...rest ] = selectiveArray;
 
@@ -319,7 +313,6 @@ console.log(cutest); // => 'corgi'
 console.log(shortest); // => 'dachshund'
 console.log(foofiest); // => 'pomeranian'
 console.log(cats); // => ['dwarf', 'persian', 'calico']
-
 ```
 
 ### Rest Spread on Objects
@@ -335,8 +328,7 @@ const guy = {
 
 const copyOfGuy = { ...guy };
 
-console.log(copyOfGuy);
-// => { name: 'Jeff', age: 44, occupation: 'Pyrotechnician'}
+console.log(copyOfGuy); // => { name: 'Jeff', age: 44, occupation: 'Pyrotechnician'}
 ```
 
 By doing this, you can merge simple and shallow objects together like this:
@@ -361,7 +353,6 @@ const mergedCopy = {
 };
 
 console.log(mergedCopy); // => { name: 'Jeff', age: 45, occupation: 'Firefighter', isReallyHappy: true }
-
 ```
 
 Keep in mind that the last `...rest` you do in an object will overwrite all the previous values. If we switched the order above, we'd get this:
@@ -371,6 +362,7 @@ const mergedCopy = {
   ...guyUpdated,
   ...guy
 };
+
 console.log(mergedCopy); // => { name: 'Jeff', age: 44, occupation: 'Pyrotechnician', isReallyHappy: true }
 ```
 
@@ -442,7 +434,7 @@ This is a pretty deeply nested object here...
 
 # Symbol
 
-I felt a bit hesitant about putting `Symbol` in this book because it has such limited usage, and isn't really used often in everyday Javascript development. However, I find myself consistently seeing this data type in transpiled code, polyfilled, and living inside of libraries and tools that I use everyday.
+I felt a bit hesitant about putting `Symbol` in this book because it has such limited usage, and isn't really used often in everyday JavaScript development. However, I find myself consistently seeing this data type in transpiled code, polyfilled, and living inside of libraries and tools that I use everyday.
 
 While I probably won't use `Symbol` very often myself, I find knowing what it actually is quite nice, and makes me think of finding a way to implement it for my own special data types from project to project.
 
@@ -468,7 +460,7 @@ Note: MDN's online documentation on `Symbol` is excellent and very well written.
 
 # Iterators and Iteration Protocol
 
-Iterators are a staple data type in other programming languages and have now come to Javascript.
+Iterators are a staple data type in other programming languages and have now come to JavaScript.
 
 There's 3 major parts of the `Iterator` interface:
 ```js
