@@ -109,7 +109,7 @@ GetUsersAsJSON.then( users => {
 
 The old way of doing this with callbacks looks a little something like this:
 ```js
-// In NodeJS style callbacks, the error is the first argument, then the data
+// In Node.js style callbacks, the error is the first argument, then the data
 GetUsersAsJSON(function(error, users) {
   if (error) {
     throw error; // => Error!
@@ -141,7 +141,7 @@ GetUsersAsJSON(function(error, users) {
   });
 });
 
-// This example uses NodeJS style callbacks where the first argument is an error.
+// This example uses Node.js style callbacks where the first argument is an error.
 // If there is no error, error will be `null`
 ```
 
@@ -217,7 +217,7 @@ getJSON('https://www.github.com/api/v2/users/MrBenJ');
 
 ### util.promisify
 
-Node version 8 introduced a new utility called `promisify`, which takes a NodeJS style callback (error first, data/result second) and wraps it into a `Promise`.
+Node version 8 introduced a new utility called `promisify`, which takes a Node.js style callback (error first, data/result second) and wraps it into a `Promise`.
 
 For instance, let's take the `fs` (filesystem) module in Node and turn the `fs.readFile` call into a Promise based one:
 

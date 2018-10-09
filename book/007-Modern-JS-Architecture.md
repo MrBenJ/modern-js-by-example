@@ -76,7 +76,7 @@ The bundler configuration usually has what's called an **entry point**. This is 
 
 In a `React` or `Angular` project, this is the top level `React` component like `app.js`, or a `main.ts` file for `Angular` projects.
 
-The bundler will look for NodeJS `require()` calls, or Babel `import` statements in the entry point, and will go through the files they point to, and find those `require()` and/or `import` statements. This will continue recursively until the bundler creates a manifest of what module is dependent on what, and all of the moving parts of an application.
+The bundler will look for Node.js `require()` calls, or Babel `import` statements in the entry point, and will go through the files they point to, and find those `require()` and/or `import` statements. This will continue recursively until the bundler creates a manifest of what module is dependent on what, and all of the moving parts of an application.
 
 After creating the manifest, it grabs all of the files and **compiles them all to a single script.js or bundle.js** file, that's meant to be loaded in a web browser through your standard `<script>` tag.
 
