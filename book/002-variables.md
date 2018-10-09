@@ -61,7 +61,7 @@ console.log(isOldEnoughToParty); // true
 
 ### The Significance of `var`
 
-Before ES2015, aka ES6, there was ES5, the older version of Javascript.
+Before ES2015, aka ES6, there was ES5, the older version of JavaScript.
 
 The only way to declare a variable in this version was with using `var`.
 
@@ -138,7 +138,7 @@ second = 2000; // => Exception: Cannot reassign 'const' value
 Understand that you can still run methods on `const`, and those methods can change the value of a `const` variable.
 
 ```js
-const myArray = [ 'raining', 'cats', 'and', 'dogs'];
+const myArray = ['raining', 'cats', 'and', 'dogs'];
 
 myArray.pop();
 
@@ -179,7 +179,7 @@ function onServerResponse(response) {
     console.log(firstName);   // 'Ronny'
     console.log(lastName);    // 'Rumples'
     console.log(occupation);  // 'Programmer'
-    console.log(age)          // 44
+    console.log(age);         // 44
     //...
 }
 ```
@@ -197,7 +197,7 @@ function onServerResponse(response) {
     console.log(firstName);   // 'Ronny'
     console.log(lastName);    // 'Rumples'
     console.log(occupation);  // 'Programmer'
-    console.log(age)          // 44
+    console.log(age);         // 44
 
     // Note: Understand that 'body' will be undefined here:
     console.log(body); // undefined
@@ -221,7 +221,7 @@ function onServerResponse(response) {
     console.log(firstName);   // 'Ronny'
     console.log(lastName);    // 'Rumples'
     console.log(occupation);  // 'Programmer'
-    console.log(age)          // 44
+    console.log(age);         // 44
 
 
     console.log(body); // { firstName: 'Ronny', lastName: 'Rumples', ... }
@@ -237,7 +237,7 @@ function onServerResponse({ body }) {
     console.log(firstName);   // 'Ronny'
     console.log(lastName);    // 'Rumples'
     console.log(occupation);  // 'Programmer'
-    console.log(age)          // 44
+    console.log(age);         // 44
 
     //...
 }
@@ -268,7 +268,7 @@ function onServerResponse({ body }) {
     console.log(first);   // 'Ronny'
     console.log(last);    // 'Rumples'
     console.log(job);     // 'Programmer'
-    console.log(years)    // 44
+    console.log(years);   // 44
 
     // Note: 'firstName', 'lastName', 'occupation', and 'age' will all be undefined
     //...
@@ -280,7 +280,7 @@ function onServerResponse({ body }) {
 The party doesn't stop with `Objects`. If you know the array coming just has 2 values, you can destructure like this:
 
 ```js
-const myArray = [ 'Hello', 'Clarice '];
+const myArray = ['Hello', 'Clarice'];
 
 const [ hello, clarice ] = myArray;
 
@@ -292,7 +292,7 @@ console.log(clarice); // 'Clarice'
 Of course, you don't need to name them `hello` or `clarice`. You can name them whatever you'd like:
 
 ```js
-const myArray = [ 'Hello', 'Clarice '];
+const myArray = ['Hello', 'Clarice'];
 
 const [ greeting, name ] = myArray;
 
@@ -318,7 +318,7 @@ Object.entries(MyObject).map( ([key, value]) => {
 
 ## Variable Shorthand and Syntax
 
-Javascript now has some really great shorthand and convenience syntax when it comes to `Object`s.
+JavaScript now has some really great shorthand and convenience syntax when it comes to `Object`s.
 
 Look at this excerpt, we used to have to do stuff like this:
 ```js
@@ -400,7 +400,6 @@ If you're confused about the syntax, the `...` is the **Spread Operator**. We go
 
 Defining methods on objects are usually done like this:
 ```js
-
 var SomeObject = {
   performMagic: function(magic) {
     console.log('Alakazam! ', magic);
@@ -411,7 +410,6 @@ var SomeObject = {
 Now we can do this instead:
 
 ```js
-
 const SomeObject = {
   performMagic(magic) {
     console.log('Alakazam! ', magic);
@@ -425,7 +423,7 @@ const SomeObject = {
 In this section, we learned about:
 * `String`, `Number`, and `Boolean` oh my!
 * Declaring variables using `var`, `let`, and `const`, including the differences between all three.
-* Destructuring `Object` and `Array` data types
+* Destructuring `Object` and `Array` data types.
 * Variable Shorthand and syntax.
 
 If anything, this section was really meant to be a quick review on some basic variables and popular ES2015+ features like destructuring.
