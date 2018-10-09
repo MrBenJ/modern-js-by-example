@@ -22,7 +22,7 @@ There's 3 major aspects of a modern front end system:
 
 Back in the ancient JavaScript civilizations of 2013, brave warrior and huntress tribes of developers used `grunt` to start automating repetitive and menial tasks.
 
-With the advent of Node JS, there were more and more tools that started appearing in the JavaScript ecosystem. We were able to use the command line to:
+With the advent of Node.js, there were more and more tools that started appearing in the JavaScript ecosystem. We were able to use the command line to:
 
 * Minify/Uglify our JS code
 * Use a CSS preprocessor like `Sass` or `Less`.
