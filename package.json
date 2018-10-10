@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start": "echo 'not implemented yet'",
-    "test": "alex *.md book/*.md",
+    "test": "alex README.md book/*.md",
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
