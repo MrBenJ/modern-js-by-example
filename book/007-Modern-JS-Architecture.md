@@ -50,7 +50,7 @@ The customizations within `gulp` were far more modular and reusable, being much 
 
 And so, all new projects and boilerplates began to move away from `grunt`, everyone started using `gulp`, and everyone was happy.
 
-Except not really because JavaScript developers always want to build new things and ~crap~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because bodily functions are gross. We had a new world of task runners pop up like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream? Sure. I'll eat it.
+Except not really because JavaScript developers always want to build new things and ~make fun of~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because they ran out of bodily functions to name things after. We had a new world of task runners appear like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream? Sure. I'll eat it.
 
 All Joking aside, tools like `grunt` and `gulp` are still widely used to this very day, and knowing at least one is great. I'd recommend getting your feet wet with `gulp` and its large ecosystem of excellent plugins and tools, as in my personal experience, it's easier to configure and pick up.
 
@@ -115,6 +115,7 @@ However, `Webpack` is a big and open ecosystem that has lots of moving parts tha
 
 If `Parcel` isn't cutting it for you and you'd like to use more tools in the JavaScript ecosystem ( eg. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
 
+<!-- alex ignore spas -->
 `Webpack` was meant to be used for Single Page Applications, or SPAs for short. Setting up architecture for a single page application with `Webpack` is simple compared to an project with multiple pages and entry points.
 
 # Frameworks
@@ -125,7 +126,7 @@ As of this writing, there are 3 major JavaScript frameworks:
 2. Vue.js
 3. React (not really a "framework." More on this later)
 
-Each of these frameworks has their own pros and cons, and _there isn't a one size fits all_ solution.
+Each of these frameworks has their own positives and negatives, and _there isn't a one size fits all_ solution.
 
 All three of these tools are extremely mature, and have been battle tested in production environments in tech + non-tech companies and products.
 
@@ -133,4 +134,4 @@ All three of these tools are extremely mature, and have been battle tested in pr
 
 If you know zero out of three frameworks, **Learn any of them**. It really doesn't matter.
 
-**Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue,js, and React are all battle tested tools to do this. While each has their own unique approach with their own pros and cons, the end goal is still the same - **Sync UI state with server**.
+**Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue,js, and React are all battle tested tools to do this. While each has their own unique approach with their own positives and negatives, the end goal is still the same - **Sync UI state with server**.

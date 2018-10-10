@@ -259,7 +259,7 @@ There's 2 ways to catch rejected promises:
 ```js
 fetch('/some-endpoint/users')
   .then( data => { /* do something with the data */ })
-  .catch( error => throw error /* oh no, something bad happened :( */ ));
+  .catch( error => throw error /* oh no, something bad happened  :( */ );
 ```
 
 OR
@@ -282,7 +282,13 @@ There's nothing wrong with either approach, just make sure you and your team agr
 
 Promises open up so much in async functionality, making callback hell a thing of the past and multiple REST API calls easy to read and move through.
 
-However, because things get easier, the desire to create more complex functions that do more than just one thing gets more and more complicated.
+Because things get easier, the want to create more complex functions grows larger and larger, it's even more imperative that the **Single responsibilty principle** is upheld. For those needing a refresher:
+
+```
+The single responsibility principle is a computer programming principle that states that every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.
+```
+
+Each `Promise` should be encapsulated in a `function` that just done one thing, and does that one thing really well.
 
 This is where principles of composition come in, where your single responsibility functions you write can now start being chained together (if this isn't making sense, it will when we start looking at `async function`s in the next section!).
 

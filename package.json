@@ -9,9 +9,11 @@
   "private": false,
   "scripts": {
     "start": "echo 'not implemented yet'",
+    "test": "alex *.md book/*.md",
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
+    "alex": "^6.0.0",
     "babel-eslint": "^9.0.0",
     "babel-plugin-react-transform": "^3.0.0",
     "css-loader": "^1.0.0",

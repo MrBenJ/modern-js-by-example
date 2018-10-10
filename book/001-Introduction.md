@@ -5,11 +5,11 @@ Modern JavaScript by Example
 
 # Introduction
 
-In its humble beginnings, developers saw JavaScript as a toy, a joke, some scripting language that no one really wanted to screw around with. In all honestly, they were right. Why use a single-threaded, event driven, asynchronous language with all its weird callback and event looping when you could do everything synchronously with Java, C#, or Python? Why bother with all the craziness of abusing `setTimeout`, or bothering with loading in a million script files until your `<head />` exploded? Why?
+In its humble beginnings, developers saw JavaScript as a toy, a joke, some scripting language that no one really wanted to mess around with. In all honestly, they were right. Why use a single-threaded, event driven, asynchronous language with all its weird callback and event looping when you could do everything synchronously with Java, C#, or Python? Why bother with all the craziness of abusing `setTimeout`, or bothering with loading in a million script files until your `<head />` exploded? Why?
 
 Over time, languages and tools evolved, and as the web grew in size and complexity, more people started needing to become proficient in JavaScript, and the front end started getting really complicated... Gone were libraries that you could load in with a `<script />` tag, and now we have frameworks, bundling systems, entire deployment systems all built in JavaScript.
 
-While some old crotchety people will still balk and gripe that JavaScript is "not a real language" and stick to whatever language they're most familiar with, the fact remains that they, or someone on their team, will have to work with it at one point or another. It's grown so large that it's impossible to ignore today.
+While some old crotchety people will still balk and gripe that JavaScript is "not a real language" and stick to whatever language they're most familiar with, the fact that they, or someone on their team, will have to work with it at one point or another. It's grown so large that it's impossible to ignore today.
 
 As the web evolved, so did the language. JavaScript has, for myself and my colleagues, been an absolute pleasure to work with. It took years of study, discipline, research, and training to get here, but here we are, and JavaScript... Is moving... Way... Too... Fast...
 
@@ -26,6 +26,7 @@ If you know:
 * Higher Order Functions
 * Basic Array methods
   * indexOf() and/or includes()
+  <!-- alex ignore dad-mom -->
   * push() and pop()
   * slice()
   * splice()

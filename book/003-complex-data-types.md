@@ -264,7 +264,7 @@ If you need a `Map`-like storage or cache, but all values must be unique, then `
 Just like WeakMap, WeakSet allows unused references to be garbage collected, and it cannot be iterated upon.
 
 # The Spread Operator
-
+<!-- alex ignore periods -->
 When you see three dots/periods like this: `...` - it's a brand new operator called the `spread operator`.
 
 ## Spread Operator on Arrays
