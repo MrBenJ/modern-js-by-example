@@ -3,7 +3,7 @@ Complex Data Types
 
 ## Object
 
-We've all worked with straightforward JS Objects before:
+Consider a straightforward JavaScript `Object`:
 
 ```js
 const Person = {
@@ -22,9 +22,11 @@ Person['occupation']; // => 'Programmer'
 Person['id']; // => 18
 ```
 
-Objects don't keep an order of their properties. If you need to maintain a certain order of values, then use an Array.
+Objects are containers for named values (properties), sometimes referred to as key/value pairs. Names are always stored as strings, but values can be any type, including objects.
 
-You can set objects values through dot syntax, or brackets.
+Objects don't keep an order of their properties. If you need to maintain a certain order of values, then use an `Array`.
+
+You can access properties through dot syntax or bracket syntax.
 ```js
 const Person = {};
 
@@ -37,9 +39,12 @@ Person['occupation'] = 'Programmer';
 // 'occupation' doesn't have to be a plain string. It can be a variable that's holding a string value
 const myKey = 'id';
 Person[myKey] = 18;
+
+console.log(Person); // => {name: "Sheryl", occupation: "Programmer", id: 18}
 ```
 
-A new concept that's becoming more popular is declaring the object's key dynamically using a combination of bracket and curly brace syntax. It looks a little bit like this:
+A new concept that's becoming more popular is declaring an object's keys dynamically using a combination of bracket and curly brace syntax. It looks a little bit like this:
+
 ```js
 const key = 'myKey';
 
@@ -53,13 +58,14 @@ console.log(dynamicObject[key]); // => 'myValue'
 
 ## Arrays
 
-Arrays are ordered values, that start at an index of 0.
+Arrays are ordered values that start at an index of 0. Arrays can store any type, including arrays and objects.
 
 ```js
-const MyArray = ['hello', 3, true, 'Jeff', { name: 'Sheryl' }];
+const MyArray = ['hello', 3, true, 'Jeff', { name: 'Sheryl' }, [0, 1, 2, 3, 'hello']];
 
 MyArray[0]; // => 'hello'
 MyArray[4]; // => { name: 'Sheryl' }
+MyArray[5]; // => [0, 1, 2, 3, 'hello']
 ```
 
 ## Map and WeakMap
@@ -112,7 +118,7 @@ PersonMap.get('occupation'); // => 'Programmer'
 PersonMap.get(18); // => 18
 ```
 
-Just like an object, you can iterate over a `Map`
+Just like with an object, you can iterate over a `Map`
 
 ```js
 const Person = {
@@ -227,12 +233,12 @@ if (LegalAgeCache.get(John)) { // Assuming John is some user object
 WeakMap is the same as `Map`, but memory from unused references in the map can be cleaned up by JS garbage collection.
 In terms of functional usage **WeakMap cannot be interated over** and is better for performance if you don't need to iterate over the map. The only methods available to `WeakMap` are:
 
-* .get(key)
-* .set(key, value)
-* .has(key)
-* .clear() (this removes everything from the WeakMap)
+* `.get(key)`
+* `.set(key, value)`
+* `.has(key)`
+* `.clear()` (this removes everything from the WeakMap)
 
-`WeakMap` can only use variables that are of type `Object` only, meaning you can't use plain `String` or `Number`, and you can't use primitive data types like `Symbol` either.
+`WeakMap` can only use keys that are of type `Object`, meaning you can't use plain `String` or `Number`, and you can't use primitive data types like `Symbol` either.
 
 ```js
 const myObject = {
