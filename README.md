@@ -1,6 +1,8 @@
 Modern JavaScript by Example
 ============================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/MrBenJ/modern-js-by-example.svg)](https://greenkeeper.io/)
+
 ### A Practical and Example filled book about good ol' JavaScript
 #### Written by Ben Junya [@MrBenJ](https://www.github.com/MrBenJ)
 
