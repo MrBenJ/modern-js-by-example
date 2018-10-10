@@ -3,7 +3,7 @@ Complex Data Types
 
 ## Object
 
-Consider a straightforward Javascript object:
+Consider a straightforward JavaScript `Object`:
 
 ```js
 const Person = {
@@ -24,7 +24,7 @@ Person['id']; // => 18
 
 Objects are containers for named values (properties), sometimes referred to as key/value pairs. Names are always stored as strings, but values can be any type, including objects.
 
-Objects don't keep an order of their properties. If you need to maintain a certain order of values, then use an Array.
+Objects don't keep an order of their properties. If you need to maintain a certain order of values, then use an `Array`.
 
 You can access properties through dot syntax or bracket syntax.
 ```js
