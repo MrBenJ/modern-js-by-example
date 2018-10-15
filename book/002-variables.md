@@ -107,7 +107,7 @@ for(let i = 0; i < array.length; i++) {
 console.log(i); // => undefined
 ```
 
-This is much better because block scoping, while it being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be pretty difficult to find the value and scope of `x`.
+This is much better because block scoping, while being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be pretty difficult to find the value and scope of `x`.
 
 `let` and `const` aren't able to have the same identifiers between themselves or others.
 
@@ -150,7 +150,7 @@ Just because something is a `const` does not mean that it's immutable.
 
 ## Destructuring
 
-Destructuring is a convenient way of getting exactly what you need from a `Object` or `Array`.
+Destructuring is a convenient way of getting exactly what you need from an `Object` or `Array`.
 
 
 ### Destructuring Objects
@@ -215,7 +215,7 @@ function onServerResponse(response) {
   }, body } = response;
     /*
       Above, we tell JS we want to pull firstName, lastName, etc from 'body',
-      but we also tell it that we want 'body' declared too.
+      but we also tell it that we want 'body' declared, too.
     */
 
     console.log(firstName);   // 'Ronny'
@@ -320,7 +320,7 @@ Object.entries(MyObject).map( ([key, value]) => {
 
 JavaScript now has some really great shorthand and convenience syntax when it comes to `Object`s.
 
-Look at this excerpt, we used to have to do stuff like this:
+Look at this excerpt... we used to have to do stuff like this:
 ```js
 function onServerResponse(response) {
 
@@ -420,11 +420,11 @@ const SomeObject = {
 
 ## Recapping what we've learned
 
-In this section, we learned about:
+In this section we learned about:
 * `String`, `Number`, and `Boolean` oh my!
 * Declaring variables using `var`, `let`, and `const`, including the differences between all three.
 * Destructuring `Object` and `Array` data types.
-* Variable Shorthand and syntax.
+* Variable shorthand and syntax.
 
 If anything, this section was really meant to be a quick review on some basic variables and popular ES2015+ features like destructuring.
 
