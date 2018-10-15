@@ -231,7 +231,7 @@ if (LegalAgeCache.get(John)) { // Assuming John is some user object
 ## WeakMap
 
 WeakMap is the same as `Map`, but memory from unused references in the map can be cleaned up by JS garbage collection.
-In terms of functional usage **WeakMap cannot be interated over** and is better for performance if you don't need to iterate over the map. The only methods available to `WeakMap` are:
+In terms of functional usage **WeakMap cannot be iterated over** and is better for performance if you don't need to iterate over the map. The only methods available to `WeakMap` are:
 
 * `.get(key)`
 * `.set(key, value)`
@@ -295,7 +295,7 @@ console.log(newArray) // => ["let's", 'party', 'right', 'now!']
 
 ### Rest Spread on Arrays
 
-On an `Array`, if you need to grab the first few elements through destructuring and keep the rest for later, you can do use the `rest spread operator`.
+On an `Array`, if you need to grab the first few elements through destructuring and keep the rest for later, you can use the `rest spread operator`.
 
 ```js
 const selectiveArray = ['important', 'strings', 'here', 'but', 'not', 'these'];
@@ -323,7 +323,7 @@ console.log(cats); // => ['dwarf', 'persian', 'calico']
 
 ### Rest Spread on Objects
 
-Using the `spread operator` on an `Object` now iterates through the object and drop key/value pairs accordingly into a new object.
+Using the `spread operator` on an `Object` will now iterate through the object and drop key/value pairs accordingly into a new object.
 
 ```js
 const guy = {
@@ -378,7 +378,7 @@ The **age** and **occupation** values were overwritten because `guy` is the last
 
 #### Returning new modified objects and arrays
 
-In functional programming and tools/libraries that require new copies of objects or arrays like `React` and `Redux`, it's common practice to use `Object.assign()` to create some new objects using another as a "base object." Now instead of using `Object.assign()`, it's a common (and cleaner in my personal opinion) to use the `spread operator` in order to return new Objects and Arrays.
+In functional programming and tools/libraries that require new copies of objects or arrays like `React` and `Redux`, it's common practice to use `Object.assign()` to create some new objects using another as a "base object." Now instead of using `Object.assign()`, it's common (and cleaner, in my personal opinion) to use the `spread operator` in order to return new Objects and Arrays.
 
 Here's the `Object.assign()` way of returning new objects with modifications
 ```js
