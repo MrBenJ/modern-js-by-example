@@ -43,16 +43,16 @@ Promises are extremely important in understanding modern JavaScript architecture
 
 ## Introduction to Promises
 
-Under the hood, a **Promise** is a `state machine`. There's a 3 main states that a `Promise` can be in:
+Under the hood, a **Promise** is a `state machine`. There's three (3) main states that a `Promise` can be in:
 
 1. **Pending**
     The promise has started its work, but hasn't finished yet.
 2. **Resolved** -or- **Fulfilled**
-    The promise has resolved or fulfilled its initial task, and is ready to execute whatever needs to happen next in it's `resolve` function.
+    The promise has resolved or fulfilled its initial task, and is ready to execute whatever needs to happen next in its `resolve` function.
 3. **Rejected**
     Something unfortunate happened and there was an error or exception somewhere in the process.
 
-As a programmer, I need to define what constitutes the `Promise` reaching a **resolved/fulfilled state**, or a **rejected** state.
+As a programmer I need to define what constitutes the `Promise` reaching a **resolved/fulfilled state**, or a **rejected** state.
 
 In this example, I'm making a XHR request to `https://www.example.com/api/v2/users.json` to get some JSON data from the internet:
 
@@ -274,23 +274,23 @@ fetch('/some-endpoint/users')
   );
 ```
 
-There's nothing wrong with either approach, just make sure you and your team agrees on which method is preferred.
+There's nothing wrong with either approach, just make sure you and your team agree on which method is preferred.
 
-**IMPORTANT** As of Node v10, Unhandled rejected promises will halt and/or crash the Node process. If you aren't handling rejected promises now, you will need to it soon, otherwise your whole program will crash.
+**IMPORTANT** As of Node v10, Unhandled rejected promises will halt and/or crash the Node process. If you aren't handling rejected promises now, you will need to soon, otherwise your whole program will crash.
 
 ### Keep Promises Simple
 
 Promises open up so much in async functionality, making callback hell a thing of the past and multiple REST API calls easy to read and move through.
 
-Because things get easier, the want to create more complex functions grows larger and larger, it's even more imperative that the **Single responsibilty principle** is upheld. For those needing a refresher:
+Because things get easier and the want to create more complex functions grows larger and larger, it's even more imperative that the **Single responsibilty principle** is upheld. For those needing a refresher:
 
 ```
-The single responsibility principle is a computer programming principle that states that every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.
+The single responsibility principle is a computer programming principle which states that every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.
 ```
 
-Each `Promise` should be encapsulated in a `function` that just done one thing, and does that one thing really well.
+Each `Promise` should be encapsulated in a `function` that does one thing, and does that one thing really well.
 
-This is where principles of composition come in, where your single responsibility functions you write can now start being chained together (if this isn't making sense, it will when we start looking at `async function`s in the next section!).
+This is where principles of composition come in, where the single responsibility functions you write can now start being chained together (if this isn't making sense, it will when we start looking at `async function`s in the next section!).
 
 Don't do this:
 
@@ -333,7 +333,7 @@ function getUsersTopComment(userInfo) {
 }
 ```
 
-By doing this we're able to keep single responsibility with our Promises, and have 2 functions we can use through composition and reuse, than creating giant functions we only need to use a few times.
+By doing this we're able to keep single responsibility with our Promises and have 2 functions we can use through composition and reuse, rather than creating giant functions we only need to use a few times.
 
 If I wanted to get a user's top comment now, it would look a little like this:
 
@@ -394,7 +394,7 @@ async function sayHelloInOrder() {
 
 The other new keyword is `await`. This keyword expects a `Promise`, and STOPS all execution of the `async function` until the `Promise` is resolved.
 
-If I were to run `sayHelloInOrder()`, this would happen
+If I were to run `sayHelloInOrder()`, this would happen:
 
 1. The entire function hits an `await` keyword and execution STOPS until the `wait()` function's `Promise` resolves. In this case, it's waiting 2 seconds, then resolving.
 
@@ -491,13 +491,13 @@ async function getTopCommentByUserId(userId) {
 
 My personal preference is that **all the content async functions, despite if async calls are happening or not** should be wrapped in `try/catch`.
 
-Speaking from personal experience, it's not always API calls that fail. Sometimes the response from a server
+Speaking from personal experience, it's not always API calls that fail. Sometimes it's the response from a server.
 
 ### Making multiple REST calls
 
 In REST APIs, it's common to make multiple calls to fetch data. Instead of making multiple calls through Promises, you can use an `async function` to make each call in order.
 
-Let's say we're working a recipes app where our backend develops have set up the following endpoints:
+Let's say we're working on a recipes app where our backend developers have set up the following endpoints:
 
 `POST /create-recipe` - Takes in a recipe object and creates a recipe in the database. Returns the `id` number of the recipe when it's successfully written to our database.
 
@@ -619,7 +619,7 @@ Once the generator is initialized, you get some handy methods to play with:
 
 ### Introducing Iterators
 
-An `Iterator` is plain object that follows this shape:
+An `Iterator` is a plain object that follows this shape:
 ```js
 interface Iterator = {
   value: *, // Any data type.
@@ -741,7 +741,7 @@ We could use
 while (!foundCar)
 ```
 
-Or we could repurpose our generator to a plain function that looks for the car by plate number. There's so many different, and better ways to do this instead of unnecessary complications using a `Generator`.
+Or we could repurpose our generator into a plain function that looks for the car by plate number. There's so many different and better ways to do this instead of unnecessary complications using a `Generator`.
 
 For these reasons and many others **this is why Generators and practical usage is a fairly heated topic in Modern JavaScript**.
 

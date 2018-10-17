@@ -1,7 +1,7 @@
 Miscellaneous Tooling
 =====================
 
-This chapter shows the less-common, but still good to know stuff when it comes to JavaScript. For the examples, I'll do my best to show some real world situations for each one, but for the most part, you wouldn't really be using this stuff often, but for the specific practical applications that you'll see, they're the perfect tool for doing so.
+This chapter shows the less-common, but still good to know stuff when it comes to JavaScript. For the examples  I'll do my best to show some real world situations for each one, but for the most part, you wouldn't really be using this stuff often. However, for the specific practical applications that you'll see, they're the perfect tool for doing so.
 
 # Proxy API
 
@@ -78,7 +78,7 @@ const envs = new Proxy(process.env, {
 
 It's not just `process.env` variables, you set defaults and do validation on just about anything.
 
-Keep in mind that it's not only `get()` that can be sent to the handler. You can validate setting values on an object too:
+Keep in mind that it's not only `get()` that can be sent to the handler. You can validate setting values on an object, too:
 
 ```js
 const Horse = new Proxy({}, {
