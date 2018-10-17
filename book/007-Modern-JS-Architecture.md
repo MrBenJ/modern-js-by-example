@@ -8,7 +8,7 @@ Webpack's latest major version is v4.
 React's latest version is v0.16.4
 Angular's latest version is v6. // TODO: FIX!!!
 
-While stated earlier that the non-coding chatter will be kept to a minimum, this chapter is all about concepts, architecture, and tooling for any size development team, and this particular chapter will be focused as a short lecture/discussion about how modern JavaScript tools are set up from scratch.
+While stated earlier that the non-coding chatter will be kept to a minimum, this chapter is all about concepts, architecture, and tooling for any size development team. This particular chapter will be focused as a short lecture/discussion about how modern JavaScript tools are set up from scratch.
 
 There's lots of subjectivity and strong opinions on this particular subject, so please take these suggestions with a grain of salt. Some people prefer `stylus` over `Sass`, and others might like `pug` or `jade` over `handlebars`, and those are totally valid opinions.
 
@@ -46,13 +46,13 @@ A group of JavaScript developers one day got together and said, "I wished `grunt
 
 And so, `gulp` was created and also named after a bodily function.
 
-The customizations within `gulp` were far more modular and reusable, being much easier to test and use. The main difference was that `gulp`'s configuration allowed developers to write simple `function`s to do tasks, and not embed commands deeply inside one gigantic `gruntfile`.
+The customizations within `gulp` were far more modular and reusable; being much easier to test and use. The main difference was that `gulp`'s configuration allowed developers to write simple `function`s to do tasks, and not embed commands deeply inside one gigantic `gruntfile`.
 
 And so, all new projects and boilerplates began to move away from `grunt`, everyone started using `gulp`, and everyone was happy.
 
-Except not really because JavaScript developers always want to build new things and ~make fun of~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because they ran out of bodily functions to name things after. We had a new world of task runners appear like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many too many more. I don't know what a Duo is, but if it's ice cream? Sure. I'll eat it.
+Except not really because JavaScript developers always want to build new things and ~make fun of~ bag on everything that's at least a month old. Developers started making a million and a half task runners with food names because they ran out of bodily functions to name things after. We had a new world of task runners appear like `Brunch` and `Broccoli` and `Duo` and `Rollup` and many, many more. I don't know what a Duo is, but if it's ice cream? Sure. I'll eat it.
 
-All Joking aside, tools like `grunt` and `gulp` are still widely used to this very day, and knowing at least one is great. I'd recommend getting your feet wet with `gulp` and its large ecosystem of excellent plugins and tools, as in my personal experience, it's easier to configure and pick up.
+All Joking aside, tools like `grunt` and `gulp` are still widely used to this day, and knowing at least one is great. I'd recommend getting your feet wet with `gulp` and its large ecosystem of excellent plugins and tools, as in my personal experience, it's easier to configure and pick up.
 
 In today's modern JavaScript development environments, the Task runner and Bundler are typically combined into a single tool. We'll talk a little bit more about this later.
 
@@ -99,7 +99,7 @@ Personally speaking here, **I find learning how to configure build systems extre
 
 For quick and easy setups with common components and pieces like `React` and `TypeScript`, I recommend using `Parcel`.
 
-To my knowledge, `Parcel` as a configuration-free build system, as `Webpack` is complicated and difficult to set up, especially for beginners. **Webpack can be intimidating and difficult for newcomers**.
+To my knowledge, `Parcel` is a configuration-free build system and  `Webpack` is complicated and difficult to set up, especially for beginners. **Webpack can be intimidating and difficult for newcomers**.
 
 All `Parcel` needs is an `HTML` file and in just a few milliseconds, it bundles and builds your application for you, auto-configuring itself to suit your needs. Great!
 
@@ -107,13 +107,13 @@ However, after so long and needing new tools, `Parcel` can only go so far.
 
 My recommendation is to learn `Webpack` because of its rich features and customization, along with quick build times and excellent open source support, it can be configured to do just about anything.
 
-However, `Webpack` is a big and open ecosystem that has lots of moving parts that require hours of dedication and trial + error to truly understand, and is out of the scope of the purpose of this book. I recommend going to https://www.webpackjs.org to learn how to use and configure `Webpack`. There will definitely be headaches and learning curves, but after learning how it all works, I guarantee you will come out a much stronger developer.
+However, `Webpack` is a big and open ecosystem that has lots of moving parts that require hours of dedication and trial and error to truly understand, and is out of the scope of the purpose of this book. I recommend going to https://www.webpackjs.org to learn how to use and configure `Webpack`. There will definitely be headaches and learning curves, but after learning how it all works, I guarantee you will come out a much stronger developer.
 
 `Rollup` is another fine choice for a bundler and build system. As long as you know either `Webpack` or `Rollup`, you'll be well on your way to mastering Javascript and front end architecture.
 
 ## Learning Webpack
 
-If `Parcel` isn't cutting it for you and you'd like to use more tools in the JavaScript ecosystem ( eg. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
+If `Parcel` isn't cutting it for you and you'd like to use more tools in the JavaScript ecosystem (e.g. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
 
 <!-- alex ignore spas -->
 `Webpack` was meant to be used for Single Page Applications, or SPAs for short. Setting up architecture for a single page application with `Webpack` is simple compared to an project with multiple pages and entry points.
@@ -128,7 +128,7 @@ As of this writing, there are 3 major JavaScript frameworks:
 
 Each of these frameworks has their own positives and negatives, and _there isn't a one size fits all_ solution.
 
-All three of these tools are extremely mature, and have been battle tested in production environments in tech + non-tech companies and products.
+All three of these tools are extremely mature, and have been battle tested in production environments in tech and non-tech companies and products.
 
 ## Which Framework Should I Learn?
 
