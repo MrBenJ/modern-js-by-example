@@ -28,6 +28,7 @@ Numbers are... Numbers. They represent numerical value and are always stored as 
 3.14
 123e5
 123e-5
+0x42
 ```
 
 These are all numbers.
