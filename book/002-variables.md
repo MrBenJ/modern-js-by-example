@@ -28,7 +28,7 @@ Numbers are... Numbers. They represent numerical value and are always stored as 
 3.14
 123e5 // Scientific notation
 123e-5
-0x42 // Hexidecimal notation
+0x42 // Hexadecimal notation
 ```
 
 These are all numbers.
