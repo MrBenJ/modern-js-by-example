@@ -367,7 +367,7 @@ class MyComponent extends Component {
 }
 ```
 
-As of `React v0.16.3`, a new lifecycle method was added called `getDerivedStateFromProps()`. Note that this lifecycle method is `static`, so it doesn't doesn't have access to `this`. It lives in the `class`, not the `instance`.
+As of `React v0.16.3`, a new lifecycle method was added called `getDerivedStateFromProps()`. Note that this lifecycle method is `static`, so it doesn't have access to `this`. It lives in the `class`, not the `instance`.
 
 ```js
 import React, { Component } from 'react';
