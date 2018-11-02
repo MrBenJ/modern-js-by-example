@@ -5,7 +5,7 @@ Let's talk basics of the basics.
 
 ## String
 
-Strings are text. They're surrounded by either
+Strings are text. They're surrounded by either:
 * Single quotation marks (' ') or
 * Double quotation marks (" ") or
 * Backticks (\` \`) - They're to the left of the "1" key on your (US) keyboard
@@ -26,15 +26,16 @@ Numbers are... Numbers. They represent numerical value and are always stored as 
 200192003
 5
 3.14
-123e5
+123e5 // Scientific notation
 123e-5
+0x42 // Hexadecimal notation
 ```
 
 These are all numbers.
 
 ## Booleans
 
-Straightforward either true, or false
+Straightforward, either true, or false
 
 ```js
 true
@@ -46,7 +47,7 @@ false
 Variables store data, whether they're of the `String`, `Number`, or `Boolean` type. They're also used to store more complex data types, but we'll get there later.
 
 ```js
-var hello = 'hello';
+var greeting = 'hello';
 const MyAge = 29;
 let isOldEnoughToParty = true;
 ```
@@ -54,7 +55,7 @@ let isOldEnoughToParty = true;
 Running `console.log()` against any of these variables will print out what their value is:
 
 ```js
-console.log(hello); // => 'hello'
+console.log(greeting); // => 'hello'
 console.log(MyAge); // => 29
 console.log(isOldEnoughToParty); // true
 ```
@@ -79,7 +80,7 @@ function MyFunction() {
 
 What's the value of `x`? At the end of `MyFunction()`, `x` is `false`, but outside of `MyFunction()`, `x` is `'oh dang'`. This ambiguous behavior should be avoided as much as possible.
 
-**Unless you need function scope, do not use var**
+**Unless you need function scope, do not use var.**
 
 ### Using `let` and `const`
 
@@ -107,7 +108,9 @@ for(let i = 0; i < array.length; i++) {
 console.log(i); // => undefined
 ```
 
+
 This is much better because block scoping, while being stricter, is much more maintainable than function scoping. If you had a gigantic function from a legacy project that had `var x = ...` declared multiple times, it would be pretty difficult to find the value and scope of `x`.
+
 
 `let` and `const` aren't able to have the same identifiers between themselves or others.
 
@@ -398,7 +401,7 @@ If you're confused about the syntax, the `...` is the **Spread Operator**. We go
 
 ## Object Method Shorthand
 
-Defining methods on objects are usually done like this:
+Defining methods on objects is usually done like this:
 ```js
 var SomeObject = {
   performMagic: function(magic) {
