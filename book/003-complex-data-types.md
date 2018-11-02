@@ -323,7 +323,7 @@ console.log(cats); // => ['dwarf', 'persian', 'calico']
 
 ### Rest Spread on Objects
 
-Using the `spread operator` on an `Object` will now iterate through the object and drop key/value pairs accordingly into a new object.
+Using the `spread operator` on an `Object` will iterate through the object and drop key/value pairs accordingly into a new object.
 
 ```js
 const guy = {

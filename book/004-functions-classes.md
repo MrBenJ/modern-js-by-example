@@ -248,7 +248,7 @@ class Object {
 }
 ```
 
-By doing this we're able to make specifically targeted helper methods on our classes, giving new versatility and flexibility by making utilities specific to our defined classes.
+By doing this, we're able to make specifically targeted helper methods on our classes, giving new versatility and flexibility by making utilities specific to our defined classes.
 
 ### Static typing in action
 

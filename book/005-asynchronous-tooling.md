@@ -43,7 +43,7 @@ Promises are extremely important in understanding modern JavaScript architecture
 
 ## Introduction to Promises
 
-Under the hood, a **Promise** is a `state machine`. There's three (3) main states that a `Promise` can be in:
+Under the hood, a **Promise** is a `state machine`. There are three (3) main states that a `Promise` can be in:
 
 1. **Pending**
     The promise has started its work, but hasn't finished yet.
@@ -333,7 +333,7 @@ function getUsersTopComment(userInfo) {
 }
 ```
 
-By doing this we're able to keep single responsibility with our Promises and have 2 functions we can use through composition and reuse, rather than creating giant functions we only need to use a few times.
+By doing this, we're able to keep single responsibility with our Promises and have 2 functions we can use through composition and reuse, rather than creating giant functions we only need to use a few times.
 
 If I wanted to get a user's top comment now, it would look a little like this:
 

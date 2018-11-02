@@ -44,7 +44,7 @@ If you feel moderately comfortable with a popular modern framework like `React`,
 
 # Navigating the Book
 
-Like many other developers my eyes immediately move towards snippets of code. This book attempts to show as many examples as possible and keep the non-coding chat to a minimum. All important topics are in header tags for easy maneuvering and link-ability for sending information to colleagues and coworkers.
+Like many other developers, my eyes immediately move towards snippets of code. This book attempts to show as many examples as possible and keep the non-coding chat to a minimum. All important topics are in header tags for easy maneuvering and link-ability for sending information to colleagues and coworkers.
 
 TODO:
 

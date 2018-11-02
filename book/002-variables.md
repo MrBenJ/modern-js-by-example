@@ -320,7 +320,7 @@ Object.entries(MyObject).map( ([key, value]) => {
 
 JavaScript now has some really great shorthand and convenience syntax when it comes to `Object`s.
 
-Look at this excerpt... we used to have to do stuff like this:
+Look at this excerpt. We used to have to do stuff like this:
 ```js
 function onServerResponse(response) {
 
