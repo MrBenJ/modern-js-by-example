@@ -99,7 +99,7 @@ Personally speaking here, **I find learning how to configure build systems extre
 
 For quick and easy setups with common components and pieces like `React` and `TypeScript`, I recommend using `Parcel`.
 
-To my knowledge, `Parcel` is a configuration-free build system and  `Webpack` is complicated and difficult to set up, especially for beginners. **Webpack can be intimidating and difficult for newcomers**.
+To my knowledge, `Parcel` is a configuration-free build system and  `Webpack` has a tendency to be significantly more complicated and difficult to set up. For those just learning JavaScript, and don't have as much hands-on experience, **Webpack can be intimidating and difficult**.
 
 All `Parcel` needs is an `HTML` file and in just a few milliseconds, it bundles and builds your application for you, auto-configuring itself to suit your needs. Great!
 
