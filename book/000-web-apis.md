@@ -3,7 +3,7 @@ Web APIs with JavaScript
 
 **JavaScript is the defacto language for the web at the time of this writing**. To understand the basics of how to do simple `Document Object Model` mutations and manipulations is something that many newbies start off with.
 
-**NOTE**: The code snippets for this section will only work on modern browsers that support ES2015 or beyond.
+**IMPORTANT**: The code snippets for this section will only work on modern browsers that support ES2015 or beyond. For the most part, this will work in **Google Chrome**, **Firefox**, and **Microsoft Edge**. These examples will *not* work with *Internet Explorer 11 or below*
 
 ## The Three Languages of the Web
 
@@ -44,28 +44,62 @@ The skeleton of a web page is plain HTML text like above. Nothing too intense or
 
 Now our blank page is a blank page with dodgerblue as our background-color. Yay!
 
-**HTML** is our skeleton
-**CSS** is what our skeleton wears to look pretty and look nice
-
+**HTML** is our skeleton.
+**CSS** is what our skeleton wears to look pretty and look nice.
 **Javascript** is what makes our skeleton come to life.
 
-## DOM Manipulations Everyone Should Know
+## Basic Walkthrough of DOM querying
 
 In this chapter, I'm going to refrain from using common libraries that function as convenience methods or wrappers around vanilla JavaScript, like `lodash`, `underscore`, or `jQuery`. While these particular tools have been instrumental in the development of the language, the features and functionality these libraries have been adopted into the JavaScript language itself.
 
+DOM is an acronym for `Document-Object-Model`, which is what's used to power HTML web pages today.
+
 ### Querying the DOM with selector strings
 
-To query the DOM, you'll need to start off with
-Selector strings look a little bit like this:
+If I wanted to find the first div on a page, I can do this by passing the string `'div'` into `document.querySelector`.
 
+```js
+const firstDiv = document.querySelector('div');
 ```
-'input'
+
+If I wanted to select **all of the div** elements on the page by using `document.querySelectorAll`. It looks like this:
+
+```js
+const divs = document.querySelectorAll('div');
 ```
 
-This selects any `<input>` elements on the document.
+Note that `querySelectorAll` returns a special kind of Array-like object called a `NodeList`.
+
+`NodeList` can be iterated over with a `for` loop, but using `Array` methods like `forEach`, `map`, `find`, or `reduce` will not work. You can quickly turn a `NodeList` by using `Array.from()` It'll look like this:
+
+```js
+const nodeList = document.querySelectorAll('div');
+nodeList.forEach(); // => Error: undefined is not a function
+nodeList.map(); // => Error: undefined is not a function
+
+const divs = Array.from(nodeList);
+
+divs.forEach( x => console.log(x)); // => <div></div>
+divs.forEach( x => console.log(x)); // => [<div</div>,<div></div>]
+```
 
 
+`querySelector` and `querySelectorAll` both use **CSS Selector Strings** to get what they need from the document. You can learn more about CSS selector strings and how to use them to query the DOM [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors).
 
+In this book, we won't go too much beyond the scope of `id` and `class` selectors, since this is mainly a JavaScript book and not a front end web development book.
+
+To select an element with a specific `class` attribute, add a `.` character to your selector string before you start. It looks like this:
+
+```js
+const element = document.querySelector('.some-class');
+console.log(element); // => <input class="some-class">
+```
+
+To select an element with a specific `id` attribute, use `#` like this:
+```js
+const element = document.querySelector('#some_el');
+console.log(element); // => <select id="some_el">{...} </select>
+```
 
 
 ### Some Notes on web application design with `class` and `id` attributes
@@ -89,4 +123,60 @@ Don't do this:
 }
 ```
 
-This is b
+This is because there's only **1 id on a page**, so we aren't able to reuse these styles.
+
+`id` elements are best used for `Javascript`, and `class` elements are best used to style.
+
+Querying the DOM with `id` is easy with the command, `getElementById`. All you need to do is pass in the `id` as a string, and the first element that has the `id` will be returned to you.
+
+```js
+const element = document.getElementById('my_secret_id');
+console.log(element); // => <div id="my_secret_id">Hello!</div>
+```
+
+Using `getElementById` **is the fastest way to get an id element** on the DOM. Take advantage of the speed boost and use it as often as you need to.
+
+Sometimes, you'll need to select a group of elements with a certain style. Let's say we're trying to select everything with the class name `.is-selected`.
+
+You can do this with two different methods: `document.getElementsByClassName` or `document.querySelectorAll`.
+
+```js
+// Notice this method doesn't need the '.'
+const selected = document.getElementsByClassName('is-selected'); // NodeList
+
+// This method needs the '.' because it's using a CSS selector string
+const selectedAgain = document.querySelectorAll('.is-selected'); // NodeList
+```
+
+A convention I've grown to really enjoy if I need to use `class` attributes and select multiple nodes to do JavaScript-like things to them, I'll add `js` to the name of the class.
+
+Let's say I've got a list of `div` elements on a page, and I only want to select the ones that have a "selected" state, so I know to "unselect" these elements.
+
+```html
+<div class="checklist-container">
+  <div class="checklist-item js-selected">Do Laundry</div>
+  <div class="checklist-item">Take out trash</div>
+  <div class="checklist-item">Topple Government Regime</div>
+  <div class="checklist-item js-selected">Buy new chair online</div>
+</div>
+```
+If I want to select only the `js-selected` classes in this document, I can do:
+
+```js
+const selected = document.querySelectorAll('.js-selected');
+```
+
+This will return only the `Do Laundry` and `Buy new chair online` elements.
+
+I can then take these elements and remove them from the list if need be like this:
+
+```js
+// Remember: querySelectorAll returns a NodeList, not an actual array!
+// Use Array.from() to run array methods!
+const selected = Array.from(document.querySelectorAll('.js-selected'));
+
+// Now we'll run a loop on all the elements and remove them:
+selected.forEach( checklistItem => {
+  checklistItem.remove();
+})
+```
