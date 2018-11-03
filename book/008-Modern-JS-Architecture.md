@@ -5,8 +5,8 @@ As JavaScript moves at breakneck speeds, this section can at any time fall behin
 
 At the time of this writing,
 Webpack's latest major version is v4.
-React's latest version is v0.16.4
-Angular's latest version is v6. // TODO: FIX!!!
+React's latest version is v0.16.7
+Angular's latest version is v7.0.2
 
 While stated earlier that the non-coding chatter will be kept to a minimum, this chapter is all about concepts, architecture, and tooling for any size development team, and this particular chapter will be focused as a short lecture/discussion about how modern JavaScript tools are set up from scratch.
 

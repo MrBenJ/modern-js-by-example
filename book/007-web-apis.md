@@ -178,5 +178,73 @@ const selected = Array.from(document.querySelectorAll('.js-selected'));
 // Now we'll run a loop on all the elements and remove them:
 selected.forEach( checklistItem => {
   checklistItem.remove();
-})
+});
+```
+
+## DOM Manipulations Everyone Should Know
+
+### Adding and Removing Classes
+
+The `classList` methods handle all of your class name needs.
+
+`classList.add('some-class')` Adds `some-class` to an element:
+
+Using this HTML:
+```html
+<div id="name_element" class="first-name">
+  Alex
+</div>
+```
+
+And running this Javascript:
+```js
+const element = document.getElementById('name_element');
+
+element.classList.add('super-duper');
+```
+
+Yields this:
+
+```js
+<div id="name_element" class="first-name super-duper">
+  Alex
+</div>
+```
+
+There's 2 other methods `classList` offers that are similar:
+
+`classList.remove()` will remove a class.
+`classList.toggle()` will add the class if the element doesn't have it, or it'll remove the class. Think of it like "toggling a checkbox."
+
+## Making Server Calls with Web APIs
+
+In modern JavaScript, `fetch` is most commonly used to get data from a server because it returns a `Promise`, while its predecessor, `XMLHttpRequest`, uses a callback pattern.
+
+While using `fetch` is more commonplace in modern JavaScript development, I still find it useful to know the basics of `XMLHttpRequest`, since there are still some web browsers (Internet Explorer) that just don't support `fetch`.
+
+### XMLHttpRequest
+
+Here's a quick example of making a quick GET request with `XMLHttpRequest`
+
+```js
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://www.example.com/users');
+xhr.onreadystatechange = () => {
+  // xhr.readyState returns 4 if it's done. If it isn't, then just return
+  if (xhr.readyState < 4) {
+    return;
+  }
+  // if xhr.status is NOT 200, it means something went wrong
+  if (xhr.status !== 200) {
+    handleError(xhr);
+    return;
+  }
+
+  if (xhr.readyState === 200) {
+    // The request was successful! Go ahead and handle it:
+    onSuccess(xhr.response);
+  }
+}
+xhr.send();
 ```
