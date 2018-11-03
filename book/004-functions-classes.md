@@ -417,7 +417,7 @@ Under the hood, `React` is using the `static getDerivedStateFromProps` lifecycle
 
 ## Getters and Setters
 
-To those who are already familiar with Java, C, C++, or any of the sort, `getters` and `setters` are welcome additions to `class`es and `object`s in JavaScript. Unlike most other languages, JavaScript has explicit `get` and `set` keywords that allow getters and setters to appear as properties while working as functions.
+To those who are already familiar with Java, C, C++, or any of the sort, `getters` and `setters` are welcome additions to `class`es and `object`s in JavaScript. Unlike other languages, JavaScript has explicit `get` and `set` keywords that allow getters and setters to appear as properties while working as functions.
 
 Let's go back to our `Invoice` class we made earlier, and add a `getter` to see if an invoice has been paid or not.
 
