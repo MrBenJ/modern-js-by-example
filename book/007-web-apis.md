@@ -5,6 +5,37 @@ Web APIs with JavaScript
 
 **IMPORTANT**: The code snippets for this section will only work on modern browsers that support ES2015 or beyond. For the most part, this will work in **Google Chrome**, **Firefox**, and **Microsoft Edge**. These examples will *not* work with *Internet Explorer 11 or below*
 
+For this section, I am already assuming you, the reader, understand the basics of the following concepts:
+
+* [Basics of HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [`id` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+* [`class` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class)
+* [Basics of CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [CSS Selector Strings](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors)
+* [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Glossary/XHR_(XMLHttpRequest))
+  * **Note**: This was discussed briefly in **Chapter 5**
+
+With that out of the way, let's look at some examples :).
+
+## DOM Manipulation APIs
+
+In this section, I'm going to refrain from using common libraries that function as convenience methods or wrappers around vanilla JavaScript, like `lodash`, `underscore`, or `jQuery`. While these particular tools have been instrumental in the development of the language, the features and functionality these libraries have been adopted into the JavaScript language itself.
+
+### DOM Data Structures and Return Types
+
+#### Element and Node
+
+For the most part, Elements and Nodes are one in the same. In practical usage, these terms are used interchangeably, since Elements are technically Nodes.
+
+
+
+
+
+
+
+
+
+#======= I hate everything about the stuff below this line ========
 ## The Three Languages of the Web
 
 We start with `HTML`, or `Hyper Text Markup Language`.
