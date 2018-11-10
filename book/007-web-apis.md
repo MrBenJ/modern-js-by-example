@@ -27,12 +27,113 @@ In this section, I'm going to refrain from using common libraries that function 
 
 For the most part, Elements and Nodes are one in the same. In practical usage, these terms are used interchangeably, since Elements are technically Nodes.
 
+`Node` is the generic name for **any type of object in the DOM**.
 
+`Element` is one specific kind of `Node` - it can be a `Text Node`, a `Comment Node`, a `<div> Node`
 
+For your day-to-day work as a developer, this stuff is good to know, but from a pragmatic and practical standpoint, they're very much similar, and in my typical day-to-day, (opinion!) I use the term "Element."
 
+#### HTMLCollection and NodeList
 
+`HTMLCollection` and `NodeList` are extremely similar, in that they're both `return` types from very common `document` methods like `querySelectorAll` and `getElementsByClassName`.
 
+The biggest difference between the two is:
 
+`HTMLCollection` is a **live and updating reference** to a list of `Elements`. As elements on the page change, so do the values inside of HTMLCollection.
+
+`getElementsByClassName`, and `getElementsByTagName` will return an **`HTMLCollection`**.
+
+`NodeList` is **static and non-updating**. If the Elements or nodes on the document change, the values inside of NodeList will not change.
+
+`querySelector` and `querySelectorAll` return a **`NodeList`**.
+
+For reference, you can look at the extensive MDN documentation for both [HTMLCollection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection) and [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/nodelist)
+##### Gotchas
+
+HTMLCollection and NodeList return an "Array-like" object that you can use in a loop without any problems.
+
+```js
+const selectedElements = document.getElementsByClassName('js-selected');
+
+selectedElements.length // => a Number
+selectedElements[0] // => First element found (<div class="js-selected">...</div>)
+```
+
+But we won't be able to do things like this:
+```js
+// Grab all our form elements
+const formElements = document.getElementsByTagName('form');
+
+selectedElements.forEach( form => { /* ... */ }); // => Error! forEach is undefined
+```
+
+HTMLCollection doesn't have all the `Array` methods on it like `map`, `forEach`, `reduce`, `join`, etc.
+
+If you want to get around this, you can use `Array.from()` and create a new array from an `HTMLCollection` or `NodeList`.
+
+```js
+const selectedArray = Array.from(document.getElementsByClassName('js-selected'));
+
+selectedArray.forEach( item => { /* ... */}); // Works!
+selectedArray.map( item => { /* ... */}); // Also Works!
+selectedArray.reduce( (accum, item) => { /* ... */}); // Yay! It works!
+```
+
+A strange oddity to note is that `NodeList` **does have** `.forEach`, but it's only supported in modern browsers. There are some very nuanced differences in methods between `NodeList` and `HTMLCollection`, but for the most part, these are "good to know" concepts and tools.
+
+### DOM Manipulations and Queries Everyone Should Know
+
+At the heart of any Javascript framework like `React`, `Angular`, or `Vue` is one major component - **DOM Manipulation**.  It's important to know that no matter what you're doing on the web to make elements appear, disappear, move, grow, shrink, etc - you're doing **DOM Manipulation**.
+
+This is a small reference of what I find to be the most important parts of basic DOM manipulation that I strongly feel every developer should know. While vanilla DOM manipulation in single page applications is seldom, if not frowned upon (looking at you `React`!) it's still good to know and have this knowledge should someone fall into limitations where they can't use tools or frameworks to do simple things.
+
+#### getElementsByClassName
+
+Running `document.getElementsByClassName()` grabs all the elements on the HTML document. Returns an `HTMLCollection`.
+
+```js
+// Grab all of the bold text elements on the page:
+const boldTextElements = document.getElementsByClassName('bold');
+```
+
+Since `class` attributes are often attributed to styling with CSS, you can grab particularly styled elements (like bold text or selected elements) and restyle them with `classList` methods.
+
+```js
+/**
+ *  Unbolds all the elements on the page
+ *  @return {undefined}
+ *
+ */
+function unboldElements() {
+  // Using Array.from() so we can use forEach
+  const boldTextElements = Array.from(document.getElementsByClassName('bold'));
+
+  boldTextElements.forEach( boldText => {
+    boldText.classList.remove('bold');
+  });
+}
+```
+
+#### getElementsByTagName
+
+This grabs all the elements by their tag name, like `div`, `span`, `article`, or `form`. Returns an `HTMLCollection`.
+
+```js
+// Grab all the <form> elements
+const forms = document.getElementsByTagName('form');
+```
+
+#### querySelector
+
+#### querySelectorAll
+
+#### Element.classList
+
+#### Element.setAttribute
+
+#### Element.getAttribute
+
+#### Element.dataset
 
 
 #======= I hate everything about the stuff below this line ========
@@ -251,7 +352,7 @@ There's 2 other methods `classList` offers that are similar:
 
 In modern JavaScript, `fetch` is most commonly used to get data from a server because it returns a `Promise`, while its predecessor, `XMLHttpRequest`, uses a callback pattern.
 
-While using `fetch` is more commonplace in modern JavaScript development, I still find it useful to know the basics of `XMLHttpRequest`, since there are still some web browsers (Internet Explorer) that just don't support `fetch`.
+While using `fetch` is more commonplace in modern JavaScript development, I still find it useful to know the basics of `XMLHttpRequest`, since there are still some web browsers ( Ugh... Internet Explorer) that just don't support `fetch`.
 
 ### XMLHttpRequest
 
