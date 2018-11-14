@@ -123,9 +123,34 @@ This grabs all the elements by their tag name, like `div`, `span`, `article`, or
 const forms = document.getElementsByTagName('form');
 ```
 
+If there's no matching tags, an empty `HTMLCollection` will be returned.
+
 #### querySelector
 
+Grabs **only the first** element from a CSS selector string
+
+```js
+// Grabs the first <form> element on a page
+const form = document.querySelector('form');
+```
+
+```js
+// Grabs the first element with the class "selected"
+const selectedItem = document.querySelector('.selected');
+```
+
+Returns `null` if there's no match.
+
 #### querySelectorAll
+
+Same as `querySelector`, except it returns a `NodeList` of all matching elements.
+
+```js
+// Grab ALL elements with the `selected` class
+const allSelectedItems = document.querySelectorAll('.selected');
+```
+
+Returns an empty `NodeList` if nothing is found.
 
 #### Element.classList
 
