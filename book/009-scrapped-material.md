@@ -1,7 +1,9 @@
 Scrapped Material
 =================
 
-This section contains scrapped material that I just didn't like, or wanted to just keep around for reference in the future.
+This section contains scrapped material that I just didn't like, or wanted to just keep around for reference in the future. I put some thought and work into all this stuff in here, but I never wanted to actually publish it, so just in case I (or someone else) finds it valuable, I'll just leave it here.
+
+Happy coding!
 
 ## The Three Languages of the Web
 
