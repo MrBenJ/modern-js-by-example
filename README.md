@@ -16,6 +16,26 @@ Check out the `/book` folder and pick a chapter to start reading up and enjoying
 
 Contributions welcome. Contributor Code of Conduct, Pull Request Policies, and more coming soon!
 
+## ROADMAP
+
+### In progress:
+
+* A chapter on Web APIs! Look at the `chapters/web-api` branch to see the progress on this chapter.
+* Gatsby Site - The whole book will be put onto a Gatsby site and make super pretty. I like you Github, but I want something a little prettier :).
+
+### Not Started
+
+* Chapter on Automation
+  * We'll talk about automating creating template files with EJS or similar tooling, and some headless chrome testing as well
+* Chapter on Node JS
+  * Some basics of common Node modules like `child_process`, `fs`, `path`, and more
+* Weird Stuff
+  * Some of the oddities that come with Javascript, like automatic semicolon insertion, `typeof null`, and all the other weird quirks that come with the language.
+
+### Considerations
+
+* Print version?
+
 ## Contributors
 
 This book would not have been possible for the several contributors that have graciously donated their time and energy to making this book better.
@@ -23,3 +43,4 @@ This book would not have been possible for the several contributors that have gr
 * [fangstar](https://www.github.com/fangstar) - Proofreading and editing examples
 * [spamyak](https://www.github.com/spamyak) - Proofreading and catching incorrect examples
 * [Anton Halim](https://www.github.com/antonhalim) - Heavy proofreading, catching incorrect examples, and grammar
+* [sabrinakoehler](https://www.github.com/sabrinakoehler) - Additional proofreading for spelling and grammar issues
