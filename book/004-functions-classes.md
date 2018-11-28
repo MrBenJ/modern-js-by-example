@@ -3,7 +3,7 @@ Functions and Classes
 
 ## Classes
 
-Functions used to create their own `this` context when creating your own "class":
+In old versions of JavaScript, classes were just `function`s using the `this` keyword as context:
 
 ```js
 function MyCustomObjectClass(color, name) {
@@ -144,7 +144,7 @@ When I create a new vehicle:
 const sedan = new Vehicle(vehicleParts);
 ```
 
-The static properties can be used internally within `Vehicle` to ensure whatever `new Vehichle()` comes out, it's good to go.
+The static properties can be used internally within `Vehicle` to ensure whatever `new Vehicle()` comes out, it's good to go.
 
 However, I won't be able to see the `factorySignature` on `sedan` here:
 
@@ -367,7 +367,7 @@ class MyComponent extends Component {
 }
 ```
 
-As of `React v0.16.3`, a new lifecycle method was added called `getDerivedStateFromProps()`. Note that this lifecycle method is `static`, and doesn't have access to `this`. It lives on the `class`, not the `instance`.
+As of `React v0.16.3`, a new lifecycle method was added called `getDerivedStateFromProps()`. Note that this lifecycle method is `static`, so it doesn't have access to `this`. It lives in the `class`, not the `instance`.
 
 ```js
 import React, { Component } from 'react';
@@ -417,7 +417,7 @@ Under the hood, `React` is using the `static getDerivedStateFromProps` lifecycle
 
 ## Getters and Setters
 
-To those who are already familiar with Java, C, C++, or any of the sort, `getters` and `setters` are welcome additions to `class`es and `object`s in JavaScript.
+To those who are already familiar with Java, C, C++, or any of the sort, `getters` and `setters` are welcome additions to `class`es and `object`s in JavaScript. Unlike other languages, JavaScript has explicit `get` and `set` keywords that allow getters and setters to appear as properties while working as functions.
 
 Let's go back to our `Invoice` class we made earlier, and add a `getter` to see if an invoice has been paid or not.
 
@@ -458,7 +458,7 @@ class Invoice {
 }
 ```
 
-We don't have the `isPaid` property on our `Invoice` class, so let's make a method that returns `true` or `false` if the invoice has been paid or not.
+We don't want the `isPaid` property on our `Invoice` class, so let's make a method that returns `true` or `false` if the invoice has been paid or not.
 
 We can use `Invoice.receivedOn` to determine this.
 
@@ -480,7 +480,7 @@ Under the hood, the `isPaid` method is added to the object/classes's `prototype`
 SomeInvoice.isPaid(); // => Boolean
 ```
 
-Note that there's no actual `isPaid` attribute on an instance of `Invoice`. `isPaid`  is grabbing and returning `true` or `false` depending on the value of `this.receivedOn`.
+Note that there's no `isPaid` attribute on an instance of `Invoice`. `isPaid`  is grabbing and returning `true` or `false` depending on the value of `this.receivedOn`.
 
 Now let's say our client is awesome and paid us for our work (hooray!). Let's create a `setter` to set the `receivedOn` date.
 
@@ -491,7 +491,7 @@ Now let's say our client is awesome and paid us for our work (hooray!). Let's cr
   @return {Invoice}
 */
 set pay(date) {
-  this.paidOn = date;
+  this.receivedOn = date;
   return this;
 }
 ```
@@ -501,7 +501,13 @@ Just for safety, I'm setting the return value to `this`. It's also demonstrating
 If we just got paid today, all we have to do now is the following:
 
 ```js
-SomeInvoice.pay(new Date());
+SomeInvoice.pay = new Date();
+```
+
+Now if we run `SomeInvoice.isPaid`, it will return `true`, since `this.receivedOn` is truthy:
+
+```js
+SomeInvoice.isPaid // => true - Hooray! We got paid!
 ```
 
 # Real world Examples of Classes

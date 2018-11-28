@@ -20,7 +20,6 @@ Contributions welcome. Contributor Code of Conduct, Pull Request Policies, and m
 
 ### In progress:
 
-* A chapter on Web APIs! Look at the `chapters/web-api` branch to see the progress on this chapter.
 * Gatsby Site - The whole book will be put onto a Gatsby site and make super pretty. I like you Github, but I want something a little prettier :).
 
 ### Not Started
