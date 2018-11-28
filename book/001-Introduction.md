@@ -9,7 +9,7 @@ In its humble beginnings, developers saw JavaScript as a toy, a joke, some scrip
 
 Over time, languages and tools evolved, and as the web grew in size and complexity, more people needed to become proficient in JavaScript, and the front end started getting really complicated... Gone were libraries that you could load in with a `<script />` tag. Now there are frameworks, bundling systems, and entire deployment systems all built in JavaScript.
 
-While some old crotchety people will balk and gripe that JavaScript is "not a real language" and stick to whatever language they're most familiar with, the fact  remains that they, or someone on their team, will have to work with it at one point or another. It's grown so large that it's impossible to ignore today.
+While some old crotchety people will balk and gripe that JavaScript is "not a real language" and stick to whatever language they're most familiar with, the fact still stands that they, or someone on their team, will have to work with it at one point or another. It's grown so large that it's impossible to ignore today.
 
 As the web evolved, so did the language. JavaScript has, for myself and my colleagues, been an absolute pleasure to work with. It took years of study, discipline, research, and training to get here, but here we are, and JavaScript... Is moving... Way... Too... Fast...
 
