@@ -17,7 +17,7 @@ custom.color; // => 'blue'
 custom.name; // => 'Tim'
 ```
 
-If you wanted to add methods to this "class" - you'd add your methods to the `prototype` chain
+If you wanted to add methods to this "class" - you'd add your methods to the `prototype` chain.
 
 ```js
 MyCustomObjectClass.prototype.introduceSelf = function() {
@@ -480,7 +480,7 @@ Under the hood, the `isPaid` method is added to the object/classes's `prototype`
 SomeInvoice.isPaid(); // => Boolean
 ```
 
-Note that there's no actual `isPaid` attribute on the an instance of `Invoice`. `isPaid` grabbing and returning `true` or `false` depending on the value of `this.receivedOn`.
+Note that there's no actual `isPaid` attribute on an instance of `Invoice`. `isPaid`  is grabbing and returning `true` or `false` depending on the value of `this.receivedOn`.
 
 Now let's say our client is awesome and paid us for our work (hooray!). Let's create a `setter` to set the `receivedOn` date.
 
