@@ -623,6 +623,15 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0px 1.0875rem 1.45rem;
+  padding-top: 0;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
