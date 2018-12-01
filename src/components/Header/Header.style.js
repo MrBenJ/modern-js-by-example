@@ -1,3 +1,4 @@
+// @flow
 import { COLORS as c } from '../../constants';
 
 import { css } from 'emotion';

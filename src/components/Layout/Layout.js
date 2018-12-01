@@ -1,3 +1,4 @@
+// @flow
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
@@ -11,7 +12,11 @@ import './style-global.css';
 // Layout style
 import style from './Layout.style';
 
-const Layout = ({ children }): Node => (
+type LayoutProps = {
+  children: Node
+};
+
+const Layout = ({ children }: LayoutProps): Node => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

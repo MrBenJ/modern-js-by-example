@@ -1,9 +1,13 @@
+// @flow
 import React, { type Node } from 'react';
 import { Link } from 'gatsby';
 
 import style from './Header.style';
 
-const Header = ({ siteTitle }): Node => (
+type HeaderProps = {
+  siteTitle: string
+};
+const Header = ({ siteTitle }: HeaderProps): Node => (
   <div className={style}>
     <div className="container">
       <h1 className="heading">

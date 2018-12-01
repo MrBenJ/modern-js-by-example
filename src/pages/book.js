@@ -1,9 +1,10 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import { Link } from 'gatsby';
 
 import Layout from '../components/Layout';
 
-const SecondPage = () => (
+const SecondPage = (): Node => (
   <Layout>
     Book page!
     <br/>
