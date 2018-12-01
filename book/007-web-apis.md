@@ -1,3 +1,9 @@
+---
+path: "/book/007-web-apis"
+title: "Web APIs"
+chapter: 7
+---
+
 Web APIs with JavaScript
 ========================
 

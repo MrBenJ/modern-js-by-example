@@ -1,3 +1,9 @@
+---
+path: "/book/008-modern-js-architecture"
+title: "Modern JS Architecture"
+chapter: 8
+---
+
 Modern JavaScript Architecture
 ==============================
 

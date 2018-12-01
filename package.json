@@ -7,7 +7,7 @@
   "dependencies": {
     "@babel/core": "^7.1.2",
     "emotion": "^10.0.0",
-    "gatsby": "^2.0.22",
+    "gatsby": "^2.0.33",
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.6",
     "gatsby-plugin-react-helmet": "^3.0.0",

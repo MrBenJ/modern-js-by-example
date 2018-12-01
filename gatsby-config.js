@@ -3,6 +3,14 @@ module.exports = {
     title: 'Modern Javascript by Example',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/book`,
+        name: 'markdown-pages'
+      }
+    },
+    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -17,12 +25,5 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/book`,
-        name: 'markdown-pages'
-      }
-    }
   ],
 }

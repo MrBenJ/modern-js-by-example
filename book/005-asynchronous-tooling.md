@@ -1,3 +1,9 @@
+---
+path: "/book/005-asynchronous-tooling"
+title: "Asynchronous Tooling"
+chapter: 5
+---
+
 Asynchronous Tools for Modern JavaScript
 ========================================
 
