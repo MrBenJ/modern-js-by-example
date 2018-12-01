@@ -5,7 +5,13 @@ html {
 }
 body {
   margin: 0;
+  font-size: 62.5%;
 }
+
+body div {
+  font-size: 1rem;
+}
+
 article,
 aside,
 details,

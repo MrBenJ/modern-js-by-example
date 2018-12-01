@@ -6,7 +6,10 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from '../Header';
 
 // GLOBAL(ish) stylesheet here
-import './Layout.style.css';
+import './style-global.css';
+
+// Layout style
+import style from './Layout.style';
 
 const Layout = ({ children }): Node => (
   <StaticQuery
@@ -24,22 +27,17 @@ const Layout = ({ children }): Node => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: 'A free online book on modern Javascript' },
             { name: 'keywords', content: 'sample, something' },
           ]}
         >
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
-          {children}
+        <div className={style}>
+          <div className="container">
+            {children}
+          </div>
         </div>
       </>
     )}

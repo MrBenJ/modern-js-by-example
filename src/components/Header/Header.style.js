@@ -1,8 +1,10 @@
+import { COLORS as c } from '../../constants';
+
 import { css } from 'emotion';
 
 export default css`
-  background-color: rebeccapurple;
-  margin-bottom: 1.45rem;
+  background-color: ${c.primary};
+
 
   .container {
     margin: 0 auto;

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { type Node } from 'react';
 import { Link } from 'gatsby';
 
 import style from './Header.style';
-const Header = ({ siteTitle }) => (
+
+const Header = ({ siteTitle }): Node => (
   <div className={style}>
     <div className="container">
       <h1 className="heading">

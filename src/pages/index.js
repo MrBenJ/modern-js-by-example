@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { type Node } from 'react';
 import { Link } from 'gatsby';
 
 import Layout from '../components/Layout';
 
-const IndexPage = () => (
+const IndexPage = (): Node => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Modern Javascript by Example</h1>
+    <p>A book by Ben Junya</p>
+    <p>Check out the book!</p>
+    <Link to="/book">View book</Link>
   </Layout>
 )
 
