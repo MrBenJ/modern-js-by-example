@@ -10,7 +10,19 @@ module.exports = {
         name: 'markdown-pages'
       }
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs'
+            // See https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
+            // For additional options
+          }
+        ]
+      }
+    },
+
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,

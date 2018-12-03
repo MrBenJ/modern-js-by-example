@@ -12,9 +12,6 @@ export default css`
     padding-top: 1.5rem;
   }
 
-  pre {
-    background-color: ${c.secondary};
-  }
   h2 code {
     font-size: 1.4rem;
   }
