@@ -4,9 +4,6 @@ title: "Functions and Classes"
 chapter: 4
 ---
 
-Functions and Classes
-=====================
-
 ## Classes
 
 In old versions of JavaScript, classes were just `function`s using the `this` keyword as context:

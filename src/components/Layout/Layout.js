@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from '../Header';
+import Menu from '../Menu';
 
 // GLOBAL(ish) stylesheet here
 import './style-global.css';
@@ -39,6 +40,7 @@ const Layout = ({ children }: LayoutProps): Node => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
+        <Menu />
         <div className={style}>
           <div className="container">
             {children}

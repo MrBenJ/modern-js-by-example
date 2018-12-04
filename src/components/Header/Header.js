@@ -18,6 +18,6 @@ const Header = ({ siteTitle }: HeaderProps): Node => (
       </h1>
     </div>
   </div>
-)
+);
 
 export default Header;

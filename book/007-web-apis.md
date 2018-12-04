@@ -4,9 +4,6 @@ title: "Web APIs"
 chapter: 7
 ---
 
-Web APIs with JavaScript
-========================
-
 **JavaScript is the defacto language for the web at the time of this writing**. To understand the basics of how to do simple `Document Object Model` mutations and manipulations is something that many newbies start off with.
 
 **IMPORTANT**: The code snippets for this section will only work on modern browsers that support ES2015 or beyond. For the most part, this will work in **Google Chrome**, **Firefox Quantum**, and **Microsoft Edge**. These examples will *not* work with *Internet Explorer 11 or below*

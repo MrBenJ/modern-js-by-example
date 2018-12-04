@@ -8,5 +8,5 @@ export const COLORS = {
 };
 
 export const TYPOGRAPHY = {
-
+  // lol I forgotz... OOPS
 };

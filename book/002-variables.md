@@ -4,8 +4,7 @@ title: "Variables"
 chapter: 2
 ---
 
-Variables and Simple Data Types
-===============================
+## Simple Data Types
 
 Let's talk basics of the basics.
 

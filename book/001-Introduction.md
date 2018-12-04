@@ -4,13 +4,6 @@ title: "Introduction"
 chapter: 1
 ---
 
-Modern JavaScript by Example
-============================
-
-## Written by Ben Junya
-
-# Introduction
-
 In its humble beginnings, developers saw JavaScript as a toy, a joke, some scripting language that no one really wanted to mess around with. In all honesty, they were right. Why use a single-threaded, event driven, asynchronous language with all its weird callback and event looping when you could do everything synchronously with Java, C#, or Python? Why bother with all the craziness of abusing `setTimeout`, or bothering with loading in a million script files until your `<head />` exploded? Why?
 
 Over time, languages and tools evolved, and as the web grew in size and complexity, more people needed to become proficient in JavaScript, and the front end started getting really complicated... Gone were libraries that you could load in with a `<script />` tag. Now there are frameworks, bundling systems, and entire deployment systems all built in JavaScript.
@@ -50,9 +43,4 @@ If you feel moderately comfortable with a popular modern framework like `React`,
 
 # Navigating the Book
 
-Like many other developers, my eyes immediately move towards snippets of code. This book attempts to show as many examples as possible and keep the non-coding chat to a minimum. All important topics are in header tags for easy maneuvering and link-ability for sending information to colleagues and coworkers.
-
-TODO:
-
-* 006-Modern-JS-Architecture
-* Recap sections for all chapters
+Like many other developers, my eyes immediately move towards snippets of code. This book attempts to show as many examples as possible and keep the non-coding chat to a minimum. Enjoy the book!
