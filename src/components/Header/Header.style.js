@@ -3,9 +3,13 @@ import { COLORS as c } from '../../constants';
 
 import { css } from 'emotion';
 
-export default css`
-  background-color: ${c.primary};
+export const HEADER_HEIGHT = '5rem';
 
+export default css`
+  width: 100%;
+  background-color: ${c.primary};
+  position: fixed;
+  z-index: 1;
 
   .container {
     margin: 0 auto;

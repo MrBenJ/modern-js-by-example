@@ -28,12 +28,13 @@ export default function ChapterLayout({ data }: ChapterLayoutProps): Node {
   const { siteMetadata: { title } } = site;
   return (
     <div className={style}>
+      <Menu />
       <Header siteTitle={title} />
-      <div className="container">
+      <div className="container container-with-header">
         <div className="chapter-heading">
           <h1>{frontmatter.title}</h1>
         </div>
-        <Menu />
+
         <div
           className="chapter-content"
           dangerouslySetInnerHTML={{ __html: html }}

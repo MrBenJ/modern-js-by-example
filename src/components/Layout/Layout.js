@@ -42,7 +42,7 @@ const Layout = ({ children }: LayoutProps): Node => (
         <Header siteTitle={data.site.siteMetadata.title} />
         <Menu />
         <div className={style}>
-          <div className="container">
+          <div className="container container-with-header">
             {children}
           </div>
         </div>
