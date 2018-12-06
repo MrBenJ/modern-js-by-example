@@ -1,4 +1,9 @@
 // @flow
+
+/**
+ * Color palette generated from coolers
+ * @type {Object}
+ */
 export const COLORS = {
   primary: '#2D93AD',
   secondary: '#82AEB1',
@@ -8,6 +13,7 @@ export const COLORS = {
   white: '#FFFFFF',
   black: '#000000'
 };
+
 /**
  * Breakpoints taken directly from Bootstrap 4
  * @type {Object}
