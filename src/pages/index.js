@@ -37,18 +37,36 @@ const IndexPage = (): Node => {
       </div>
       <h2>Contributing</h2>
       <p>
-        Modern Javascript by Example is a free and open-source book. If you want to support the creator, I am accepting donations in these ways
+        The best way to contribute is to open an issue or make a code contribution to the <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/mrbenj/modern-js-by-example">Github Repo</a>.
+      </p>
+      <p>
+        If you would like to support me directly, I can take the following methods of donation
       </p>
       <ul>
-        <li>Paypal - <a className="link-donate" href='https://paypal.me/benjunya'target="_blank" rel="noopener noreferrer">Link here</a></li>
+        <li>Paypal - <a className="link-donate" href='https://paypal.me/benjunya' target="_blank" rel="noopener noreferrer">Link here</a></li>
         <li>Bitcoin (BTC) - Address: 15MiGcJXVkyYbVcA4NmkzawAemhmWYu5Yv</li>
         <li>Ethereum (ETH) - Address: 0x0d56331491f161d812a9c1699a8e5c8c1a243292</li>
         <li>Ravencoin (RVN) - Address: RK9AChQdph96HeJsVihasrhjWCjabFPojN</li>
       </ul>
+      <p>Contributions are not necessary, but highly appreciated! Please enjoy the book, I hope you have fun reading it, and I hope it helps you :)</p>
       <h2>Book Contributors</h2>
       <p>
-        This book would not be possible without the help of these wonderful people who contributed to the github repository
+        This book would not be possible without the help of these wonderful people who contributed to the github repository:
       </p>
+      <ul>
+        <li>
+          <a href="https://www.github.com/fangstar" target="_blank" rel="noopener noreferrer">fangstar</a> - Proofreading and editing examples
+        </li>
+        <li>
+          <a href="https://www.github.com/antonhalim" target="_blank" rel="noopener noreferrer">Anton Halim</a> - Heavy proofreading, catching incorrect examples, and grammar
+        </li>
+        <li>
+          <a href="https://www.github.com/spamyak" target="_blank" rel="noopener noreferrer">spamyak</a> - Proofreading and catching incorrect examples
+        </li>
+        <li>
+          <a href="https://www.github.com/sabrinakoehler" target="_blank" rel="noopener noreferrer">sabrinakoehler</a> - Additional proofreading for spelling and grammar issues
+        </li>
+      </ul>
     </Layout>
 
   );
