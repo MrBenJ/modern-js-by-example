@@ -1,9 +1,14 @@
-# Folders
+# Dependencies
 node_modules
-dist/bundle.js
+.cache
+
 # Logging
 npm-error.log
 yarn-error.log
 
 # macOS
+.DS_Store
+
+# Build directory
+/public
 .DS_Store

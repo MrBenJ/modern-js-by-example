@@ -1,3 +1,9 @@
+---
+path: "/book/003-complex-data-types"
+title: "Complex Data Types"
+chapter: 3
+---
+
 Complex Data Types
 ==================
 

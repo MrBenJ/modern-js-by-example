@@ -1,3 +1,9 @@
+---
+path: "/book/009-scrapped-material"
+title: "Scrapped Material"
+chapter: 9
+---
+
 Scrapped Material
 =================
 

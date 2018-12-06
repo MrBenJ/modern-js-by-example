@@ -1,3 +1,9 @@
+---
+path: "/book/006-miscellaneous-tooling"
+title: "Miscellaneous Tooling"
+chapter: 6
+---
+
 Miscellaneous Tooling
 =====================
 

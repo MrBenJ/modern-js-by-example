@@ -29,6 +29,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      # run flow typechecking!
+      - run: npm run flow
+
       # run tests!
       - run: npm test
 

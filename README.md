@@ -16,18 +16,53 @@ Check out the `/book` folder and pick a chapter to start reading up and enjoying
 
 Contributions welcome. Contributor Code of Conduct, Pull Request Policies, and more coming soon!
 
+## Developing
+
+### Prerequisites
+
+You'll need
+  * Node v8 or newer
+  * npm
+
+1. Clone the repo
+```sh
+git clone https://www.github.com/MrBenJ/modern-js-by-example
+```
+
+2. Install dependencies
+```sh
+cd modern-js-by-example
+npm install
+```
+
+3. Start a development server locally
+```sh
+npm run dev
+```
+
+You should be able to open up `localhost:9000` in your browser and start poking around the site.
+You can view the GraphQL API at `localhost:9000/___graphql` with `GraphiQL` for your convenience.
+
+### npm Scripts
+  * `npm run build` - Builds the project for deployment
+  * `npm run lint` - Lints all the js files in `src`
+  * `npm run test` - Runs unit tests with `jest` and `alex`
+  * `npm run dev` - Starts a Gatsby development server
+  * `npm run flow` - Runs `flow` static typechecking
+
 ## ROADMAP
+
+Want to see what's happening with the book right now? See what's in progress and what I haven't started yet to get a good idea of what's on the horizon, or if you'd like to contribute, these are great ways to help out!
 
 ### In progress:
 
-* Gatsby Site - The whole book will be put onto a Gatsby site and make super pretty. I like you Github, but I want something a little prettier :).
+* Chapter on Node JS
+  * Some basics of common Node modules like `child_process`, `fs`, `path`, and more
 
 ### Not Started
 
 * Chapter on Automation
   * We'll talk about automating creating template files with EJS or similar tooling, and some headless chrome testing as well
-* Chapter on Node JS
-  * Some basics of common Node modules like `child_process`, `fs`, `path`, and more
 * Weird Stuff
   * Some of the oddities that come with Javascript, like automatic semicolon insertion, `typeof null`, and all the other weird quirks that come with the language.
 

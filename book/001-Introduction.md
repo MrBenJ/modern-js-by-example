@@ -1,3 +1,9 @@
+---
+path: "/book/001-introduction"
+title: "Introduction"
+chapter: 1
+---
+
 Modern JavaScript by Example
 ============================
 

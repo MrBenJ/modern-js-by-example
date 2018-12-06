@@ -1,3 +1,9 @@
+---
+path: "/book/004-functions-classes"
+title: "Functions and Classes"
+chapter: 4
+---
+
 Functions and Classes
 =====================
 

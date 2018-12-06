@@ -1,3 +1,9 @@
+---
+path: "/book/002-variables"
+title: "Variables"
+chapter: 2
+---
+
 Variables and Simple Data Types
 ===============================
 
