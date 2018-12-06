@@ -627,9 +627,23 @@ pre tt:after {
 .container {
   position: relative;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 992px;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
+}
+
+a {
+  color: #054A91;
+  text-decoration: underline;
+  transition: color .2s ease-in-out;
+}
+
+a:visited {
+  color: #054A91;
+}
+
+a:hover {
+  color: #2D93AD;
 }
 
 @media only screen and (max-width: 480px) {

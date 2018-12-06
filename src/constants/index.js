@@ -8,7 +8,18 @@ export const COLORS = {
   white: '#FFFFFF',
   black: '#000000'
 };
+/**
+ * Breakpoints taken directly from Bootstrap 4
+ * @type {Object}
+ */
+export const BREAKPOINTS = {
+  SM: '576px',
+  MD: '768px',
+  LG: '992px',
+  XL: '1200px'
+};
 
 export const TYPOGRAPHY = {
-  // lol I forgotz... OOPS
+  // I forgot to do this.
+  // Also, I don't think we need this... YET...
 };
