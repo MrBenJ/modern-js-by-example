@@ -35,7 +35,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "echo 'not implemented yet'",
+    "start": "gatsby serve",
     "test": "alex README.md book/*.md",
     "dev": "gatsby develop",
     "build": "gatsby build",
