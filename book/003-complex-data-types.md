@@ -4,9 +4,6 @@ title: "Complex Data Types"
 chapter: 3
 ---
 
-Complex Data Types
-==================
-
 ## Object
 
 Consider a straightforward JavaScript `Object`:

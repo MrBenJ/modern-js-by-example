@@ -4,10 +4,7 @@ title: "Asynchronous Tooling"
 chapter: 5
 ---
 
-Asynchronous Tools for Modern JavaScript
-========================================
-
-# Promises
+## Promises
 
 JavaScript is totally asynchronous and used to use a callback pattern to guarantee order of execution.
 

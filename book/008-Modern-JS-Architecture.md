@@ -4,9 +4,6 @@ title: "Modern JS Architecture"
 chapter: 8
 ---
 
-Modern JavaScript Architecture
-==============================
-
 As JavaScript moves at breakneck speeds, this section can at any time fall behind. By the time you finish reading this sentence, we might already be on Webpack version 8 and Angular 19.
 
 At the time of this writing,

@@ -3,6 +3,7 @@ import React, { type Node } from 'react';
 import { graphql } from 'gatsby';
 
 import Header from '../Header';
+import Menu from '../Menu';
 import style from './ChapterLayout.style';
 
 type ChapterLayoutProps = {
@@ -27,11 +28,13 @@ export default function ChapterLayout({ data }: ChapterLayoutProps): Node {
   const { siteMetadata: { title } } = site;
   return (
     <div className={style}>
+      <Menu />
       <Header siteTitle={title} />
-      <div className="container">
+      <div className="container container-with-header">
         <div className="chapter-heading">
           <h1>{frontmatter.title}</h1>
         </div>
+
         <div
           className="chapter-content"
           dangerouslySetInnerHTML={{ __html: html }}

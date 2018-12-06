@@ -1,25 +1,48 @@
 // @flow
-import { COLORS as c } from '../../constants';
+import { COLORS as c, BREAKPOINTS as BP } from '../../constants';
 
 import { css } from 'emotion';
 
-export default css`
-  background-color: ${c.primary};
+export const HEADER_HEIGHT = '5rem';
 
+export default css`
+  width: 100%;
+  background-color: ${c.primary};
+  position: fixed;
+  z-index: 1;
 
   .container {
     margin: 0 auto;
-    max-width: 960px;
     padding: 1.45rem 1.0875rem;
   }
 
   .heading {
     margin: 0;
+    margin-left: 3rem;
+    font-size: 1.1rem;
   }
 
   .link {
     color: white;
     text-decoration: none;
   }
+
+  @media screen and (min-width:${BP.SM}) {
+    .heading {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width:${BP.MD}) {
+    .heading {
+      margin-left: 2rem;
+    }
+  }
+
+  /*@media screen and (min-width:${+BP.LG.slice(0, 2) + 30}px) {
+    .heading {
+      margin-left: 2rem;
+     }
+  }*/
 
 `;
