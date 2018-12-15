@@ -5,3 +5,4 @@
  */
 require("prismjs/themes/prism-tomorrow.css");
 require('font-awesome/css/font-awesome.min.css');
+require('./stylesheet.css');

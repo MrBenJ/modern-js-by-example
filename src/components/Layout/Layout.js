@@ -7,9 +7,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from '../Header';
 import Menu from '../Menu';
 
-// GLOBAL(ish) stylesheet here
-import './style-global.css';
-
 // Layout style
 import style from './Layout.style';
 
