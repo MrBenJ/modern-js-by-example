@@ -36,7 +36,7 @@
   "private": false,
   "scripts": {
     "start": "gatsby serve",
-    "test": "alex README.md book/*.md",
+    "test": "alex README.md book/*.md && jest",
     "dev": "gatsby develop",
     "build": "gatsby build",
     "flow": "flow",
@@ -48,14 +48,20 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-flow": "^7.0.0",
     "alex": "^6.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-preset-gatsby": "^0.1.5",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.9.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-css-modules": "^2.10.0",
     "eslint-plugin-jest": "^22.1.0",
     "flow-bin": "^0.87.0",
     "flow-typed": "^2.5.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
-    "prettier": "^1.14.3"
+    "prettier": "^1.14.3",
+    "regenerator-runtime": "^0.13.1"
   }
 }

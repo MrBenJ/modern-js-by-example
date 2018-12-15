@@ -78,3 +78,5 @@ This book would not have been possible for the several contributors that have gr
 * [spamyak](https://www.github.com/spamyak) - Proofreading and catching incorrect examples
 * [Anton Halim](https://www.github.com/antonhalim) - Heavy proofreading, catching incorrect examples, and grammar
 * [sabrinakoehler](https://www.github.com/sabrinakoehler) - Additional proofreading for spelling and grammar issues
+* [rw251](https://www.github.com/rw251) - Proofreading
+* [jessmear](https://www.github.com/jessmear) - Proofreading and content suggestion
