@@ -9,7 +9,7 @@
     "classnames": "^2.2.6",
     "emotion": "^10.0.0",
     "font-awesome": "^4.7.0",
-    "gatsby": "^2.0.33",
+    "gatsby": "^2.0.71",
     "gatsby-plugin-manifest": "^2.0.12",
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-react-helmet": "^3.0.4",
