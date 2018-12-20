@@ -135,6 +135,33 @@ All three of these tools are extremely mature, and have been battle tested in pr
 
 ## Which Framework Should I Learn?
 
-If you know zero out of three frameworks, **Learn any of them**. It really doesn't matter.
+If you know zero out of infinite frameworks, **Learn any of the most popular frameworks**. Not only will this keep you up to date with the fast changing work of Javascript, but it'll also make you much easier to hire, especially in cities where technology is a core characteristic of the city (think Silicon Valley).
 
 **Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue,js, and React are all battle tested tools to do this. While each has their own unique approach with their own positives and negatives, the end goal is still the same - **Sync UI state with server**.
+
+**It's important to remain agnostic** when learning a framework. Different tools exist to solve different problems. Sometimes, the most popular tool or framework isn't the best for a particular problem. It's important to keep a cool head, not get sucked up into the internet hype machine, and look at the pros and cons of each tool, see why they got popular, and pick the tool that best fits your usage scenario.
+
+While this section lightly outlines each of the three most popular tools and frameworks, I highly encourage you to dig deeper and explore each tool. It doesn't hurt to be know a little bit about each of them, but mastery in one is much more valuable than light knowledge in three.
+
+### Angular 2+
+
+#### What is it?
+
+Angular is a MVC - Model-View-Controller framework for building Single Page Applications. It comes with a robust set of tools that let a developer prototype or build out a basic application fairly quickly with minimal boilerplate.
+
+#### Pros
+
+* Great for prototypes and smaller applications
+* Maintained by Google.
+
+### React
+
+#### What is it?
+
+React is **not a framework**, but a view library.
+
+### Vue
+
+#### What is it?
+
+Vue is an all in one framework and view library that can do both MVC and top-down data architectures.
