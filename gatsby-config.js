@@ -1,8 +1,23 @@
+// For project environment variables, use these
+// const dotenv = require('dotenv');
+//
+// dotenv.config({
+//   oath: `.env.${process.env.GA_UA}`
+// });
+
 module.exports = {
   siteMetadata: {
     title: 'Modern Javascript by Example',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GA_UA,
+        head: true,
+        respectDNT: true
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
