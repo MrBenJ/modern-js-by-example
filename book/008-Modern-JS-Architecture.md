@@ -151,14 +151,33 @@ Angular is a MVC - Model-View-Controller framework for building Single Page Appl
 
 #### Pros
 
-* Great for prototypes and smaller applications
+* Great for prototypes and smaller applications.
 * Maintained by Google.
 
 ### React
 
 #### What is it?
 
-React is **not a framework**, but a view library.
+React is **not a framework**, but a view library. The **ecosystem of React** can turn it into a framework though. We're getting ahead of ourselves here though, let's take a quick step back and look at React, by itself.
+
+#### Pros
+
+* Highly scalable, modular, and flexible in usage.
+* Actively maintained by Facebook.
+* One of the most popular tools in 2018 with widespread adoption.
+* Large and vast ecosystem where there's a tool for everything.
+
+
+#### Cons
+
+* Difficult learning curve, especially for those who use MVC frameworks.
+* **Too flexible**, and can easily be abused.
+* Often the main tool causing **Javascript fatigue**, as the ecosystem can sometimes feel too big.
+* Can be difficult to set up from scratch.
+
+#### The React Ecosystem
+
+
 
 ### Vue
 
