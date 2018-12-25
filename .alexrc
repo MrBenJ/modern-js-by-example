@@ -1,3 +1,3 @@
 {
-  "allow": ["hell", "crash", "execution", "execute", "executes"]
+  "allow": ["hell", "crash", "execution", "execute", "executes", "special"]
 }
