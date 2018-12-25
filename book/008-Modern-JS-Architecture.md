@@ -178,7 +178,6 @@ React is **not a framework**, but a view library. The **ecosystem of React** can
 #### The React Ecosystem
 
 
-
 ### Vue
 
 #### What is it?
