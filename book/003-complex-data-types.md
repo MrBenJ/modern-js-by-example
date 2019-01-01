@@ -143,7 +143,7 @@ PersonMap.forEach( (key, value) => {
   console.log(key, value); // => 'name', 'Sheryl', 'occupation', 'Programmer', 'id', 18
 });
 
-// Or you can use a for-in loop
+// Or you can use a for-of loop
 for (let [ key, value ] of PersonMap) {
   console.log(key, value); // => 'name', 'Sheryl', 'occupation', 'Programmer', 'id', 18
 }
