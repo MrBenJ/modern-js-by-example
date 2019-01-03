@@ -152,7 +152,7 @@ The static properties can be used internally within `Vehicle` to ensure whatever
 However, I won't be able to see the `factorySignature` on `sedan` here:
 
 ```js
-sedan.factorySiganture; // => undefined
+sedan.factorySignature; // => undefined
 ```
 
 But I can see the `Vehicle` static properties with `Vehicle.factorySignature`
