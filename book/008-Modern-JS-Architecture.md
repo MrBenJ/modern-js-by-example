@@ -23,7 +23,7 @@ There's 3 major aspects of a modern front end system:
 
 # Task runners
 
-Back in the ancient JavaScript civilizations of 2013, brave warrior and huntress tribes of developers used `grunt` to start automating repetitive and menial tasks.
+Back in the ancient JavaScript civilizations of 2013, brave warrior tribes of developers used `grunt` to start automating repetitive and menial tasks.
 
 With the advent of Node.js, there were more and more tools that started appearing in the JavaScript ecosystem. We were able to use the command line to:
 
@@ -119,7 +119,7 @@ However, `Webpack` is a big and open ecosystem that has lots of moving parts tha
 If `Parcel` isn't cutting it for you and you'd like to use more tools in the JavaScript ecosystem (e.g. `flow` instead of `Typescript`), Setting up `Webpack`, while frustrating at times, is an extremely valuable skill to have, and knowing what happens under the hood will make your skills and expertise as an engineer much more valuable.
 
 <!-- alex ignore spas -->
-`Webpack` was meant to be used for Single Page Applications, or SPAs for short. Setting up architecture for a single page application with `Webpack` is simple compared to an project with multiple pages and entry points.
+`Webpack` was meant to be used for Single Page Applications, or SPAs for short. Setting up architecture for a single page application with `Webpack` is simple compared to a project with multiple pages and entry points.
 
 # Frameworks
 
