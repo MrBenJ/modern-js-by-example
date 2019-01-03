@@ -83,7 +83,7 @@ nodeList.map(); // => Error: undefined is not a function
 const divs = Array.from(nodeList);
 
 divs.forEach( x => console.log(x)); // => <div></div>
-divs.forEach( x => console.log(x)); // => [<div</div>,<div></div>]
+console.log(divs.map( x => x )); // => [<div></div>]
 ```
 
 
