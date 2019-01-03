@@ -519,7 +519,7 @@ Here's our first `createRecipe` function:
 /**
   Makes a POST request to /create-recipe to create a recipe
   @param {Object} recipeData - Recipe object to create
-  @return {Promise<Number>} - Returns the recipeId
+  @return {Promise<Object>} - Returns the response object with the new recipe
 */
 function createRecipe(recipeData) {
   return new Promise( (resolve, reject) => {
@@ -527,7 +527,7 @@ function createRecipe(recipeData) {
       method: 'POST',
       body: JSON.stringify(recipeData)
     })
-    .then( recipeId => { resolve(recipeId); })
+    .then( response => { resolve(response); })
     .catch( error => { reject(error); });
   })
 }
