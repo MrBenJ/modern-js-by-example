@@ -59,7 +59,7 @@ export default class Menu extends Component<Props, State> {
             };
           });
 
-          return <PureMenu className={classNames(style, className)} links={links} />;
+          return <PureMenu css={style} className={className} links={links} />;
         }}
       />
     );
