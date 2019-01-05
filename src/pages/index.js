@@ -1,4 +1,4 @@
-// @flow
+// supress@flow
 import React, { type Node } from 'react';
 import { css } from '@emotion/core';
 

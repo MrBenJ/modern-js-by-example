@@ -1,4 +1,4 @@
-// @flow
+// supress@flow
 import { css } from '@emotion/core';
 import { COLORS as c } from '../../constants';
 import { HEADER_HEIGHT } from '../Header';
