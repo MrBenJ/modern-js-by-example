@@ -1,4 +1,4 @@
-// @flow
+// supress@flow
 import React, { type Node } from 'react';
 import { graphql } from 'gatsby';
 
@@ -27,7 +27,7 @@ export default function ChapterLayout({ data }: ChapterLayoutProps): Node {
   const { frontmatter, html } = markdownRemark;
   const { siteMetadata: { title } } = site;
   return (
-    <div className={style}>
+    <div css={style}>
       <Menu />
       <Header siteTitle={title} />
       <div className="container container-with-header">

@@ -37,7 +37,7 @@ const Layout = ({ children }: LayoutProps): Node => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Menu />
-        <div className={style}>
+        <div css={style}>
           <div className="container container-with-header">
             {children}
           </div>

@@ -1,13 +1,17 @@
-// @flow
+// supress@flow
 import React, { type Node } from 'react';
+import { css } from '@emotion/core';
 
-import style from './index.style';
 import Layout from '../components/Layout';
+
+const style = css`
+    padding-top: 2rem;
+`;
 
 const IndexPage = (): Node => {
   return (
     <Layout>
-      <div className={style}>
+      <div css={style}>
         { /* BOOK IMAGE LOGO HERE */}
         <img src="https://img.shields.io/badge/dynamic/json.svg?label=GitHub+Stars&url=https%3A%2F%2Fapi.github.com%2Frepos%2Fmrbenj%2Fmodern-js-by-example&query=stargazers_count&colorB=green"/>
 

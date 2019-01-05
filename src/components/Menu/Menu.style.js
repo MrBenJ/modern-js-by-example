@@ -1,5 +1,5 @@
-// @flow
-import { css } from 'emotion';
+// supress@flow
+import { css } from '@emotion/core';
 
 import { COLORS as c, BREAKPOINTS as BP } from '../../constants';
 import { HEADER_HEIGHT } from '../Header';

@@ -11,6 +11,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-emotion',
+      options: {
+        // babel-plugin-emotion options here!
+      }
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: process.env.GA_UA,

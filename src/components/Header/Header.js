@@ -9,7 +9,7 @@ type HeaderProps = {
 };
 
 const Header = ({ siteTitle }: HeaderProps): Node => (
-  <div className={style}>
+  <div css={style}>
     <div className="container">
       <h1 className="heading">
         <Link to="/" className="link">
