@@ -1,4 +1,4 @@
-// supress@flow
+// @flow
 import { css } from '@emotion/core';
 
 import { COLORS as c } from '../../constants';
@@ -10,5 +10,4 @@ export default css`
   .container-with-header {
     padding-top: ${HEADER_HEIGHT};
   }
-
 `;
