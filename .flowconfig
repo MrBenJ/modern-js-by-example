@@ -1,10 +1,5 @@
-# Note: @emotion/core is throwing a bad 'context.js' typecheck error.
-# I'm ignoring @emotion/core for now and supressing flow checking
-# on any files that are importing it for now.
-# There's a pull request that supposedly fixes this issue here:
-# https://github.com/emotion-js/emotion/pull/1126
 [ignore]
-.*/node_modules/@emotion/core
+
 [include]
 
 [libs]

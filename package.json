@@ -6,8 +6,8 @@
   "main": "index.js",
   "dependencies": {
     "@babel/core": "^7.2.2",
-    "@emotion/core": "^10.0.5",
-    "@emotion/styled": "^10.0.5",
+    "@emotion/core": "^10.0.6",
+    "@emotion/styled": "^10.0.6",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "gatsby": "^2.0.85",

@@ -1,4 +1,4 @@
-// supress@flow
+// @flow
 import { css } from '@emotion/core';
 
 import { COLORS as c, BREAKPOINTS as BP } from '../../constants';
@@ -7,7 +7,6 @@ import { HEADER_HEIGHT } from '../Header';
 const ICON_SPACING = 1;
 const MOBILE_MENU_WIDTH = '100%';
 const DESKTOP_MENU_WIDTH = '30vw';
-
 
 export default css`
   .menu-icon {

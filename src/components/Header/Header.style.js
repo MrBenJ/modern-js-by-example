@@ -1,8 +1,6 @@
-// supress@flow
+// @flow
 import { css } from '@emotion/core';
 import { COLORS as c, BREAKPOINTS as BP } from '../../constants';
-
-
 
 export const HEADER_HEIGHT = '5rem';
 

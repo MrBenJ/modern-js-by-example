@@ -1,4 +1,4 @@
-// supress@flow
+// @flow
 import React, { type Node } from 'react';
 import { graphql } from 'gatsby';
 
