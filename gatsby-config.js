@@ -43,7 +43,6 @@ module.exports = {
         ]
       }
     },
-
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -55,8 +54,9 @@ module.exports = {
         theme_color: '#2D93AD',
         display: 'standalone',
         icon: 'src/images/js-logo.png', // This path is relative to the root of the site.
-      },
+      }
     },
     'gatsby-plugin-offline',
+    'gatsby-plugin-netlify'
   ],
 }
