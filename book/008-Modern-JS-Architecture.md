@@ -173,13 +173,40 @@ React is **not a framework**, but a view library. The **ecosystem of React** can
 * Difficult learning curve, especially for those who use MVC frameworks.
 * **Too flexible**, and can easily be abused.
 * Often the main tool causing **Javascript fatigue**, as the ecosystem can sometimes feel too big.
+* Makes hard stuff easy (rendering giant lists), but easy stuff hard (forms)
 * Can be difficult to set up from scratch.
 
 #### The React Ecosystem
 
+React has an incredibly large ecosystem that shows off its flexibility and popularity. React's core packages are:
+
+* `react` - The main library
+* `react-dom` - The DOM manipulation library
+
+Some other "React specific" libraries that are optional (and sometimes recommended) are:
+
+* [`prop-types`](https://reactjs.org/docs/typechecking-with-proptypes.html) - PropType checking for React if you aren't using a static typechecker like `flow` or `Typescript`.
+  * Note: This tool is actively maintained by Facebook, and highly recommended
+* [`formik`](https://github.com/jaredpalmer/formik) - A form library for React
+* [`react-virtualized`](https://github.com/bvaughn/react-virtualized) - An extremely highly performant rendering library for large lists and tabular data.
+
+There's even some full on frameworks that eat, sleep, and breathe React.js:
+
+* [Next.js](https://nextjs.org/) - An extremely powerful server-side-rendering framework for React.
+* [Gatsby](https://www.gatsbyjs.org/) - A "website compiler" designed for Single Page Apps or Progressive Webapps with React and GraphQL.
 
 ### Vue
 
 #### What is it?
 
 Vue is an all in one framework and view library that can do both MVC and top-down data architectures.
+
+#### Pros
+
+* You can do either top-down data flow like React, **OR** MVC like Angular
+* Incredible community happy to help people out
+* Uses plain old templates and HTML (JSX can be daunting to look at, so this is a lovely change!)
+
+#### Cons
+
+* Learning curve - flexible to the point of being abused (like React)
