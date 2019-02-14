@@ -195,6 +195,92 @@ There's even some full on frameworks that eat, sleep, and breathe React.js:
 * [Next.js](https://nextjs.org/) - An extremely powerful server-side-rendering framework for React.
 * [Gatsby](https://www.gatsbyjs.org/) - A "website compiler" designed for Single Page Apps or Progressive Webapps with React and GraphQL.
 
+#### React is _not really_ a Framework
+
+Unless it's treated like a framework, React by itself is _not a framework_.
+
+React is a library for building user interfaces.
+
+Think of React as building out custom HTML tags:
+
+```js
+function NameTag(props) {
+  return (
+    <div className="name-tag">
+      <p>Name: {props.name}</p>
+      <p>Title: {props.title}</p>
+    </div>
+  );
+}
+
+const node = document.getElementById('root');
+
+ReactDOM.render(
+  <NameTag
+    name="Jeff"
+    title="Master of the Universe"
+  />,
+  node
+);
+```
+
+We made our own special React component called `<NameTag/>` here, which houses a `div` and 2 `p` tags. Instead of hand-writing all this HTML if we wanted to render a long list of these duplicate tags, we can just create a single `<NameTag />` component and make a loop to create a bunch of them. That looks a little bit like this:
+
+```js
+function ListOfNameTags(props) {
+  const { names } = props;
+  return (
+    <div className="name-tag-list">
+      {names.map( person => <NameTag {...person} />)}
+    </div>
+  );
+}
+
+const names = [
+  {
+    name: "Jeff",
+    title: "Master of the Universe"
+  },
+  {
+    name: "Alex",
+    title: "Master of the Sky"
+  },
+  {
+    name: "Bubbles",
+    title: "Master of Dinner"
+  }
+];
+
+const node = document.getElementById('root');
+
+ReactDOM.render(
+  <ListOfNameTags
+    names={names}
+  />,
+  node
+);
+```
+
+This would give us the following HTML:
+
+```html
+<div id="root">
+  <div class="name-tag-list">
+    <div class="name-tag">
+      <p>Name: Jeff</p>
+      <p>Title: Master of the Universe</p>
+    </div>
+    <div class="name-tag">
+      <p>Name: Alex</p>
+      <p>Title: Master of the Sky</p>
+    </div>
+    <div class="name-tag">
+      <p>Name: Bubbles</p>
+      <p>Title: Master of Dinner</p>
+    </div>
+  </div>
+</div>
+```
 ### Vue
 
 #### What is it?
@@ -210,3 +296,9 @@ Vue is an all in one framework and view library that can do both MVC and top-dow
 #### Cons
 
 * Learning curve - flexible to the point of being abused (like React)
+
+Frameworks can be daunting to pick up, and whichever of these three major frameworks you pick, be prepared to study, learn, and search the web for answers that aren't covered very well in the official documentation.
+
+From personal experience, I've been working with `React` for the last 3 years and it's been an absolute pleasure to work with. It's more of a library than a framework and offers great flexibility if one already has strong Javascript skills.
+
+In fact, I would argue that strong Javascript skills and general strength of the language is your best friend when learning these tools. At the end of the day, **it's just Javascript!**
