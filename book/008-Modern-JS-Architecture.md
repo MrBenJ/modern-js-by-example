@@ -302,3 +302,14 @@ Frameworks can be daunting to pick up, and whichever of these three major framew
 From personal experience, I've been working with `React` for the last 3 years and it's been an absolute pleasure to work with. It's more of a library than a framework and offers great flexibility if one already has strong Javascript skills.
 
 In fact, I would argue that strong Javascript skills and general strength of the language is your best friend when learning these tools. At the end of the day, **it's just Javascript!**
+
+
+### TODP: Hey, Why is this chapter unfinished?
+
+When I first started writing this chapter, I just wanted to talk about the basics and the three "macro" level pieces of JS architecture in a modern web application. Unfortunately, the scope of this chapter has grown so large to explain some large level concepts of the three most popular JS frameworks for use on the front end.
+
+I will honestly and humbly admit that I have several years of experience with React, and zero professional years of experience with Angular 2+ or Vue, so I'm going to defer some parts of these frameworks until I sit down and really study up on them.
+
+In the meantime, go ahead and enjoy the little bits of React knowledge in here :). I will continue to update this chapter and book as my current skillset improves and evolves to the ever changing ecosystem that's Javascript!
+
+Love it or hate it, we're at such an exciting time to be a Javascript developer! This book will evolve with the language, and I'm just so excited to continue to share this knowledge with you as I myself continue to develop myself into a better developer and a better person.
