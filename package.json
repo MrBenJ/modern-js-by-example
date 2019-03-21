@@ -47,7 +47,7 @@
     "lint": "eslint \"src/**/*.js\""
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-flow": "^7.0.0",
