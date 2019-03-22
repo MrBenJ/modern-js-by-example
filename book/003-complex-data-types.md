@@ -261,12 +261,14 @@ Under the hood, if an object has no more references pointing to it, it will be c
 
 # Set and WeakSet
 
-Set and WeakSet are identical to Map, except for 2 major differences:
+Set and WeakSet are identical to Map, except for a few major differences:
 
-1. Instead of `.set` for values, you use `.add()` to create a key value pair to store.
-2. All values in a `Set` must be unique and only occur once.
+1. `Set` is a store of just `values` - not `key-value pairs` like in `Map`.
+2. Instead of `.set` for values, you use `.add()` to store a value.
+3. All values in a `Set` must be unique and only occur once.
+4. Set is *ordered by insertion*.
 
-As far as everything else, they are very identical and are ordered.
+As far as everything else, they are very identical.
 
 If you need a `Map`-like storage or cache, but all values must be unique, then `Set` is *perfect*!
 
