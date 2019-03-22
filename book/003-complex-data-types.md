@@ -118,7 +118,7 @@ const PersonMap = new Map(Object.entries(Person));
 
 PersonMap.get('name'); // => 'Sheryl'
 PersonMap.get('occupation'); // => 'Programmer'
-PersonMap.get(18); // => 18
+PersonMap.get('id'); // => 18
 ```
 
 Just like with an object, you can iterate over a `Map`
