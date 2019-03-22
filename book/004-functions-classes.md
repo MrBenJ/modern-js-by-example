@@ -181,7 +181,7 @@ class Coffee {
   }
 
   static isExcellentCoffee(Coffee) {
-    return Coffee.quality < 80;
+    return Coffee.quality > 80;
   }
 }
 ```
