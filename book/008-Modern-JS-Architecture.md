@@ -23,7 +23,7 @@ There's 3 major aspects of a modern front end system:
 
 # Task runners
 
-Back in the ancient JavaScript civilizations of 2013, brave warrior and huntress tribes of developers used `grunt` to start automating repetitive and menial tasks.
+Back in the ancient JavaScript civilizations of 2013, brave tribes of developers used `grunt` to start automating repetitive and menial tasks.
 
 With the advent of Node.js, there were more and more tools that started appearing in the JavaScript ecosystem. We were able to use the command line to:
 
