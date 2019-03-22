@@ -79,6 +79,9 @@ const IndexPage = (): Node => {
         <li>
           <a href="https://www.github.com/pauldariye" target="_blank" rel="noopener noreferrer">pauldariye</a> - Proofreading and example edits
         </li>
+        <li>
+          <a href="https://www.github.com/marwahaha" target="_blank" rel="noopener noreferrer">marwahaha</a> - Proofreading and fixing misinformation on Set.
+        </li>
       </ul>
     </Layout>
   );
