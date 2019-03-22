@@ -81,3 +81,4 @@ This book would not have been possible for the several contributors that have gr
 * [rw251](https://www.github.com/rw251) - Proofreading
 * [jessmear](https://www.github.com/jessmear) - Proofreading and content suggestion
 * [pauldariye](https://www.github.com/pauldariye) - Proofreading and example edits
+* [marwahaha](https://www.github.com/marwahaha) - Proofreading and fixing misinformation on `Set`
