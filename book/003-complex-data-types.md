@@ -266,9 +266,8 @@ Set and WeakSet are identical to Map, except for a few major differences:
 1. `Set` is a store of just `values` - not `key-value pairs` like in `Map`.
 2. Instead of `.set` for values, you use `.add()` to store a value.
 3. All values in a `Set` must be unique and only occur once.
-4. Set is *ordered by insertion*.
 
-As far as everything else, they are very identical.
+As far as everything else, they are very identical, including being **ordered by insertion**.
 
 If you need a `Map`-like storage or cache, but all values must be unique, then `Set` is *perfect*!
 
