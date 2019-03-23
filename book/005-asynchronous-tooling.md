@@ -492,7 +492,7 @@ async function getTopCommentByUserId(userId) {
 }
 ```
 
-My personal preference is that **all the content async functions, despite if async calls are happening or not** should be wrapped in `try/catch`.
+My personal preference is that **all code running in an async function should be wrapped in `try/catch`**, whether it contains async operations (like API calls) or not.
 
 Speaking from personal experience, it's not always API calls that fail. Sometimes it's the response from a server.
 
