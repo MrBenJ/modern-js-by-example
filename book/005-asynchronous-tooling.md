@@ -287,9 +287,7 @@ Promises open up so much in async functionality, making callback hell a thing of
 
 Because things get easier and the want to create more complex functions grows larger and larger, it's even more imperative that the **Single responsibilty principle** is upheld. For those needing a refresher:
 
-```
-The single responsibility principle is a computer programming principle which states that every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.
-```
+> The single responsibility principle is a computer programming principle which states that every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.
 
 Each `Promise` should be encapsulated in a `function` that does one thing, and does that one thing really well.
 
