@@ -13,7 +13,13 @@ const IndexPage = (): Node => {
     <Layout>
       <div css={style}>
         { /* BOOK IMAGE LOGO HERE */}
-        <img src="https://img.shields.io/badge/dynamic/json.svg?label=GitHub+Stars&url=https%3A%2F%2Fapi.github.com%2Frepos%2Fmrbenj%2Fmodern-js-by-example&query=stargazers_count&colorB=green"/>
+        <a
+          href="https://github.com/MrBenJ/modern-js-by-example"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="https://img.shields.io/badge/dynamic/json.svg?label=GitHub+Stars&url=https%3A%2F%2Fapi.github.com%2Frepos%2Fmrbenj%2Fmodern-js-by-example&query=stargazers_count&colorB=green" />
+        </a>
 
         <h2>A book by Ben Junya</h2>
         <p>
