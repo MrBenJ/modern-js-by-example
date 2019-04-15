@@ -10,7 +10,7 @@
     "@emotion/styled": "^10.0.6",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
-    "gatsby": "^2.3.20",
+    "gatsby": "^2.3.23",
     "gatsby-plugin-emotion": "^4.0.6",
     "gatsby-plugin-google-analytics": "^2.0.18",
     "gatsby-plugin-manifest": "^2.0.29",
