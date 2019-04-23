@@ -18,7 +18,7 @@
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-remark-prismjs": "^3.2.8",
-    "gatsby-source-filesystem": "^2.0.29",
+    "gatsby-source-filesystem": "^2.0.30",
     "gatsby-transformer-remark": "^2.3.8",
     "prismjs": "^1.15.0",
     "react": "^16.7.0",
