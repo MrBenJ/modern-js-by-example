@@ -135,6 +135,181 @@ All three of these tools are extremely mature, and have been battle tested in pr
 
 ## Which Framework Should I Learn?
 
-If you know zero out of three frameworks, **Learn any of them**. It really doesn't matter.
+If you know zero out of infinite frameworks, **Learn any of the most popular frameworks**. Not only will this keep you up to date with the fast changing work of Javascript, but it'll also make you much easier to hire, especially in cities where technology is a core characteristic of the city (think Silicon Valley).
 
 **Frameworks keep the UI state in sync with what's happening server side**. Angular, Vue,js, and React are all battle tested tools to do this. While each has their own unique approach with their own positives and negatives, the end goal is still the same - **Sync UI state with server**.
+
+**It's important to remain agnostic** when learning a framework. Different tools exist to solve different problems. Sometimes, the most popular tool or framework isn't the best for a particular problem. It's important to keep a cool head, not get sucked up into the internet hype machine, and look at the pros and cons of each tool, see why they got popular, and pick the tool that best fits your usage scenario.
+
+While this section lightly outlines each of the three most popular tools and frameworks, I highly encourage you to dig deeper and explore each tool. It doesn't hurt to be know a little bit about each of them, but mastery in one is much more valuable than light knowledge in three.
+
+### Angular 2+
+
+#### What is it?
+
+Angular is a MVC - Model-View-Controller framework for building Single Page Applications. It comes with a robust set of tools that let a developer prototype or build out a basic application fairly quickly with minimal boilerplate.
+
+#### Pros
+
+* Great for prototypes and smaller applications.
+* Maintained by Google.
+
+### React
+
+#### What is it?
+
+React is **not a framework**, but a view library. The **ecosystem of React** can turn it into a framework though. We're getting ahead of ourselves here though, let's take a quick step back and look at React, by itself.
+
+#### Pros
+
+* Highly scalable, modular, and flexible in usage.
+* Actively maintained by Facebook.
+* One of the most popular tools in 2018 with widespread adoption.
+* Large and vast ecosystem where there's a tool for everything.
+
+
+#### Cons
+
+* Difficult learning curve, especially for those who use MVC frameworks.
+* **Too flexible**, and can easily be abused.
+* Often the main tool causing **Javascript fatigue**, as the ecosystem can sometimes feel too big.
+* Makes hard stuff easy (rendering giant lists), but easy stuff hard (forms)
+* Can be difficult to set up from scratch.
+
+#### The React Ecosystem
+
+React has an incredibly large ecosystem that shows off its flexibility and popularity. React's core packages are:
+
+* `react` - The main library
+* `react-dom` - The DOM manipulation library
+
+Some other "React specific" libraries that are optional (and sometimes recommended) are:
+
+* [`prop-types`](https://reactjs.org/docs/typechecking-with-proptypes.html) - PropType checking for React if you aren't using a static typechecker like `flow` or `Typescript`.
+  * Note: This tool is actively maintained by Facebook, and highly recommended
+* [`formik`](https://github.com/jaredpalmer/formik) - A form library for React
+* [`react-virtualized`](https://github.com/bvaughn/react-virtualized) - An extremely highly performant rendering library for large lists and tabular data.
+
+There's even some full on frameworks that eat, sleep, and breathe React.js:
+
+* [Next.js](https://nextjs.org/) - An extremely powerful server-side-rendering framework for React.
+* [Gatsby](https://www.gatsbyjs.org/) - A "website compiler" designed for Single Page Apps or Progressive Webapps with React and GraphQL.
+
+#### React is _not really_ a Framework
+
+Unless it's treated like a framework, React by itself is _not a framework_.
+
+React is a library for building user interfaces.
+
+Think of React as building out custom HTML tags:
+
+```js
+function NameTag(props) {
+  return (
+    <div className="name-tag">
+      <p>Name: {props.name}</p>
+      <p>Title: {props.title}</p>
+    </div>
+  );
+}
+
+const node = document.getElementById('root');
+
+ReactDOM.render(
+  <NameTag
+    name="Jeff"
+    title="Master of the Universe"
+  />,
+  node
+);
+```
+
+We made our own special React component called `<NameTag/>` here, which houses a `div` and 2 `p` tags. Instead of hand-writing all this HTML if we wanted to render a long list of these duplicate tags, we can just create a single `<NameTag />` component and make a loop to create a bunch of them. That looks a little bit like this:
+
+```js
+function ListOfNameTags(props) {
+  const { names } = props;
+  return (
+    <div className="name-tag-list">
+      {names.map( person => <NameTag {...person} />)}
+    </div>
+  );
+}
+
+const names = [
+  {
+    name: "Jeff",
+    title: "Master of the Universe"
+  },
+  {
+    name: "Alex",
+    title: "Master of the Sky"
+  },
+  {
+    name: "Bubbles",
+    title: "Master of Dinner"
+  }
+];
+
+const node = document.getElementById('root');
+
+ReactDOM.render(
+  <ListOfNameTags
+    names={names}
+  />,
+  node
+);
+```
+
+This would give us the following HTML:
+
+```html
+<div id="root">
+  <div class="name-tag-list">
+    <div class="name-tag">
+      <p>Name: Jeff</p>
+      <p>Title: Master of the Universe</p>
+    </div>
+    <div class="name-tag">
+      <p>Name: Alex</p>
+      <p>Title: Master of the Sky</p>
+    </div>
+    <div class="name-tag">
+      <p>Name: Bubbles</p>
+      <p>Title: Master of Dinner</p>
+    </div>
+  </div>
+</div>
+```
+### Vue
+
+#### What is it?
+
+Vue is an all in one framework and view library that can do both MVC and top-down data architectures.
+
+#### Pros
+
+* You can do either top-down data flow like React, **OR** MVC like Angular
+* Incredible community happy to help people out
+* Uses plain old templates and HTML (JSX can be daunting to look at, so this is a lovely change!)
+
+#### Cons
+
+* Learning curve - flexible to the point of being abused (like React)
+
+Frameworks can be daunting to pick up, and whichever of these three major frameworks you pick, be prepared to study, learn, and search the web for answers that aren't covered very well in the official documentation.
+
+From personal experience, I've been working with `React` for the last 3 years and it's been an absolute pleasure to work with. It's more of a library than a framework and offers great flexibility if one already has strong Javascript skills.
+
+In fact, I would argue that strong Javascript skills and general strength of the language is your best friend when learning these tools. At the end of the day, **it's just Javascript!**
+
+
+### TODO: Hey, Why is this chapter unfinished?
+
+When I first started writing this chapter, I just wanted to talk about the basics and the three "macro" level pieces of JS architecture in a modern web application. Unfortunately, the scope of this chapter has grown so large to explain some large level concepts of the three most popular JS frameworks for use on the front end.
+
+I will honestly and humbly admit that I have several years of experience with React, and zero professional years of experience with Angular 2+ or Vue, so I'm going to defer some parts of these frameworks until I sit down and really study up on them.
+
+In the meantime, go ahead and enjoy the little bits of React knowledge in here :). I will continue to update this chapter and book as my current skillset improves and evolves to the ever changing ecosystem that's Javascript!
+
+Love it or hate it, we're at such an exciting time to be a Javascript developer! This book will evolve with the language, and I'm just so excited to continue to share this knowledge with you as I myself continue to develop myself into a better developer and a better person.

@@ -41,6 +41,14 @@ You should be alright.
 
 If you feel moderately comfortable with a popular modern framework like `React`, `Angular 2+`, or `Vue.js`, you should be in pretty good shape, too. We'll use as many real world examples with these frameworks throughout this book, not just the front end UI stuff, but backend Node scripts and servers as well.
 
+# This Book Will Constantly Evolve!
+
+Just like Javascript itself, this book will continually be updated and changed to reflect the current trends in Javascript. You will see things change and update as time goes on.
+
+Javascript changes quickly and suddenly. While this book won't be updated the moment ES2094+ comes out, I dedicate a solid 4-8 hours a week to Open Source Development, and this book is definitely a large part of my OSS work. I'm dedicating and promising to you right now that I'll keep this thing updated until it requires an eventual rewrite, and when that happens, you'll know :).
+
+Best way to keep up to date on the status of this book is to [follow me on Twitter](https://www.twitter.com/MrBenJ5) and keep an eye on the [Github Repo](https://www.github.com/MrBenJ/modern-js-by-example).
+
 # Navigating the Book
 
 Like many other developers, my eyes immediately move towards snippets of code. This book attempts to show as many examples as possible and keep the non-coding chat to a minimum. Enjoy the book!

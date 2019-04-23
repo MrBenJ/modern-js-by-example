@@ -1,3 +1,14 @@
 {
-  "allow": ["hell", "crash", "execution", "execute", "executes", "special", "savage"]
+  "allow": [
+    "hell",
+    "crash",
+    "execution",
+    "execute",
+    "executes",
+    "special",
+    "pros",
+    "savage",
+    "remain",
+    "ball"
+  ]
 }
