@@ -29,7 +29,7 @@ export default css`
   .link-container {
     position: absolute;
     left: -${MOBILE_MENU_WIDTH};
-    top: ${+HEADER_HEIGHT.slice(0, 1) - 1}rem;
+    top: ${+HEADER_HEIGHT.slice(0, 1)}rem;
     height: 100vh;
     width: ${MOBILE_MENU_WIDTH};
     z-index: 2;
@@ -41,6 +41,7 @@ export default css`
     .link-wrapper {
       margin: 1rem 0;
     }
+
     a {
       color: ${c.black};
 
