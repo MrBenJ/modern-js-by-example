@@ -22,7 +22,7 @@
     "gatsby-transformer-remark": "^2.3.8",
     "prismjs": "^1.15.0",
     "react": "^16.10.1",
-    "react-dom": "^16.7.0",
+    "react-dom": "^16.10.1",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^5.0.0"
