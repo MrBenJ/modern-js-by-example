@@ -5,7 +5,9 @@ module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: [ "json", "lcov", "text"],
   verbose: true,
-  setupTestFrameworkScriptFile: "./jest.setup.js",
+  setupFilesAfterEnv: [
+    "./jest.setup.js"
+  ],
   "coveragePathIgnorePatterns": [
     "/node_modules/",
     "./app/components/style/*.js"
