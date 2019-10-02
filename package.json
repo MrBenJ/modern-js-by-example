@@ -25,7 +25,7 @@
     "react-dom": "^16.7.0",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",
-    "react-router-dom": "5.1.1"
+    "react-router-dom": "^5.1.2"
   },
   "keywords": [
     "gatsby",
@@ -53,7 +53,7 @@
     "@babel/preset-flow": "^7.0.0",
     "alex": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^25.0.0",
     "babel-preset-gatsby": "^0.1.11",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
@@ -64,7 +64,7 @@
     "flow-bin": "^0.97.0",
     "flow-typed": "^2.5.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.0",
     "regenerator-runtime": "^0.13.1"
   }
