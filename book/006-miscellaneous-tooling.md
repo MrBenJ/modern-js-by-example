@@ -62,7 +62,7 @@ console.log(envs.MY_MISSING_VALUE); // => throws an error
 If you need to set some default values for your ENV variables, a `Proxy` is a great choice.
 
 ```js
-// Oh no! Someone forgot to put in their database username!
+// Oh no! Someone forgot to put in their database URL!
 process.env = {
   DB_USERNAME: 'MrBenJ',
   DB_PASSWORD: '********************'
