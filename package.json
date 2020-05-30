@@ -50,7 +50,7 @@
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-proposal-optional-chaining": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
-    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-flow": "^7.10.1",
     "alex": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.0.0",
